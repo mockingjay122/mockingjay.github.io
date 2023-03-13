@@ -7,16 +7,19 @@
 <meta name="full-screen" content="yes">
 <meta name="theme-color" content="#317EFB" />
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
-<meta name="description" content="本项目是基于vue+element-ui进行开发的一个后台管理系统，适用于刚学习完vue或者是后端开发人员去了解前端知识的一个新手项目，该项目是根据b站Ailen老师的分享进行总结。 vue后台管理系统使用Yarn包管理工具 速度快 离线模式 安装版本统一 更简洁的输出 更好的语义化  vue-cli 脚手架的搭建前提需安装node.js和npm">
+<meta name="description" content="本项目是基于vue+element-ui进行开发的一个后台管理系统，适用于刚学习完vue或者是后端开发人员去了解前端知识的一个新手项目，该项目是根据b站Ailen老师的分享进行总结。 vue后台管理系统使用Yarn包管理工具 速度快 离线模式 安装版本统一 更简洁的输出 更好的语义化  vue-cli 脚手架的搭建前提需安装node.js和npm  安装vue-cli  使用yarn命令安装需提前">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用vue脚手架搭建后台管理系统">
 <meta property="og:url" content="http://mockingjayforblog.com.cn/2023/03/13/%E4%BD%BF%E7%94%A8vue%E8%84%9A%E6%89%8B%E6%9E%B6%E6%90%AD%E5%BB%BA%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/index.html">
 <meta property="og:site_name" content="绿杉野屋">
-<meta property="og:description" content="本项目是基于vue+element-ui进行开发的一个后台管理系统，适用于刚学习完vue或者是后端开发人员去了解前端知识的一个新手项目，该项目是根据b站Ailen老师的分享进行总结。 vue后台管理系统使用Yarn包管理工具 速度快 离线模式 安装版本统一 更简洁的输出 更好的语义化  vue-cli 脚手架的搭建前提需安装node.js和npm">
+<meta property="og:description" content="本项目是基于vue+element-ui进行开发的一个后台管理系统，适用于刚学习完vue或者是后端开发人员去了解前端知识的一个新手项目，该项目是根据b站Ailen老师的分享进行总结。 vue后台管理系统使用Yarn包管理工具 速度快 离线模式 安装版本统一 更简洁的输出 更好的语义化  vue-cli 脚手架的搭建前提需安装node.js和npm  安装vue-cli  使用yarn命令安装需提前">
 <meta property="og:locale">
 <meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
 <meta property="article:published_time" content="2023-03-13T12:21:13.000Z">
-<meta property="article:modified_time" content="2023-03-13T13:06:14.584Z">
+<meta property="article:modified_time" content="2023-03-13T13:36:32.254Z">
 <meta property="article:author" content="郭嘉">
 <meta property="article:tag" content="vue">
 <meta property="article:tag" content="axios">
@@ -68,7 +71,7 @@
 
 <!-- Variable -->
 <script>window.ASYNC_CONFIG = {"hostname":"mockingjayforblog.com.cn","author":"郭嘉","root":"/","typed_text":["普通的学生"],"theme_version":"2.0.3","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/favicon.svg","icon16":"/img/favicon.svg","icon32":"/img/favicon.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":false,"hidden":"/failure.ico","showText":"(/≧▽≦/)咦！又好了！","hideText":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false}};</script>
-<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-03-13 21:06:14"};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-03-13 21:36:32"};</script>
 
 <!-- Theme mode css -->
 <link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.0.3" id="trm-switch-style">
@@ -424,6 +427,23 @@
 </ul>
 <h2 id="vue-cli-脚手架的搭建"><a href="#vue-cli-脚手架的搭建" class="headerlink" title="vue-cli 脚手架的搭建"></a>vue-cli 脚手架的搭建</h2><p>前提需安装node.js和npm</p>
 <p><img src="%E6%A3%80%E6%9F%A5node%E5%92%8Cnpm.png" alt="查看nodejs和npm" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>安装vue-cli</p>
+<p><img src="vue-cli%E5%AE%89%E8%A3%85.png" alt="安装vue-cli" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>使用yarn命令安装需提前安装yarn，使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g yarn</span><br></pre></td></tr></table></figure>
+
+<p>使用如下命令检查是否安装成功</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue -V</span><br></pre></td></tr></table></figure>
+
+<p>使用如下命令创建脚手架文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue create “自己文件名”  // 不可使用驼峰命名</span><br></pre></td></tr></table></figure>
+
+<p>选择vue版本</p>
+<p><img src="vue%E7%89%88%E6%9C%AC%E9%80%89%E6%8B%A9.png" alt="vue版本" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>使用yarn包管理工具，创建完成后，使用如下命令启动脚手架</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run serve</span><br></pre></td></tr></table></figure>
+
+<p><img src="%E9%A1%B9%E7%9B%AE%E5%90%AF%E5%8A%A8%E6%88%90%E5%8A%9F.png" alt="项目启动成功" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 
 </article>
     
