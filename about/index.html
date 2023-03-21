@@ -441,10 +441,6 @@
 
     
 
-    <div class="trm-card trm-scroll-animation comment-container" data-scroll data-scroll-offset="50">
-    <div id="tcomment"></div>
-</div>
-
 
 
                     <div class="trm-divider footer-divider"></div>
@@ -546,22 +542,6 @@
     <!-- 评论插件 -->
     
         
-
-        
-
-            
-<script src="//cdn.jsdelivr.net/npm/twikoo@1.6.7/dist/twikoo.all.min.js" data-swup-reload-script data-reset="true"></script>
-
-            <script data-swup-reload-script>
-                twikoo.init({
-                    ...{"enable":true,"envId":"https://mockingjayforblog.app"},
-                    el:'#tcomment'
-                }).then(function () {
-                    let container = document.querySelector('body>.tk-admin-container')
-                    if(container) container.remove()
-                    document.body.append(document.querySelector('.tk-admin-container'))
-                });;
-            </script>
 
         
     
