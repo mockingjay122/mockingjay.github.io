@@ -7,20 +7,27 @@
 <meta name="full-screen" content="yes">
 <meta name="theme-color" content="#317EFB" />
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
-<meta name="description" content="不断学习，不断进步">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://mockingjayforblog.com.cn/categories/index.html">
+<meta name="description" content="根据尚硅谷谷粒商城项目进行知识点总结 谷粒商城项目笔记@RequestBody 获取请求体@RequestBody 获取请求体，必须发送Post请求 springmvc收到会将json转为对应的对象 逻辑删除的步骤步骤 1: 配置application.yml（状态标志位就是全局的逻辑删除规则） 123456mybatis-plus:  global-config:    db-config:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="谷粒商城项目笔记">
+<meta property="og:url" content="http://mockingjayforblog.com.cn/2023/03/13/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B0%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="绿杉野屋">
-<meta property="og:description" content="不断学习，不断进步">
+<meta property="og:description" content="根据尚硅谷谷粒商城项目进行知识点总结 谷粒商城项目笔记@RequestBody 获取请求体@RequestBody 获取请求体，必须发送Post请求 springmvc收到会将json转为对应的对象 逻辑删除的步骤步骤 1: 配置application.yml（状态标志位就是全局的逻辑删除规则） 123456mybatis-plus:  global-config:    db-config:">
 <meta property="og:locale">
-<meta property="article:published_time" content="2023-03-12T13:51:20.000Z">
-<meta property="article:modified_time" content="2023-03-12T14:34:35.204Z">
+<meta property="article:published_time" content="2023-03-13T12:21:13.000Z">
+<meta property="article:modified_time" content="2023-03-23T10:05:26.007Z">
 <meta property="article:author" content="郭嘉">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="springcloud">
+<meta property="article:tag" content="springboot">
+<meta property="article:tag" content="vue">
+<meta property="article:tag" content="mybatis-plus">
 <meta name="twitter:card" content="summary">
 
+    <meta name="keywords" content="springcloud,springboot,谷粒商城,java">
 
-<title >categories</title>
+
+<title >谷粒商城项目笔记</title>
 
 <!-- Favicon -->
 
@@ -62,7 +69,7 @@
 
 <!-- Variable -->
 <script>window.ASYNC_CONFIG = {"hostname":"mockingjayforblog.com.cn","author":"郭嘉","root":"/","typed_text":["普通的学生"],"theme_version":"2.0.3","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/favicon.svg","icon16":"/img/favicon.svg","icon32":"/img/favicon.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":false,"hidden":"/failure.ico","showText":"(/≧▽≦/)咦！又好了！","hideText":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false}};</script>
-<script id="async-page-config">window.PAGE_CONFIG = {"isPost":false,"isHome":false,"postUpdate":"2023-03-12 22:34:35"};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-03-23 18:05:26"};</script>
 
 <!-- Theme mode css -->
 <link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.0.3" id="trm-switch-style">
@@ -217,12 +224,13 @@
             <!-- top bar end -->
 
             <!-- body -->
-            <div class="trm-content-start">
+            
+<div class="trm-content-start">
     <!-- banner -->
     <div class="trm-banner" data-scroll data-scroll-direction="vertical">
     
     <!-- banner cover -->
-    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" data-scroll data-scroll-direction="vertical" data-scroll-speed="-3" src="/img/banner.png">
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" data-scroll data-scroll-direction="vertical" data-scroll-speed="-3" src="/images/gulistore.jpg">
     <!-- banner cover end -->
     
 
@@ -238,10 +246,10 @@
                     <!-- banner title -->
                     <div class="trm-banner-text ">
                         <div class="trm-label trm-mb-20">
-                            The article archive
+                            不断学习，不断进步
                         </div>
                         <h1 class="trm-mb-30 trm-hsmb-font">
-                            云间连下榻，<br>天上接行杯。
+                            谷粒商城项目笔记
                         </h1>
 
                         
@@ -251,7 +259,7 @@
                                 </li>
                                 <li>
                                     <span>
-                                        categories
+                                        2023
                                     </span
                                 ></li>
                             </ul>
@@ -283,7 +291,17 @@
 <div class="trm-main-card-frame trm-sidebar">
     <div class="trm-main-card" data-scroll data-scroll-repeat data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="60"> 
     
-        <!-- card header -->
+        <div class="trm-user-tabs" id="sidebar-tabs">
+           <div class="trm-tabs-nav trm-mb-40" id="trm-tabs-nav">
+                <div data-to="tabs-user" class="trm-tabs-nav-item">
+                    <i class="iconfont fas fa-user-alt"></i>
+                </div>
+                <div data-to="tabs-toc" class="trm-tabs-nav-item active">
+                    <i class="iconfont fas fa-th-list"></i>
+                </div>
+           </div>
+            <div name="tabs-user" class="trm-tabs-item">
+                <!-- card header -->
 <div class="trm-mc-header">
     <div class="trm-avatar-frame trm-mb-20">
         <img alt="Avatar" class="trm-avatar" src="/images/avatar.jpg">
@@ -301,7 +319,7 @@
     
 </div>
 <!-- card header end -->
-        <!-- sidebar social -->
+                <!-- sidebar social -->
 
 <div class="trm-divider trm-mb-40 trm-mt-40"></div>
 <div class="trm-social">
@@ -321,7 +339,7 @@
 </div>
 
 <!-- sidebar social end -->
-        <!-- info -->
+                <!-- info -->
 <div class="trm-divider trm-mb-40 trm-mt-40"></div>
 <ul class="trm-table trm-mb-20">
     
@@ -364,7 +382,7 @@
 </ul>
 <!-- info end -->
 
-        
+                
     <div class="trm-divider trm-mb-40 trm-mt-40"></div>
     <!-- action button -->
     <div class="text-center">
@@ -375,6 +393,13 @@
     </div>
     <!-- action button end -->
 
+            </div>
+            <div name="tabs-toc" class="trm-tabs-item active">
+                <div class="post-toc">
+    <ol class="toc"><li class="toc-item toc-level-1"><a rel="nofollow" class="toc-link" href="#谷粒商城项目笔记"  data-scroll-to="#谷粒商城项目笔记"><span class="toc-number">1.</span> <span class="toc-text">谷粒商城项目笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#RequestBody-获取请求体"  data-scroll-to="#RequestBody-获取请求体"><span class="toc-number">1.1.</span> <span class="toc-text">@RequestBody 获取请求体</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#逻辑删除的步骤"  data-scroll-to="#逻辑删除的步骤"><span class="toc-number">1.2.</span> <span class="toc-text">逻辑删除的步骤</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#回显数据不能偷懒"  data-scroll-to="#回显数据不能偷懒"><span class="toc-number">1.3.</span> <span class="toc-text">回显数据不能偷懒</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#JSR303数据校验"  data-scroll-to="#JSR303数据校验"><span class="toc-number">1.4.</span> <span class="toc-text">JSR303数据校验</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#项目统一异常处理"  data-scroll-to="#项目统一异常处理"><span class="toc-number">1.5.</span> <span class="toc-text">项目统一异常处理</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#在json返回数据之前，会出现空值也会传递"  data-scroll-to="#在json返回数据之前，会出现空值也会传递"><span class="toc-number">1.6.</span> <span class="toc-text">在json返回数据之前，会出现空值也会传递</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#不存在数据库中的字段需要写一个注解"  data-scroll-to="#不存在数据库中的字段需要写一个注解"><span class="toc-number">1.7.</span> <span class="toc-text">不存在数据库中的字段需要写一个注解</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#前端页面统计页数为0"  data-scroll-to="#前端页面统计页数为0"><span class="toc-number">1.8.</span> <span class="toc-text">前端页面统计页数为0</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#Vo值对象（View-object）"  data-scroll-to="#Vo值对象（View-object）"><span class="toc-number">1.9.</span> <span class="toc-text">Vo值对象（View object）</span></a></li></ol></li></ol>
+</div>
+            </div>
+        </div>
     
     </div>
 </div>
@@ -385,15 +410,147 @@
                 <div class="trm-content" id="trm-content">
                     <div data-scroll data-scroll-repeat data-scroll-offset="500" id="about-triger"></div>
 
-                    <div class="row">
-    <div class="col-lg-12">
-        <div class="trm-card">
-            <div style="padding: 0 20px;">
-                <ul class="row trm-list"><li class="col-lg-4 trm-list-item " style="margin: 6px 0;"><a class="category-list-link" href="/categories/web%E5%89%8D%E7%AB%AF/">web前端</a><span class="category-list-count">（1）</span></li><li class="col-lg-4 trm-list-item " style="margin: 6px 0;"><a class="category-list-link" href="/categories/web%E5%90%8E%E7%AB%AF/">web后端</a><span class="category-list-count">（1）</span></li><li class="col-lg-4 trm-list-item " style="margin: 6px 0;"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/">算法学习</a><span class="category-list-count">（1）</span></li></ul>
-            </div>
+                    <div id="post-info" class="row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            03/13
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            20:21
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            mockingjay
         </div>
     </div>
 </div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <p>根据尚硅谷谷粒商城项目进行知识点总结</p>
+<h1 id="谷粒商城项目笔记"><a href="#谷粒商城项目笔记" class="headerlink" title="谷粒商城项目笔记"></a>谷粒商城项目笔记</h1><h2 id="RequestBody-获取请求体"><a href="#RequestBody-获取请求体" class="headerlink" title="@RequestBody 获取请求体"></a>@RequestBody 获取请求体</h2><p>@RequestBody 获取请求体，必须发送Post请求</p>
+<p>springmvc收到会将json转为对应的对象</p>
+<h2 id="逻辑删除的步骤"><a href="#逻辑删除的步骤" class="headerlink" title="逻辑删除的步骤"></a>逻辑删除的步骤</h2><p>步骤 1: 配置application.yml（状态标志位就是全局的逻辑删除规则）</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">mybatis-plus:</span></span><br><span class="line">  <span class="attr">global-config:</span></span><br><span class="line">    <span class="attr">db-config:</span></span><br><span class="line">      <span class="attr">logic-delete-field:</span> <span class="string">flag</span> <span class="comment"># 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略不配置步骤2)</span></span><br><span class="line">      <span class="attr">logic-delete-value:</span> <span class="number">1</span> <span class="comment"># 逻辑已删除值(默认为 1)</span></span><br><span class="line">      <span class="attr">logic-not-delete-value:</span> <span class="number">0</span> <span class="comment"># 逻辑未删除值(默认为 0)</span></span><br></pre></td></tr></table></figure>
+
+<p> 步骤 2: 实体类字段上加上@TableLogic注解</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@TableLogic</span></span><br><span class="line"><span class="keyword">private</span> Integer deleted;</span><br></pre></td></tr></table></figure>
+
+<h2 id="回显数据不能偷懒"><a href="#回显数据不能偷懒" class="headerlink" title="回显数据不能偷懒"></a>回显数据不能偷懒</h2><p>前端修改框内的数据，需要发送请求查最新的数据</p>
+<p>原因：可能会出现前面的人员修改三级分类，当前使用者获取到的仍是修改之前的数据</p>
+<h2 id="JSR303数据校验"><a href="#JSR303数据校验" class="headerlink" title="JSR303数据校验"></a>JSR303数据校验</h2><p>javax.validation.constraints 中定义了非常多的校验注解</p>
+<p>（1）给bean添加校验注解</p>
+<p>（2）在controller开启校验注解@Valid</p>
+<p>（3）在校验的bean后紧跟一个BindingResult 可以获取校验结果</p>
+<p>（4）分组校验：1.给校验注解标注什么时候需要校验</p>
+<p>​                             2.使用@Validate</p>
+<p> （5）自定义校验：编写一个自定义的校验注释，编写一个自定义                                的校验器，关联自定义的校验器和自定义的校验                                                  注释</p>
+<h2 id="项目统一异常处理"><a href="#项目统一异常处理" class="headerlink" title="项目统一异常处理"></a>项目统一异常处理</h2><p>@ControllerAdvice+@ExceptionHandler</p>
+<h2 id="在json返回数据之前，会出现空值也会传递"><a href="#在json返回数据之前，会出现空值也会传递" class="headerlink" title="在json返回数据之前，会出现空值也会传递"></a>在json返回数据之前，会出现空值也会传递</h2><p>在entity下写注解</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@JsonInclude(JsonInclude.Include.NON_EMPTY)</span></span><br></pre></td></tr></table></figure>
+
+<p>来解决这个问题</p>
+<h2 id="不存在数据库中的字段需要写一个注解"><a href="#不存在数据库中的字段需要写一个注解" class="headerlink" title="不存在数据库中的字段需要写一个注解"></a>不存在数据库中的字段需要写一个注解</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@TableField(exist = false)</span></span><br><span class="line"><span class="keyword">private</span>  Long[] catelogPath;</span><br></pre></td></tr></table></figure>
+
+<h2 id="前端页面统计页数为0"><a href="#前端页面统计页数为0" class="headerlink" title="前端页面统计页数为0"></a>前端页面统计页数为0</h2><p>添加mybatis-plus分页插件</p>
+<p>详情参照官网</p>
+<h2 id="Vo值对象（View-object）"><a href="#Vo值对象（View-object）" class="headerlink" title="Vo值对象（View object）"></a>Vo值对象（View object）</h2><p>接受页面传来的数据，封装对象</p>
+<p>将业务处理完成的对象，封装成页面处理的对象</p>
+
+</article>
+    
+    
+</div>
+<div id="post-next-prev" class="row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
+        <a href="/2023/03/18/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="/images/time-complex.jpg">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/">
+                    算法学习
+                </a>
+            </div>
+            <h5>
+                <a href="/2023/03/18/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="trm-anima-link">
+                    算法学习笔记
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>23/03/18</li>
+                <li>22:42</li>
+                
+                    <li>222</li>
+                
+                
+                    <li>1</li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
+        <a href="/2023/03/13/%E4%BD%BF%E7%94%A8vue%E8%84%9A%E6%89%8B%E6%9E%B6%E6%90%AD%E5%BB%BA%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="/images/vue2-temp-banner.jpg">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/web%E5%89%8D%E7%AB%AF/">
+                    web前端
+                </a>
+            </div>
+            <h5>
+                <a href="/2023/03/13/%E4%BD%BF%E7%94%A8vue%E8%84%9A%E6%89%8B%E6%9E%B6%E6%90%AD%E5%BB%BA%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" class="trm-anima-link">
+                    使用vue脚手架搭建后台管理系统
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>23/03/13</li>
+                <li>20:21</li>
+                
+                    <li>17.6k</li>
+                
+                
+                    <li>91</li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
 
                     <div class="trm-divider footer-divider"></div>
 
@@ -453,6 +610,10 @@
             <!-- body end -->
 
             <div class="trm-fixed-container" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
     
     
     <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
