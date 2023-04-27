@@ -7,27 +7,23 @@
 <meta name="full-screen" content="yes">
 <meta name="theme-color" content="#317EFB" />
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
-<meta name="description" content="根据尚硅谷谷粒商城项目进行知识点总结 谷粒商城项目笔记@RequestBody 获取请求体@RequestBody 获取请求体，必须发送Post请求 springmvc收到会将json转为对应的对象 逻辑删除的步骤步骤 1: 配置application.yml（状态标志位就是全局的逻辑删除规则） 123456mybatis-plus:  global-config:    db-config:">
+<meta name="description" content="自己开发代码生成器该项目是模仿人人开源项目，大部由自己创作的代码生成器，该项目不用于商业开发。 面向人群 web课程设计或者毕业设计的大学生 web开发初学者 对代码生成器原理感兴趣的程序员  项目优点 代码简洁 简单的CRUD功能实现 使用mybatis-plus简化重复代码开发  项目缺点 只适用mysql数据库 没有同时生成前端页面 部分配置没有生成，需自己动手（mybatis-plus分页">
 <meta property="og:type" content="article">
-<meta property="og:title" content="谷粒商城项目笔记">
-<meta property="og:url" content="http://mockingjayforblog.com.cn/2023/03/13/%E8%B0%B7%E7%B2%92%E5%95%86%E5%9F%8E%E7%AC%94%E8%AE%B0%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:title" content="自己开发代码生成器">
+<meta property="og:url" content="http://mockingjayforblog.com.cn/2023/04/11/%E8%87%AA%E5%B7%B1%E5%BC%80%E5%8F%91%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%99%A8/index.html">
 <meta property="og:site_name" content="绿杉野屋">
-<meta property="og:description" content="根据尚硅谷谷粒商城项目进行知识点总结 谷粒商城项目笔记@RequestBody 获取请求体@RequestBody 获取请求体，必须发送Post请求 springmvc收到会将json转为对应的对象 逻辑删除的步骤步骤 1: 配置application.yml（状态标志位就是全局的逻辑删除规则） 123456mybatis-plus:  global-config:    db-config:">
+<meta property="og:description" content="自己开发代码生成器该项目是模仿人人开源项目，大部由自己创作的代码生成器，该项目不用于商业开发。 面向人群 web课程设计或者毕业设计的大学生 web开发初学者 对代码生成器原理感兴趣的程序员  项目优点 代码简洁 简单的CRUD功能实现 使用mybatis-plus简化重复代码开发  项目缺点 只适用mysql数据库 没有同时生成前端页面 部分配置没有生成，需自己动手（mybatis-plus分页">
 <meta property="og:locale">
-<meta property="article:published_time" content="2023-03-13T12:21:13.000Z">
-<meta property="article:modified_time" content="2023-04-01T10:49:02.169Z">
+<meta property="article:published_time" content="2023-04-11T12:21:13.000Z">
+<meta property="article:modified_time" content="2023-04-27T07:56:32.748Z">
 <meta property="article:author" content="郭嘉">
-<meta property="article:tag" content="java">
-<meta property="article:tag" content="springcloud">
-<meta property="article:tag" content="springboot">
-<meta property="article:tag" content="vue">
-<meta property="article:tag" content="mybatis-plus">
+<meta property="article:tag" content="代码生成器">
 <meta name="twitter:card" content="summary">
 
-    <meta name="keywords" content="springcloud,springboot,谷粒商城,java">
+    <meta name="keywords" content="redis">
 
 
-<title >谷粒商城项目笔记</title>
+<title >自己开发代码生成器</title>
 
 <!-- Favicon -->
 
@@ -69,7 +65,7 @@
 
 <!-- Variable -->
 <script>window.ASYNC_CONFIG = {"hostname":"mockingjayforblog.com.cn","author":"郭嘉","root":"/","typed_text":["普通的学生"],"theme_version":"2.0.3","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/favicon.svg","icon16":"/img/favicon.svg","icon32":"/img/favicon.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":false,"hidden":"/failure.ico","showText":"(/≧▽≦/)咦！又好了！","hideText":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false}};</script>
-<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-04-01 18:49:02"};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-04-27 15:56:32"};</script>
 
 <!-- Theme mode css -->
 <link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.0.3" id="trm-switch-style">
@@ -230,7 +226,7 @@
     <div class="trm-banner" data-scroll data-scroll-direction="vertical">
     
     <!-- banner cover -->
-    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" data-scroll data-scroll-direction="vertical" data-scroll-speed="-3" src="/images/gulistore.jpg">
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" data-scroll data-scroll-direction="vertical" data-scroll-speed="-3" src="/images/code-generation">
     <!-- banner cover end -->
     
 
@@ -249,7 +245,7 @@
                             不断学习，不断进步
                         </div>
                         <h1 class="trm-mb-30 trm-hsmb-font">
-                            谷粒商城项目笔记
+                            自己开发代码生成器
                         </h1>
 
                         
@@ -396,7 +392,7 @@
             </div>
             <div name="tabs-toc" class="trm-tabs-item active">
                 <div class="post-toc">
-    <ol class="toc"><li class="toc-item toc-level-1"><a rel="nofollow" class="toc-link" href="#谷粒商城项目笔记"  data-scroll-to="#谷粒商城项目笔记"><span class="toc-number">1.</span> <span class="toc-text">谷粒商城项目笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#RequestBody-获取请求体"  data-scroll-to="#RequestBody-获取请求体"><span class="toc-number">1.1.</span> <span class="toc-text">@RequestBody 获取请求体</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#逻辑删除的步骤"  data-scroll-to="#逻辑删除的步骤"><span class="toc-number">1.2.</span> <span class="toc-text">逻辑删除的步骤</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#回显数据不能偷懒"  data-scroll-to="#回显数据不能偷懒"><span class="toc-number">1.3.</span> <span class="toc-text">回显数据不能偷懒</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#JSR303数据校验"  data-scroll-to="#JSR303数据校验"><span class="toc-number">1.4.</span> <span class="toc-text">JSR303数据校验</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#项目统一异常处理"  data-scroll-to="#项目统一异常处理"><span class="toc-number">1.5.</span> <span class="toc-text">项目统一异常处理</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#在json返回数据之前，会出现空值也会传递"  data-scroll-to="#在json返回数据之前，会出现空值也会传递"><span class="toc-number">1.6.</span> <span class="toc-text">在json返回数据之前，会出现空值也会传递</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#不存在数据库中的字段需要写一个注解"  data-scroll-to="#不存在数据库中的字段需要写一个注解"><span class="toc-number">1.7.</span> <span class="toc-text">不存在数据库中的字段需要写一个注解</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#前端页面统计页数为0"  data-scroll-to="#前端页面统计页数为0"><span class="toc-number">1.8.</span> <span class="toc-text">前端页面统计页数为0</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#Vo值对象（View-object）"  data-scroll-to="#Vo值对象（View-object）"><span class="toc-number">1.9.</span> <span class="toc-text">Vo值对象（View object）</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#Controller与Service处理流程"  data-scroll-to="#Controller与Service处理流程"><span class="toc-number">1.10.</span> <span class="toc-text">Controller与Service处理流程</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a rel="nofollow" class="toc-link" href="#自己开发代码生成器"  data-scroll-to="#自己开发代码生成器"><span class="toc-number">1.</span> <span class="toc-text">自己开发代码生成器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#面向人群"  data-scroll-to="#面向人群"><span class="toc-number">1.1.</span> <span class="toc-text">面向人群</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#项目优点"  data-scroll-to="#项目优点"><span class="toc-number">1.2.</span> <span class="toc-text">项目优点</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#项目缺点"  data-scroll-to="#项目缺点"><span class="toc-number">1.3.</span> <span class="toc-text">项目缺点</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#工程使用"  data-scroll-to="#工程使用"><span class="toc-number">1.4.</span> <span class="toc-text">工程使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#导入工程"  data-scroll-to="#导入工程"><span class="toc-number">1.4.1.</span> <span class="toc-text">导入工程</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#更改配置文件"  data-scroll-to="#更改配置文件"><span class="toc-number">1.4.2.</span> <span class="toc-text">更改配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a rel="nofollow" class="toc-link" href="#数据源配置（根据自己数据库配置）"  data-scroll-to="#数据源配置（根据自己数据库配置）"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">数据源配置（根据自己数据库配置）</span></a></li><li class="toc-item toc-level-4"><a rel="nofollow" class="toc-link" href="#基础信息配置"  data-scroll-to="#基础信息配置"><span class="toc-number">1.4.2.2.</span> <span class="toc-text">基础信息配置</span></a></li><li class="toc-item toc-level-4"><a rel="nofollow" class="toc-link" href="#各类包名（根据自己喜好更改）"  data-scroll-to="#各类包名（根据自己喜好更改）"><span class="toc-number">1.4.2.3.</span> <span class="toc-text">各类包名（根据自己喜好更改）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#生成器使用注意"  data-scroll-to="#生成器使用注意"><span class="toc-number">1.5.</span> <span class="toc-text">生成器使用注意</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#后续"  data-scroll-to="#后续"><span class="toc-number">1.6.</span> <span class="toc-text">后续</span></a></li></ol></li></ol>
 </div>
             </div>
         </div>
@@ -414,7 +410,7 @@
     <div class="col-sm-4">
         <div class="trm-card trm-label trm-label-light text-center">
             <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
-            03/13
+            04/11
         </div>
     </div>
     <div class="col-sm-4">
@@ -432,40 +428,35 @@
 </div>
 <div class="trm-card ">
     <article id="article-container" class="trm-publication">
-    <p>根据尚硅谷谷粒商城项目进行知识点总结</p>
-<h1 id="谷粒商城项目笔记"><a href="#谷粒商城项目笔记" class="headerlink" title="谷粒商城项目笔记"></a>谷粒商城项目笔记</h1><h2 id="RequestBody-获取请求体"><a href="#RequestBody-获取请求体" class="headerlink" title="@RequestBody 获取请求体"></a>@RequestBody 获取请求体</h2><p>@RequestBody 获取请求体，必须发送Post请求</p>
-<p>springmvc收到会将json转为对应的对象</p>
-<h2 id="逻辑删除的步骤"><a href="#逻辑删除的步骤" class="headerlink" title="逻辑删除的步骤"></a>逻辑删除的步骤</h2><p>步骤 1: 配置application.yml（状态标志位就是全局的逻辑删除规则）</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">mybatis-plus:</span></span><br><span class="line">  <span class="attr">global-config:</span></span><br><span class="line">    <span class="attr">db-config:</span></span><br><span class="line">      <span class="attr">logic-delete-field:</span> <span class="string">flag</span> <span class="comment"># 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略不配置步骤2)</span></span><br><span class="line">      <span class="attr">logic-delete-value:</span> <span class="number">1</span> <span class="comment"># 逻辑已删除值(默认为 1)</span></span><br><span class="line">      <span class="attr">logic-not-delete-value:</span> <span class="number">0</span> <span class="comment"># 逻辑未删除值(默认为 0)</span></span><br></pre></td></tr></table></figure>
+    <h1 id="自己开发代码生成器"><a href="#自己开发代码生成器" class="headerlink" title="自己开发代码生成器"></a>自己开发代码生成器</h1><p>该项目是模仿人人开源项目，大部由自己创作的代码生成器，该项目不用于商业开发。</p>
+<h2 id="面向人群"><a href="#面向人群" class="headerlink" title="面向人群"></a>面向人群</h2><ul>
+<li>web课程设计或者毕业设计的大学生</li>
+<li>web开发初学者</li>
+<li>对代码生成器原理感兴趣的程序员</li>
+</ul>
+<h2 id="项目优点"><a href="#项目优点" class="headerlink" title="项目优点"></a>项目优点</h2><ul>
+<li>代码简洁</li>
+<li>简单的CRUD功能实现</li>
+<li>使用mybatis-plus简化重复代码开发</li>
+</ul>
+<h2 id="项目缺点"><a href="#项目缺点" class="headerlink" title="项目缺点"></a>项目缺点</h2><ul>
+<li>只适用mysql数据库</li>
+<li>没有同时生成前端页面</li>
+<li>部分配置没有生成，需自己动手（mybatis-plus分页配置）</li>
+</ul>
+<h2 id="工程使用"><a href="#工程使用" class="headerlink" title="工程使用"></a>工程使用</h2><h3 id="导入工程"><a href="#导入工程" class="headerlink" title="导入工程"></a>导入工程</h3><h3 id="更改配置文件"><a href="#更改配置文件" class="headerlink" title="更改配置文件"></a>更改配置文件</h3><p>在src/main/resources下更改配置文件</p>
+<h4 id="数据源配置（根据自己数据库配置）"><a href="#数据源配置（根据自己数据库配置）" class="headerlink" title="数据源配置（根据自己数据库配置）"></a>数据源配置（根据自己数据库配置）</h4><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">db.driver.name</span>=<span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line"><span class="attr">db.url</span>=<span class="string">jdbc:mysql://localhost:3306/test?serverTimezone=Asia/Shanghai&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=false&amp;allowPublicKeyRetrieval=true</span></span><br><span class="line"><span class="attr">db.username</span>=<span class="string">root</span></span><br><span class="line"><span class="attr">db.password</span>=<span class="string">123456</span></span><br></pre></td></tr></table></figure>
 
-<p> 步骤 2: 实体类字段上加上@TableLogic注解</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@TableLogic</span></span><br><span class="line"><span class="keyword">private</span> Integer deleted;</span><br></pre></td></tr></table></figure>
+<h4 id="基础信息配置"><a href="#基础信息配置" class="headerlink" title="基础信息配置"></a>基础信息配置</h4><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#作者名称</span></span><br><span class="line"><span class="attr">author.comment</span>=<span class="string">mockingjay</span></span><br><span class="line"><span class="comment">#是否忽略表前缀</span></span><br><span class="line"><span class="attr">ignore.table.prefix</span>=<span class="string">true</span></span><br><span class="line"><span class="comment">#是否要忽略的属性(数据库字段)(可加可不加)</span></span><br><span class="line"><span class="attr">ignore.bean.tojson.field</span>=<span class="string">companyId,status</span></span><br><span class="line"><span class="comment">#项目名</span></span><br><span class="line"><span class="attr">proName</span>=<span class="string">easyJava</span></span><br><span class="line"><span class="comment">#项目端口号</span></span><br><span class="line"><span class="attr">port</span>=<span class="string">8090</span></span><br><span class="line"><span class="comment">#mapper的后缀</span></span><br><span class="line"><span class="attr">suffix.mapper</span>=<span class="string">Mapper</span></span><br><span class="line"><span class="comment">#文件输出路径(自己项目的绝对路径)</span></span><br><span class="line"><span class="attr">path.base</span>=<span class="string">D:/java/code-generation/easyJava-demo/src/main/</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="回显数据不能偷懒"><a href="#回显数据不能偷懒" class="headerlink" title="回显数据不能偷懒"></a>回显数据不能偷懒</h2><p>前端修改框内的数据，需要发送请求查最新的数据</p>
-<p>原因：可能会出现前面的人员修改三级分类，当前使用者获取到的仍是修改之前的数据</p>
-<h2 id="JSR303数据校验"><a href="#JSR303数据校验" class="headerlink" title="JSR303数据校验"></a>JSR303数据校验</h2><p>javax.validation.constraints 中定义了非常多的校验注解</p>
-<p>（1）给bean添加校验注解</p>
-<p>（2）在controller开启校验注解@Valid</p>
-<p>（3）在校验的bean后紧跟一个BindingResult 可以获取校验结果</p>
-<p>（4）分组校验：1.给校验注解标注什么时候需要校验</p>
-<p>​                             2.使用@Validate</p>
-<p> （5）自定义校验：编写一个自定义的校验注释，编写一个自定义                                的校验器，关联自定义的校验器和自定义的校验                                                  注释</p>
-<h2 id="项目统一异常处理"><a href="#项目统一异常处理" class="headerlink" title="项目统一异常处理"></a>项目统一异常处理</h2><p>@ControllerAdvice+@ExceptionHandler</p>
-<h2 id="在json返回数据之前，会出现空值也会传递"><a href="#在json返回数据之前，会出现空值也会传递" class="headerlink" title="在json返回数据之前，会出现空值也会传递"></a>在json返回数据之前，会出现空值也会传递</h2><p>在entity下写注解</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@JsonInclude(JsonInclude.Include.NON_EMPTY)</span></span><br></pre></td></tr></table></figure>
+<h4 id="各类包名（根据自己喜好更改）"><a href="#各类包名（根据自己喜好更改）" class="headerlink" title="各类包名（根据自己喜好更改）"></a>各类包名（根据自己喜好更改）</h4><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#包名</span></span><br><span class="line"><span class="attr">package.base</span>=<span class="string">com.easyJava</span></span><br><span class="line"><span class="attr">package.pojo</span>=<span class="string">entity.po</span></span><br><span class="line"><span class="attr">package.utils</span>=<span class="string">utils</span></span><br><span class="line"><span class="attr">package.enum</span>=<span class="string">enums</span></span><br><span class="line"><span class="attr">package.param</span>=<span class="string">entity.query</span></span><br><span class="line"><span class="attr">package.mapper</span>=<span class="string">mapper</span></span><br><span class="line"><span class="attr">package.service</span>=<span class="string">service</span></span><br><span class="line"><span class="attr">package.serviceImpl</span>=<span class="string">impl</span></span><br><span class="line"><span class="attr">package.controller</span>=<span class="string">controller</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>来解决这个问题</p>
-<h2 id="不存在数据库中的字段需要写一个注解"><a href="#不存在数据库中的字段需要写一个注解" class="headerlink" title="不存在数据库中的字段需要写一个注解"></a>不存在数据库中的字段需要写一个注解</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@TableField(exist = false)</span></span><br><span class="line"><span class="keyword">private</span>  Long[] catelogPath;</span><br></pre></td></tr></table></figure>
-
-<h2 id="前端页面统计页数为0"><a href="#前端页面统计页数为0" class="headerlink" title="前端页面统计页数为0"></a>前端页面统计页数为0</h2><p>添加mybatis-plus分页插件</p>
-<p>详情参照官网</p>
-<h2 id="Vo值对象（View-object）"><a href="#Vo值对象（View-object）" class="headerlink" title="Vo值对象（View object）"></a>Vo值对象（View object）</h2><p>接受页面传来的数据，封装对象</p>
-<p>将业务处理完成的对象，封装成页面处理的对象</p>
-<h2 id="Controller与Service处理流程"><a href="#Controller与Service处理流程" class="headerlink" title="Controller与Service处理流程"></a>Controller与Service处理流程</h2><ol>
-<li>Controller：处理请求，接受和校验数据</li>
-<li>Service接受controller传来的数据处理业务</li>
-<li>Controller接受Service处理玩的数据，封装页面指定的vo</li>
-</ol>
+<p>其余配置不可以更改</p>
+<p>运行RunApplication.java即可生成文件</p>
+<h2 id="生成器使用注意"><a href="#生成器使用注意" class="headerlink" title="生成器使用注意"></a>生成器使用注意</h2><p>同mybatis逆向工程，如过再次生成会覆盖原来写的项目，注意更改路径名和包名。</p>
+<h2 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h2><p>该项目会不断进行修改，希望大家可以点一个star支持一下小白。</p>
+<p>微信：gjia011</p>
+<p>项目代码：<a target="_blank" rel="noopener" href="https://gitee.com/gj2002298/code-generator.git">https://gitee.com/gj2002298/code-generator.git</a></p>
 
 </article>
     
@@ -479,6 +470,42 @@
             <span data-number="02"></span>
         </h5>
     </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
+        <a href="/2023/04/16/redis%E5%88%9D%E5%AD%A6/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="/images/redis.jpg">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/web%E5%90%8E%E7%AB%AF/">
+                    web后端
+                </a>
+            </div>
+            <h5>
+                <a href="/2023/04/16/redis%E5%88%9D%E5%AD%A6/" class="trm-anima-link">
+                    redis初学
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>23/04/16</li>
+                <li>20:21</li>
+                
+                    <li>1.3k</li>
+                
+                
+                    <li>5</li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
     
         <div class="col-lg-6">
     <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
@@ -509,42 +536,6 @@
                 
                 
                     <li>8</li>
-                
-            </ul>
-        </div>
-    </div>
-</div>
-    
-    
-        <div class="col-lg-6">
-    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
-        <a href="/2023/03/13/%E4%BD%BF%E7%94%A8vue%E8%84%9A%E6%89%8B%E6%9E%B6%E6%90%AD%E5%BB%BA%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" class="trm-cover-frame trm-anima-link">
-            
-            
-                <img alt="cover" class="no-fancybox" src="/images/vue2-temp-banner.jpg">
-            
-        </a>
-        
-        <div class="trm-card-descr">
-            <div class="trm-label trm-category trm-mb-20">
-                <a href=" /categories/web%E5%89%8D%E7%AB%AF/">
-                    web前端
-                </a>
-            </div>
-            <h5>
-                <a href="/2023/03/13/%E4%BD%BF%E7%94%A8vue%E8%84%9A%E6%89%8B%E6%9E%B6%E6%90%AD%E5%BB%BA%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" class="trm-anima-link">
-                    使用vue脚手架搭建后台管理系统
-                </a>
-            </h5>
-            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
-            <ul class="trm-card-data trm-label">
-                <li>23/03/13</li>
-                <li>20:21</li>
-                
-                    <li>17.6k</li>
-                
-                
-                    <li>91</li>
                 
             </ul>
         </div>
