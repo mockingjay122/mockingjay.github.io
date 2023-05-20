@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="vue3电商项目1.vue3初学创建vue3工程 关键文件内容介绍123&#x2F;&#x2F;1.以App作为参数生成一个应用实例对象&#x2F;&#x2F;2.挂载到id为app的节点上createApp(App).mount(&amp;#x27;#app&amp;#x27;)  12&lt;!--相当于开关:容许script书写组合式API--&gt;&lt;script setUp&gt;  模板template不再要求唯一根元素 组合式API">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue3商城项目">
+<meta property="og:url" content="http://mockingjayforblog.com.cn/2023/05/13/vue3%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE/index.html">
+<meta property="og:site_name" content="绿杉野屋">
+<meta property="og:description" content="vue3电商项目1.vue3初学创建vue3工程 关键文件内容介绍123&#x2F;&#x2F;1.以App作为参数生成一个应用实例对象&#x2F;&#x2F;2.挂载到id为app的节点上createApp(App).mount(&amp;#x27;#app&amp;#x27;)  12&lt;!--相当于开关:容许script书写组合式API--&gt;&lt;script setUp&gt;  模板template不再要求唯一根元素 组合式API">
+<meta property="og:locale">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="article:published_time" content="2023-05-13T08:21:13.000Z">
+<meta property="article:modified_time" content="2023-05-19T13:31:13.014Z">
+<meta property="article:author" content="郭嘉">
+<meta property="article:tag" content="vue3">
+<meta property="article:tag" content="axios">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+
+    <meta name="keywords" content="admin-template,vue3,element,后台模板">
+
+
+<title >vue3商城项目</title>
+
+<!-- Favicon -->
+
+    <link href='/img/favicon.svg?v=2.0.3' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/favicon.svg?v=2.0.3' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"mockingjayforblog.com.cn","author":"郭嘉","root":"/","typed_text":["普通的学生"],"theme_version":"2.0.3","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/favicon.svg","icon16":"/img/favicon.svg","icon32":"/img/favicon.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":false,"hidden":"/failure.ico","showText":"(/≧▽≦/)咦！又好了！","hideText":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2023-05-19 21:31:13"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.0.3" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" data-scroll-container style="opacity: 0">
+          <div data-scroll-section id="content" class="trm-scroll-section">
+
+            <div class="locomotive-scroll__sticky-target" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none;"></div>
+
+            <!-- top bar -->
+            <header class="trm-top-bar" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/favicon.svg">
+    
+    
+        <div class="trm-logo-text">
+            绿杉<span>野屋</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    首页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/categories" target="">
+                    分类
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/tags" target="">
+                    标签
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/about" target="">
+                    关于
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner" data-scroll data-scroll-direction="vertical">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" data-scroll data-scroll-direction="vertical" data-scroll-speed="-3" src="/images/vue3.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container" data-scroll data-scroll-direction="vertical" data-scroll-speed="0">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            不断学习，不断进步
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            vue3商城项目
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        2023
+                                    </span
+                                ></li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <a href="#about-triger" data-scroll-to="#about-triger" data-scroll-offset="-130" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </a>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div id="page-sidebar" class="col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    
+
+<div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card" data-scroll data-scroll-repeat data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="60"> 
+    
+        <div class="trm-user-tabs" id="sidebar-tabs">
+           <div class="trm-tabs-nav trm-mb-40" id="trm-tabs-nav">
+                <div data-to="tabs-user" class="trm-tabs-nav-item">
+                    <i class="iconfont fas fa-user-alt"></i>
+                </div>
+                <div data-to="tabs-toc" class="trm-tabs-nav-item active">
+                    <i class="iconfont fas fa-th-list"></i>
+                </div>
+           </div>
+            <div name="tabs-user" class="trm-tabs-item">
+                <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/images/avatar.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        mockingjay
+    </h5>
+    
+        <div class="trm-label">
+            一个
+            <span class="trm-typed-text">
+                <!-- Words for theme.user.typedText -->
+            </span>
+        </div>
+    
+</div>
+<!-- card header end -->
+                <!-- sidebar social -->
+
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<div class="trm-social">
+    
+        <a href="https://gitee.com/gj2002298" title="gitee" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-gofore"></i>
+        </a>
+    
+        <a href="https://github.com/mockingjay122/" title="github" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-github"></i>
+        </a>
+    
+        <a href="https://www.instagram.com/mockingjay9866/" title="ins" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-instagram"></i>
+        </a>
+    
+</div>
+
+<!-- sidebar social end -->
+                <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                住宅:
+            </div>
+            <div class="trm-label trm-label-light">
+                内蒙古
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                年龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                22
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                工作:
+            </div>
+            <div class="trm-label trm-label-light">
+                物联网工程学生
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                小帖:
+            </div>
+            <div class="trm-label trm-label-light">
+                不断学习，不断进步
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+                
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:gj2002196@icloud.com" class="trm-btn">
+            联系我
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+            </div>
+            <div name="tabs-toc" class="trm-tabs-item active">
+                <div class="post-toc">
+    <ol class="toc"><li class="toc-item toc-level-1"><a rel="nofollow" class="toc-link" href="#vue3电商项目"  data-scroll-to="#vue3电商项目"><span class="toc-number">1.</span> <span class="toc-text">vue3电商项目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#1-vue3初学"  data-scroll-to="#1-vue3初学"><span class="toc-number">1.1.</span> <span class="toc-text">1.vue3初学</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#创建vue3工程"  data-scroll-to="#创建vue3工程"><span class="toc-number">1.1.1.</span> <span class="toc-text">创建vue3工程</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#关键文件内容介绍"  data-scroll-to="#关键文件内容介绍"><span class="toc-number">1.1.2.</span> <span class="toc-text">关键文件内容介绍</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#组合式API介绍"  data-scroll-to="#组合式API介绍"><span class="toc-number">1.1.3.</span> <span class="toc-text">组合式API介绍</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#组合式API-reactive和ref函数"  data-scroll-to="#组合式API-reactive和ref函数"><span class="toc-number">1.1.4.</span> <span class="toc-text">组合式API-reactive和ref函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a rel="nofollow" class="toc-link" href="#reactive函数-（得到一个响应式的对象）："  data-scroll-to="#reactive函数-（得到一个响应式的对象）："><span class="toc-number">1.1.4.1.</span> <span class="toc-text">reactive函数 （得到一个响应式的对象）：</span></a></li><li class="toc-item toc-level-4"><a rel="nofollow" class="toc-link" href="#ref（）-函数-实际工作更推荐"  data-scroll-to="#ref（）-函数-实际工作更推荐"><span class="toc-number">1.1.4.2.</span> <span class="toc-text">ref（） 函数 (实际工作更推荐)</span></a></li></ol></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#computed计算属性函数"  data-scroll-to="#computed计算属性函数"><span class="toc-number">1.1.5.</span> <span class="toc-text">computed计算属性函数</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#watch函数"  data-scroll-to="#watch函数"><span class="toc-number">1.1.6.</span> <span class="toc-text">watch函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a rel="nofollow" class="toc-link" href="#immediate"  data-scroll-to="#immediate"><span class="toc-number">1.1.6.1.</span> <span class="toc-text">immediate</span></a></li><li class="toc-item toc-level-4"><a rel="nofollow" class="toc-link" href="#deep（性能消耗大，尽量不要开启）"  data-scroll-to="#deep（性能消耗大，尽量不要开启）"><span class="toc-number">1.1.6.2.</span> <span class="toc-text">deep（性能消耗大，尽量不要开启）</span></a></li><li class="toc-item toc-level-4"><a rel="nofollow" class="toc-link" href="#精确监听"  data-scroll-to="#精确监听"><span class="toc-number">1.1.6.3.</span> <span class="toc-text">精确监听</span></a></li></ol></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#生命周期函数"  data-scroll-to="#生命周期函数"><span class="toc-number">1.1.7.</span> <span class="toc-text">生命周期函数</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#父子通信"  data-scroll-to="#父子通信"><span class="toc-number">1.1.8.</span> <span class="toc-text">父子通信</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a rel="nofollow" class="toc-link" href="#父传子"  data-scroll-to="#父传子"><span class="toc-number">1.1.8.1.</span> <span class="toc-text">父传子</span></a></li><li class="toc-item toc-level-4"><a rel="nofollow" class="toc-link" href="#子传父"  data-scroll-to="#子传父"><span class="toc-number">1.1.8.2.</span> <span class="toc-text">子传父</span></a></li></ol></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#模板引用"  data-scroll-to="#模板引用"><span class="toc-number">1.1.9.</span> <span class="toc-text">模板引用</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#provide和inject"  data-scroll-to="#provide和inject"><span class="toc-number">1.1.10.</span> <span class="toc-text">provide和inject</span></a></li></ol></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#2-Pinia（状态管理库）"  data-scroll-to="#2-Pinia（状态管理库）"><span class="toc-number">1.2.</span> <span class="toc-text">2.Pinia（状态管理库）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#计数器案例使用"  data-scroll-to="#计数器案例使用"><span class="toc-number">1.2.1.</span> <span class="toc-text">计数器案例使用</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#getter（在store中计算属性）"  data-scroll-to="#getter（在store中计算属性）"><span class="toc-number">1.2.2.</span> <span class="toc-text">getter（在store中计算属性）</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#action（异步）"  data-scroll-to="#action（异步）"><span class="toc-number">1.2.3.</span> <span class="toc-text">action（异步）</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#storeToRefs"  data-scroll-to="#storeToRefs"><span class="toc-number">1.2.4.</span> <span class="toc-text">storeToRefs</span></a></li></ol></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#3-创建项目"  data-scroll-to="#3-创建项目"><span class="toc-number">1.3.</span> <span class="toc-text">3.创建项目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#创建项目目录"  data-scroll-to="#创建项目目录"><span class="toc-number">1.3.1.</span> <span class="toc-text">创建项目目录</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#jsconfig-json配置别名路径"  data-scroll-to="#jsconfig-json配置别名路径"><span class="toc-number">1.3.2.</span> <span class="toc-text">jsconfig.json配置别名路径</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#element-plus"  data-scroll-to="#element-plus"><span class="toc-number">1.3.3.</span> <span class="toc-text">element-plus</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a rel="nofollow" class="toc-link" href="#按需引入"  data-scroll-to="#按需引入"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">按需引入</span></a></li><li class="toc-item toc-level-4"><a rel="nofollow" class="toc-link" href="#主题定制"  data-scroll-to="#主题定制"><span class="toc-number">1.3.3.2.</span> <span class="toc-text">主题定制</span></a></li></ol></li></ol></li></ol></li></ol>
+</div>
+            </div>
+        </div>
+    
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div id="page-content" class="col-lg-8">
+                <div class="trm-content" id="trm-content">
+                    <div data-scroll data-scroll-repeat data-scroll-offset="500" id="about-triger"></div>
+
+                    <div id="post-info" class="row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            05/13
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            16:21
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            mockingjay
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <h1 id="vue3电商项目"><a href="#vue3电商项目" class="headerlink" title="vue3电商项目"></a>vue3电商项目</h1><h2 id="1-vue3初学"><a href="#1-vue3初学" class="headerlink" title="1.vue3初学"></a>1.vue3初学</h2><h3 id="创建vue3工程"><a href="#创建vue3工程" class="headerlink" title="创建vue3工程"></a>创建vue3工程</h3><p><img src="createvue3.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="关键文件内容介绍"><a href="#关键文件内容介绍" class="headerlink" title="关键文件内容介绍"></a>关键文件内容介绍</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.以App作为参数生成一个应用实例对象</span></span><br><span class="line"><span class="comment">//2.挂载到id为app的节点上</span></span><br><span class="line"><span class="title function_">createApp</span>(<span class="title class_">App</span>).<span class="title function_">mount</span>(<span class="string">&#x27;#app&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--相当于开关:容许script书写组合式API--&gt;</span><br><span class="line">&lt;script setUp&gt;</span><br></pre></td></tr></table></figure>
+
+<p>模板template不再要求唯一根元素</p>
+<h3 id="组合式API介绍"><a href="#组合式API介绍" class="headerlink" title="组合式API介绍"></a>组合式API介绍</h3><p>setup在beforeCreate之前执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  setup() &#123;</span><br><span class="line">    console.log(&#x27;setup&#x27;)</span><br><span class="line">  &#125;,</span><br><span class="line">  beforeCreate() &#123;</span><br><span class="line">    console.log(&#x27;beforeCreate&#x27;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    this is a div</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="test1.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>setup函数定义的数据必须return后才可以使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  setup() &#123;</span><br><span class="line">    //console.log(&#x27;setup&#x27;)</span><br><span class="line">    const message=&#x27;this is message&#x27;</span><br><span class="line">    const logMessag=()=&gt;&#123;</span><br><span class="line">      console.log(message)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return &#123;</span><br><span class="line">      message,</span><br><span class="line">      logMessag</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  beforeCreate() &#123;</span><br><span class="line">    //console.log(&#x27;beforeCreate&#x27;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &#123;&#123; message &#125;&#125;</span><br><span class="line">    &lt;button @click=&quot;logMessag&quot;&gt;log&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="test2.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>语法糖</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">const message = &#x27;this is message&#x27;</span><br><span class="line">const logMessag = () =&gt; &#123;</span><br><span class="line">  console.log(message)</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &#123;&#123; message &#125;&#125;</span><br><span class="line">    &lt;button @click=&quot;logMessag&quot;&gt;log&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="组合式API-reactive和ref函数"><a href="#组合式API-reactive和ref函数" class="headerlink" title="组合式API-reactive和ref函数"></a>组合式API-reactive和ref函数</h3><h4 id="reactive函数-（得到一个响应式的对象）："><a href="#reactive函数-（得到一个响应式的对象）：" class="headerlink" title="reactive函数 （得到一个响应式的对象）："></a>reactive函数 （得到一个响应式的对象）：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line"></span><br><span class="line">//导入函数</span><br><span class="line">import &#123; reactive &#125; from &#x27;vue&#x27;;</span><br><span class="line"></span><br><span class="line">//执行函数 传入一个对象类型的参数</span><br><span class="line">const state =reactive(&#123;</span><br><span class="line">  count:0</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">const setCount =() =&gt;&#123;</span><br><span class="line">  state.count++</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;button @click=&quot;setCount&quot;&gt;&#123;&#123; state.count &#125;&#125;&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="test3.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h4 id="ref（）-函数-实际工作更推荐"><a href="#ref（）-函数-实际工作更推荐" class="headerlink" title="ref（） 函数 (实际工作更推荐)"></a>ref（） 函数 (实际工作更推荐)</h4><p>接受简单类型或者对象类型的数据传入并返回一个响应式的对象（ref内部依赖于reactive函数）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line"></span><br><span class="line">//导入函数</span><br><span class="line">import &#123; ref &#125; from &#x27;vue&#x27;;</span><br><span class="line"></span><br><span class="line">//执行函数</span><br><span class="line">const count =ref(0)</span><br><span class="line"></span><br><span class="line">const setCount =()=&gt;&#123;</span><br><span class="line">  // 脚本区域修改ref产生的响应式对象数据必须通过 .value属性</span><br><span class="line">  count.value++</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;button @click=&quot;setCount&quot;&gt;&#123;&#123; count &#125;&#125;&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="computed计算属性函数"><a href="#computed计算属性函数" class="headerlink" title="computed计算属性函数"></a>computed计算属性函数</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line"></span><br><span class="line">import &#123; ref &#125; from &#x27;vue&#x27;;</span><br><span class="line">import &#123; computed &#125; from &#x27;vue&#x27;;</span><br><span class="line"></span><br><span class="line">const list=ref([1,2,3,4,5,6,7,8])</span><br><span class="line"></span><br><span class="line">//执行函数</span><br><span class="line">const computedList =computed(()=&gt;&#123;</span><br><span class="line">  return list.value.filter(item =&gt; item&gt;2)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">//定时器</span><br><span class="line">setTimeout (()=&gt;&#123;</span><br><span class="line">list.value.push(9,10);</span><br><span class="line">&#125;,3000)</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    原始响应式数组 -&#123;&#123; list &#125;&#125;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    计算属性数组 -&#123;&#123; computedList &#125;&#125;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="test4.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>注意：</p>
+<ul>
+<li>计算属性中不应该有副作用（异步请求，修改dom）</li>
+<li>避免直接修改计算属性的值</li>
+</ul>
+<h3 id="watch函数"><a href="#watch函数" class="headerlink" title="watch函数"></a>watch函数</h3><p>监听变化值，如果该变化值改变，则执行对应的监听回调函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line"></span><br><span class="line">import &#123; ref, watch &#125; from &#x27;vue&#x27;;</span><br><span class="line">const count=ref(0)</span><br><span class="line">const name=ref(&#x27;cp&#x27;)</span><br><span class="line">const setCount =() =&gt;&#123;</span><br><span class="line">  count.value++</span><br><span class="line">&#125;</span><br><span class="line">const changeName=()=&gt;&#123;</span><br><span class="line">  name.value=&#x27;pc&#x27;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//watch监听单个数据源</span><br><span class="line">watch(count,(newVal,oldVal)=&gt;&#123;</span><br><span class="line">  console.log(newVal,oldVal)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">//watch监听多个数据源</span><br><span class="line">watch([count,name],([newCount,oldCount],[newName,oldName])=&gt;&#123;</span><br><span class="line">  console.log([newCount,oldCount],[newName,oldName])</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;button @click=&quot;setCount&quot;&gt;+&#123;&#123; count &#125;&#125;&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;button @click=&quot;changeName&quot;&gt;&#123;&#123; name &#125;&#125;&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="test7.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h4 id="immediate"><a href="#immediate" class="headerlink" title="immediate"></a>immediate</h4><p>在监听器创建时立即触发回调，响应式数据变化之后继续执行回调</p>
+<p>语法格式：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">watch</span>(count,<span class="function">(<span class="params">newVal,oldVal</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(newVal,oldVal)</span><br><span class="line">&#125;,&#123;</span><br><span class="line">  <span class="attr">immediate</span>:<span class="literal">true</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="deep（性能消耗大，尽量不要开启）"><a href="#deep（性能消耗大，尽量不要开启）" class="headerlink" title="deep（性能消耗大，尽量不要开启）"></a>deep（性能消耗大，尽量不要开启）</h4><p>默认修改嵌套属性的对象属性不会出发回调执行，需要开启deep选项</p>
+<p>（如果不加deep，回调函数不会执行）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line"></span><br><span class="line">import &#123; ref, watch &#125; from &#x27;vue&#x27;;</span><br><span class="line">const state=ref(&#123;count:0&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">const setCount =() =&gt;&#123;</span><br><span class="line">  state.value.count++</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">watch(state,()=&gt;&#123;</span><br><span class="line">  console.log(&quot;state change&quot;)</span><br><span class="line">&#125;,&#123;</span><br><span class="line">  deep:true</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;button @click=&quot;setCount&quot;&gt;+&#123;&#123; state.count &#125;&#125;&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="精确监听"><a href="#精确监听" class="headerlink" title="精确监听"></a>精确监听</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line"></span><br><span class="line">import &#123; ref, watch &#125; from &#x27;vue&#x27;;</span><br><span class="line">const state =ref(&#123;</span><br><span class="line">  name:&#x27;guojia&#x27;,</span><br><span class="line">  age:28</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">const changeName=()=&gt;&#123;</span><br><span class="line">  state.value.name=&#x27;guojiajia&#x27;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const changeAge=()=&gt;&#123;</span><br><span class="line">  state.value.age=20</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">watch(</span><br><span class="line">  ()=&gt;state.value.age,</span><br><span class="line">  ()=&gt;&#123;</span><br><span class="line">    console.log(&#x27;age change&#x27;)</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &#123;&#123; state.name &#125;&#125;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &#123;&#123; state.age &#125;&#125;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;button @click=&quot;changeName&quot;&gt;修改名字&lt;/button&gt;</span><br><span class="line">    &lt;button @click=&quot;changeAge&quot;&gt;修改年龄&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="生命周期函数"><a href="#生命周期函数" class="headerlink" title="生命周期函数"></a>生命周期函数</h3><p><img src="list.jpg" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p> 可以执行多次，且会依次执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line"></span><br><span class="line">//引入</span><br><span class="line"> import &#123; onMounted &#125; from &#x27;vue&#x27;;</span><br><span class="line"></span><br><span class="line"> //执行函数，执行回调</span><br><span class="line"> onMounted (()=&gt;&#123;</span><br><span class="line">  console.log(&#x27;mounted挂载完毕&#x27;)</span><br><span class="line"> &#125;)</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    </span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="父子通信"><a href="#父子通信" class="headerlink" title="父子通信"></a>父子通信</h3><h4 id="父传子"><a href="#父传子" class="headerlink" title="父传子"></a>父传子</h4><p>父代码（静态数据和响应数据都可以传递）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line"></span><br><span class="line">import &#123; ref &#125; from &#x27;vue&#x27;;</span><br><span class="line">import SonCom from &#x27;./son.vue&#x27;</span><br><span class="line"></span><br><span class="line">const count=ref(100)</span><br><span class="line"></span><br><span class="line">setTimeout(()=&gt;&#123;</span><br><span class="line">  count.value++</span><br><span class="line">&#125;,3000)</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;father&quot;&gt;</span><br><span class="line">    &lt;h2&gt;father&lt;/h2&gt;</span><br><span class="line">    &lt;SonCom :count=&quot;count&quot; message=&quot;father message&quot;/&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<p>子代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line"></span><br><span class="line">// 接收数据</span><br><span class="line">defineProps(&#123;</span><br><span class="line">    message:String,</span><br><span class="line">    count: Number</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div class=&quot;son&quot;&gt;</span><br><span class="line">        &lt;h3&gt;son&lt;/h3&gt;</span><br><span class="line">        &lt;Div&gt;</span><br><span class="line">            &#123;&#123; message &#125;&#125;</span><br><span class="line">            &#123;&#123; count &#125;&#125;</span><br><span class="line">        &lt;/Div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script scoped&gt;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="子传父"><a href="#子传父" class="headerlink" title="子传父"></a>子传父</h4><p>子代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line"></span><br><span class="line">// 宏函数</span><br><span class="line">const emit=defineEmits([&#x27;getMessage&#x27;])</span><br><span class="line"></span><br><span class="line">const sendMsg=()=&gt;&#123;</span><br><span class="line">    emit(&#x27;getMessage&#x27;,&quot;this is a son msg&quot;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;button @click=&quot;sendMsg&quot;&gt;sendMsg&lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script scoped&gt;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>父代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line"></span><br><span class="line">import &#123; ref &#125; from &#x27;vue&#x27;;</span><br><span class="line">import SonCom from &#x27;./son.vue&#x27;</span><br><span class="line"></span><br><span class="line">const getMessage =(msg)=&gt;&#123;</span><br><span class="line">  console.log(msg)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;father&quot;&gt;</span><br><span class="line">    &lt;h2&gt;father&lt;/h2&gt;</span><br><span class="line">    &lt;SonCom @get-message=&quot;getMessage&quot;/&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="test8.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="模板引用"><a href="#模板引用" class="headerlink" title="模板引用"></a>模板引用</h3><p>组件内部的属性和方法是不公开给父组件的，可通过defineExpose编译宏指定那些属性和方法允许访问</p>
+<p>父</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line"></span><br><span class="line">import &#123; onMounted, ref &#125; from &#x27;vue&#x27;;</span><br><span class="line">import TestCom from &#x27;./TestCom.vue&#x27;;</span><br><span class="line"></span><br><span class="line">//调用ref函数 -&gt;ref对象</span><br><span class="line">const h1Ref=ref(null)</span><br><span class="line">const comRef=ref(null)</span><br><span class="line"></span><br><span class="line">//组件挂在完毕之后才能获取</span><br><span class="line">onMounted(()=&gt;&#123;</span><br><span class="line">  console.log(h1Ref.value,comRef.value)</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;h1 ref=&quot;h1Ref&quot;&gt;我是dom标签h1&lt;/h1&gt;</span><br><span class="line">  &lt;TestCom ref=&quot;comRef&quot;&gt;&lt;/TestCom&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<p>子</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">import &#123; ref &#125; from &#x27;vue&#x27;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">const name=ref(&#x27;test name&#x27;)</span><br><span class="line">const setName=()=&gt;&#123;</span><br><span class="line">    name.value=&#x27;test new value&#x27;</span><br><span class="line">&#125;</span><br><span class="line">defineExpose(&#123;</span><br><span class="line">    name</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        我是test组件</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="test9-16843270003071.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="provide和inject"><a href="#provide和inject" class="headerlink" title="provide和inject"></a>provide和inject</h3><p>用于跨层组件通信（谁的数据谁负责修改）</p>
+<p>通用步骤：</p>
+<ul>
+<li>顶层组件通过provi函数提供数据</li>
+<li>底层组件通过inject函数获取数据</li>
+</ul>
+<p>顶层代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line"></span><br><span class="line">import middle from &#x27;./middle.vue&#x27;;</span><br><span class="line">import bottom from &#x27;./bottom.vue&#x27;;</span><br><span class="line">import &#123; provide, ref &#125; from &#x27;vue&#x27;;</span><br><span class="line"></span><br><span class="line">//顶层组件提供数据</span><br><span class="line">provide(&#x27;data-key&#x27;,&#x27;this is top data&#x27;)</span><br><span class="line">//传递响应式数据</span><br><span class="line">const count=ref(0)</span><br><span class="line">provide(&#x27;count-key&#x27;,count)</span><br><span class="line">//传递方法</span><br><span class="line">const setCount=()=&gt;&#123;</span><br><span class="line">  count.value++</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">provide(&#x27;setCount-key&#x27;,setCount)</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        顶层组件</span><br><span class="line">        &lt;middle/&gt;</span><br><span class="line">        &lt;bottom/&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<p>中间代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">         中间组件</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<p>底层代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">import &#123; inject &#125; from &#x27;vue&#x27;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">const data=inject(&quot;data-key&quot;)</span><br><span class="line">//接受响应式数据</span><br><span class="line">const count =inject(&quot;count-key&quot;)</span><br><span class="line">//接受方法</span><br><span class="line">const setCount=inject(&quot;setCount-key&quot;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">         底层组件</span><br><span class="line">         &lt;div&gt;</span><br><span class="line">            来自顶层:&#123;&#123; data &#125;&#125;</span><br><span class="line">         &lt;/div&gt;</span><br><span class="line">         &lt;div&gt;</span><br><span class="line">            来自顶层响应式数据:&#123;&#123; count &#125;&#125;</span><br><span class="line">         &lt;/div&gt;</span><br><span class="line">         &lt;div&gt;</span><br><span class="line">            &lt;button @click=&quot;setCount&quot;&gt;count++&lt;/button&gt;</span><br><span class="line">         &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-Pinia（状态管理库）"><a href="#2-Pinia（状态管理库）" class="headerlink" title="2.Pinia（状态管理库）"></a>2.Pinia（状态管理库）</h2><p>安装</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install pinia</span><br></pre></td></tr></table></figure>
+
+<p>使用（在入口函数中引入）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;./assets/main.css&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; createApp &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; createPinia &#125; <span class="keyword">from</span> <span class="string">&#x27;pinia&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//1.以App作为参数生成一个应用实例对象</span></span><br><span class="line"><span class="comment">//2.挂载到id为app的节点上</span></span><br><span class="line"><span class="keyword">const</span> pinia = <span class="title function_">createPinia</span>()</span><br><span class="line"><span class="keyword">const</span> app=<span class="title function_">createApp</span>(<span class="title class_">App</span>)</span><br><span class="line">app.<span class="title function_">use</span>(pinia)</span><br><span class="line">app.<span class="title function_">mount</span>(<span class="string">&#x27;#app&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="计数器案例使用"><a href="#计数器案例使用" class="headerlink" title="计数器案例使用"></a>计数器案例使用</h3><p>详细教程<a target="_blank" rel="noopener" href="https://pinia.web3doc.top/core-concepts/">定义一个 Store | Pinia 中文文档 (web3doc.top)</a></p>
+<p>创建一个store</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineStore &#125; <span class="keyword">from</span> <span class="string">&#x27;pinia&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; ref &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> useCounterStore=<span class="title function_">defineStore</span>(<span class="string">&#x27;counter&#x27;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    <span class="comment">//定义数据</span></span><br><span class="line">    <span class="keyword">const</span> count =<span class="title function_">ref</span>(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">//定义修改数据的方法</span></span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">increment</span>=(<span class="params"></span>)=&gt;&#123;</span><br><span class="line">        count.<span class="property">value</span>++</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//以对象的方式return供组件使用</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        count,</span><br><span class="line">        increment</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>组件使用store</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line"></span><br><span class="line">//导入</span><br><span class="line">import &#123; useCounterStore &#125; from &#x27;./stores/counter&#x27;;</span><br><span class="line"></span><br><span class="line">//执行方法得到store实例对象 </span><br><span class="line">const counterStore= useCounterStore()</span><br><span class="line">   </span><br><span class="line">console.log(counterStore)</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">   &lt;button @click=&quot;counterStore.increment&quot;&gt; &#123;&#123; counterStore.count &#125;&#125;&lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="getter（在store中计算属性）"><a href="#getter（在store中计算属性）" class="headerlink" title="getter（在store中计算属性）"></a>getter（在store中计算属性）</h3><p>在刚刚定义store加入</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//getter定义</span></span><br><span class="line"><span class="keyword">const</span> doubleCount=<span class="title function_">computed</span>(<span class="function">()=&gt;</span>count.<span class="property">value</span>*<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+<p>在组件间使用即可获取（随着count的变化而变化）</p>
+<h3 id="action（异步）"><a href="#action（异步）" class="headerlink" title="action（异步）"></a>action（异步）</h3><p>发送异步请求</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineStore &#125; <span class="keyword">from</span> <span class="string">&#x27;pinia&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; computed, ref &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> axios, &#123; <span class="title class_">Axios</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="variable constant_">API_URL</span>=<span class="string">&#x27;http://geek.itheima.net/v1_0/channels&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> useCounterStore=<span class="title function_">defineStore</span>(<span class="string">&#x27;counter&#x27;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    <span class="comment">//定义数据</span></span><br><span class="line">    <span class="keyword">const</span> count =<span class="title function_">ref</span>(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">//定义修改数据的方法</span></span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">increment</span>=(<span class="params"></span>)=&gt;&#123;</span><br><span class="line">        count.<span class="property">value</span>++</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//getter定义</span></span><br><span class="line">    <span class="keyword">const</span> doubleCount=<span class="title function_">computed</span>(<span class="function">()=&gt;</span>count.<span class="property">value</span>*<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">//action(异步)</span></span><br><span class="line">    <span class="keyword">const</span> list =<span class="title function_">ref</span>([])</span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">getList</span>=<span class="keyword">async</span>(<span class="params"></span>)=&gt;&#123;</span><br><span class="line">       <span class="keyword">const</span> res= <span class="keyword">await</span>  axios.<span class="title function_">get</span>(<span class="variable constant_">API_URL</span>)</span><br><span class="line">       list.<span class="property">value</span>=res.<span class="property">data</span>.<span class="property">data</span>.<span class="property">channels</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//以对象的方式return供组件使用</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        count,</span><br><span class="line">        doubleCount,</span><br><span class="line">        increment,</span><br><span class="line">        list,</span><br><span class="line">        getList</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>组件渲染数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line"></span><br><span class="line">//导入</span><br><span class="line">import &#123; onMounted &#125; from &#x27;vue&#x27;;</span><br><span class="line">import &#123; useCounterStore &#125; from &#x27;./stores/counter&#x27;;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">  //执行方法得到store实例对象 </span><br><span class="line">const counterStore= useCounterStore()</span><br><span class="line">   </span><br><span class="line">console.log(counterStore)</span><br><span class="line">onMounted (()=&gt;&#123;</span><br><span class="line">  counterStore.getList()</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">   &lt;button @click=&quot;counterStore.increment&quot;&gt; &#123;&#123; counterStore.count &#125;&#125;&lt;/button&gt;</span><br><span class="line">   &lt;div&gt;</span><br><span class="line">    &#123;&#123; counterStore.doubleCount &#125;&#125;</span><br><span class="line">   &lt;/div&gt;</span><br><span class="line">   &lt;ul&gt;</span><br><span class="line">    &lt;li v-for=&quot;item in counterStore.list&quot; :key=&quot;item.id&quot;&gt;&#123;&#123; item.name &#125;&#125;&lt;/li&gt;</span><br><span class="line">   &lt;/ul&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="storeToRefs"><a href="#storeToRefs" class="headerlink" title="storeToRefs"></a>storeToRefs</h3><p>直接基于store进行解构赋值，响应式数据（state和getter）会丢失响应式特性，使用storeToRefs辅助保持响应式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">  import &#123; storeToRefs &#125; from &#x27;pinia&#x27;</span><br><span class="line">	import &#123; useCounterStore &#125; from &#x27;@/stores/counter&#x27;</span><br><span class="line">  const counterStore = useCounterStore()</span><br><span class="line">  // 使用它storeToRefs包裹之后解构保持响应式</span><br><span class="line">  const &#123; count &#125; = storeToRefs(counterStore)</span><br><span class="line"></span><br><span class="line">  const &#123; increment &#125; = counterStore</span><br><span class="line">  </span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;button @click=&quot;increment&quot;&gt;</span><br><span class="line">    &#123;&#123; count &#125;&#125;</span><br><span class="line">  &lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-创建项目"><a href="#3-创建项目" class="headerlink" title="3.创建项目"></a>3.创建项目</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init vue@latest</span><br></pre></td></tr></table></figure>
+
+<p>![]po1.png)</p>
+<h3 id="创建项目目录"><a href="#创建项目目录" class="headerlink" title="创建项目目录"></a>创建项目目录</h3><ul>
+<li>apis api接口文件夹</li>
+<li>composables 组合函数文件夹</li>
+<li>directives 全局指令文件夹</li>
+<li>styles 全局样式文件夹</li>
+<li>utils 工具函数文件夹</li>
+</ul>
+<h3 id="jsconfig-json配置别名路径"><a href="#jsconfig-json配置别名路径" class="headerlink" title="jsconfig.json配置别名路径"></a>jsconfig.json配置别名路径</h3><blockquote>
+<p>配置别名路径可以在写代码时联想提示路径</p>
+</blockquote>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;compilerOptions&quot;</span> <span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;baseUrl&quot;</span> <span class="punctuation">:</span> <span class="string">&quot;./&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;paths&quot;</span> <span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;@/*&quot;</span><span class="punctuation">:</span><span class="punctuation">[</span><span class="string">&quot;src/*&quot;</span><span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="element-plus"><a href="#element-plus" class="headerlink" title="element-plus"></a>element-plus</h3><h4 id="按需引入"><a href="#按需引入" class="headerlink" title="按需引入"></a>按需引入</h4><p>过程参考：<a target="_blank" rel="noopener" href="https://element-plus.org/zh-CN/guide/quickstart.html#%E6%8C%89%E9%9C%80%E5%AF%BC%E5%85%A5">快速开始 | Element Plus (element-plus.org)</a></p>
+<h4 id="主题定制"><a href="#主题定制" class="headerlink" title="主题定制"></a>主题定制</h4><p>安装scss</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i sass <span class="literal">-D</span></span><br></pre></td></tr></table></figure>
+
+<p>准备定制样式文件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 只需要重写你需要的即可 */</span></span><br><span class="line">@forward <span class="string">&#x27;element-plus/theme-chalk/src/common/var.scss&#x27;</span> <span class="keyword">with</span> (</span><br><span class="line">  <span class="attr">$colors</span>: (</span><br><span class="line">    <span class="string">&#x27;primary&#x27;</span>: (</span><br><span class="line">      <span class="comment">// 主色</span></span><br><span class="line">      <span class="string">&#x27;base&#x27;</span>: #27ba9b,</span><br><span class="line">    ),</span><br><span class="line">    <span class="string">&#x27;success&#x27;</span>: (</span><br><span class="line">      <span class="comment">// 成功色</span></span><br><span class="line">      <span class="string">&#x27;base&#x27;</span>: #1dc779,</span><br><span class="line">    ),</span><br><span class="line">    <span class="string">&#x27;warning&#x27;</span>: (</span><br><span class="line">      <span class="comment">// 警告色</span></span><br><span class="line">      <span class="string">&#x27;base&#x27;</span>: #ffb302,</span><br><span class="line">    ),</span><br><span class="line">    <span class="string">&#x27;danger&#x27;</span>: (</span><br><span class="line">      <span class="comment">// 危险色</span></span><br><span class="line">      <span class="string">&#x27;base&#x27;</span>: #e26237,</span><br><span class="line">    ),</span><br><span class="line">    <span class="string">&#x27;error&#x27;</span>: (</span><br><span class="line">      <span class="comment">// 错误色</span></span><br><span class="line">      <span class="string">&#x27;base&#x27;</span>: #cf4444,</span><br><span class="line">    ),</span><br><span class="line">  )</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+</article>
+    
+    
+</div>
+<div id="post-next-prev" class="row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
+        <a href="/2023/04/16/redis%E5%88%9D%E5%AD%A6/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="/images/redis.jpg">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/web%E5%90%8E%E7%AB%AF/">
+                    web后端
+                </a>
+            </div>
+            <h5>
+                <a href="/2023/04/16/redis%E5%88%9D%E5%AD%A6/" class="trm-anima-link">
+                    redis初学
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>23/04/16</li>
+                <li>20:21</li>
+                
+                    <li>4.1k</li>
+                
+                
+                    <li>16</li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+    <div class="trm-card trm-scroll-animation comment-container" data-scroll data-scroll-offset="50">
+    <div id="tcomment"></div>
+</div>
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation" data-scroll data-scroll-offset="50">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v5.4.2
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                主题 - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.0.3
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item">
+            博客已萌萌哒运行 <span id="since" class="trm-accent-color"></span> 天
+        </div>
+     
+
+    
+        <div class="trm-footer-item">
+            Hosted by <a href="https://github.com" rel="noopener" target="_blank">Github Pages</a>
+        </div>
+     
+</footer>
+
+<script>
+    function show_date_time () {
+        var BirthDay = new Date("03/10/2023 17:00:00");
+        var today = new Date();
+        var timeold = (today.getTime() - BirthDay.getTime());
+        var msPerDay = 24 * 60 * 60 * 1000
+        var day = Math.floor(timeold / msPerDay)
+        since.innerHTML = day
+    }
+    show_date_time()
+</script>
+ 
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            <div class="trm-fixed-container" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+          </div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+
+  </div>
+  <!-- app wrapper end -->
+
+  
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+        <script src="/js/plugins/typing.js?v=2.0.3"></script>
+    
+
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+
+            
+<script src="//cdn.jsdelivr.net/npm/twikoo@1.6.7/dist/twikoo.all.min.js" data-swup-reload-script data-reset="true"></script>
+
+            <script data-swup-reload-script>
+                twikoo.init({
+                    ...{"enable":true,"envId":"https://mockingjayforblog.zeabur.app"},
+                    el:'#tcomment'
+                }).then(function () {
+                    let container = document.querySelector('body>.tk-admin-container')
+                    if(container) container.remove()
+                    document.body.append(document.querySelector('.tk-admin-container'))
+                });;
+            </script>
+
+        
+    
+
+
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.0.3"></script>
+
+</body>
+
+</html>
