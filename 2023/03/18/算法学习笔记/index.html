@@ -7,18 +7,18 @@
 <meta name="full-screen" content="yes">
 <meta name="theme-color" content="#317EFB" />
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
-<meta name="description" content="算法动态规划硬币问题若有若干硬币，面值分别为1，5，11，凑出w，至少需要多少？ 解决方案：  1.贪心  2.暴力枚举(3个for) 3.DP      f（n） 最优解 1 5 11    f（0） 0 x x x   f（1） 1 1+f (0) x x   f（2） 2 1+f (1) x x   f（3） 3 1+f (2) x x   f（4） 4 1+f (3) x x   f（5）">
+<meta name="description" content="算法(持续更新ing)动态规划硬币问题若有若干硬币，面值分别为1，5，11，凑出w，至少需要多少？ 解决方案：  1.贪心  2.暴力枚举(3个for) 3.DP      f（n） 最优解 1 5 11    f（0） 0 x x x   f（1） 1 1+f (0) x x   f（2） 2 1+f (1) x x   f（3） 3 1+f (2) x x   f（4） 4 1+f (3) x">
 <meta property="og:type" content="article">
 <meta property="og:title" content="绿杉野屋">
 <meta property="og:url" content="http://mockingjayforblog.com.cn/2023/03/18/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="绿杉野屋">
-<meta property="og:description" content="算法动态规划硬币问题若有若干硬币，面值分别为1，5，11，凑出w，至少需要多少？ 解决方案：  1.贪心  2.暴力枚举(3个for) 3.DP      f（n） 最优解 1 5 11    f（0） 0 x x x   f（1） 1 1+f (0) x x   f（2） 2 1+f (1) x x   f（3） 3 1+f (2) x x   f（4） 4 1+f (3) x x   f（5）">
+<meta property="og:description" content="算法(持续更新ing)动态规划硬币问题若有若干硬币，面值分别为1，5，11，凑出w，至少需要多少？ 解决方案：  1.贪心  2.暴力枚举(3个for) 3.DP      f（n） 最优解 1 5 11    f（0） 0 x x x   f（1） 1 1+f (0) x x   f（2） 2 1+f (1) x x   f（3） 3 1+f (2) x x   f（4） 4 1+f (3) x">
 <meta property="og:locale">
 <meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
 <meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
 <meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
 <meta property="article:published_time" content="2023-03-18T14:41:44.982Z">
-<meta property="article:modified_time" content="2024-09-01T02:21:00.421Z">
+<meta property="article:modified_time" content="2024-09-01T02:30:17.069Z">
 <meta property="article:author" content="郭嘉">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
@@ -66,7 +66,7 @@
 
 <!-- Variable -->
 <script>window.ASYNC_CONFIG = {"hostname":"mockingjayforblog.com.cn","author":"郭嘉","root":"/","typed_text":["普通的学生"],"theme_version":"2.0.3","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/favicon.svg","icon16":"/img/favicon.svg","icon32":"/img/favicon.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":false,"hidden":"/failure.ico","showText":"(/≧▽≦/)咦！又好了！","hideText":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false}};</script>
-<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-09-01 10:21:00"};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-09-01 10:30:17"};</script>
 
 <!-- Theme mode css -->
 <link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.0.3" id="trm-switch-style">
@@ -386,7 +386,7 @@
             </div>
             <div name="tabs-toc" class="trm-tabs-item active">
                 <div class="post-toc">
-    <ol class="toc"><li class="toc-item toc-level-1"><a rel="nofollow" class="toc-link" href="#算法"  data-scroll-to="#算法"><span class="toc-number">1.</span> <span class="toc-text">算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#动态规划"  data-scroll-to="#动态规划"><span class="toc-number">1.1.</span> <span class="toc-text">动态规划</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#硬币问题"  data-scroll-to="#硬币问题"><span class="toc-number">1.1.1.</span> <span class="toc-text">硬币问题</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#背包问题"  data-scroll-to="#背包问题"><span class="toc-number">1.1.2.</span> <span class="toc-text">背包问题</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#LCS最长公共子序列"  data-scroll-to="#LCS最长公共子序列"><span class="toc-number">1.1.3.</span> <span class="toc-text">LCS最长公共子序列</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#打家劫舍"  data-scroll-to="#打家劫舍"><span class="toc-number">1.1.4.</span> <span class="toc-text">打家劫舍</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a rel="nofollow" class="toc-link" href="#算法-持续更新ing"  data-scroll-to="#算法-持续更新ing"><span class="toc-number">1.</span> <span class="toc-text">算法(持续更新ing)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#动态规划"  data-scroll-to="#动态规划"><span class="toc-number">1.1.</span> <span class="toc-text">动态规划</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#硬币问题"  data-scroll-to="#硬币问题"><span class="toc-number">1.1.1.</span> <span class="toc-text">硬币问题</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#背包问题"  data-scroll-to="#背包问题"><span class="toc-number">1.1.2.</span> <span class="toc-text">背包问题</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#LCS最长公共子序列"  data-scroll-to="#LCS最长公共子序列"><span class="toc-number">1.1.3.</span> <span class="toc-text">LCS最长公共子序列</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#打家劫舍"  data-scroll-to="#打家劫舍"><span class="toc-number">1.1.4.</span> <span class="toc-text">打家劫舍</span></a></li></ol></li></ol></li></ol>
 </div>
             </div>
         </div>
@@ -422,7 +422,7 @@
 </div>
 <div class="trm-card ">
     <article id="article-container" class="trm-publication">
-    <h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h3 id="硬币问题"><a href="#硬币问题" class="headerlink" title="硬币问题"></a>硬币问题</h3><p>若有若干硬币，面值分别为1，5，11，凑出w，至少需要多少？</p>
+    <h1 id="算法-持续更新ing"><a href="#算法-持续更新ing" class="headerlink" title="算法(持续更新ing)"></a>算法(持续更新ing)</h1><h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h3 id="硬币问题"><a href="#硬币问题" class="headerlink" title="硬币问题"></a>硬币问题</h3><p>若有若干硬币，面值分别为1，5，11，凑出w，至少需要多少？</p>
 <p>解决方案：</p>
 <ul>
 <li>1.贪心 </li>
