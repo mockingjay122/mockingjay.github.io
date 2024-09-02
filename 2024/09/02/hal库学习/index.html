@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="hal库学习初识stm32（使用野火霸道v-2）STM32 就是指 ST 公司开发的 32 位（总线）微控制器 开发必备：  参考手册 片上外设、寄存器描述 数据手册 引脚设计、内存映射、封装特性  寄存器编程 STM32 芯片架构简图 1volatile unsigned int * pointer;  访问寄存器需加入volatile，防止被编译器优化。如下是寄存器编程的基本案例 123456">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hal库学习">
+<meta property="og:url" content="http://mockingjayforblog.com.cn/2024/09/02/hal%E5%BA%93%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="绿杉野屋">
+<meta property="og:description" content="hal库学习初识stm32（使用野火霸道v-2）STM32 就是指 ST 公司开发的 32 位（总线）微控制器 开发必备：  参考手册 片上外设、寄存器描述 数据手册 引脚设计、内存映射、封装特性  寄存器编程 STM32 芯片架构简图 1volatile unsigned int * pointer;  访问寄存器需加入volatile，防止被编译器优化。如下是寄存器编程的基本案例 123456">
+<meta property="og:locale">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="article:published_time" content="2024-09-02T02:33:13.000Z">
+<meta property="article:modified_time" content="2024-09-02T11:12:24.075Z">
+<meta property="article:author" content="郭嘉">
+<meta property="article:tag" content="C">
+<meta property="article:tag" content="stm32">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+
+    <meta name="keywords" content="算法">
+
+
+<title >hal库学习</title>
+
+<!-- Favicon -->
+
+    <link href='/img/favicon.svg?v=2.0.3' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/favicon.svg?v=2.0.3' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"mockingjayforblog.com.cn","author":"郭嘉","root":"/","typed_text":["普通的学生"],"theme_version":"2.0.3","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/favicon.svg","icon16":"/img/favicon.svg","icon32":"/img/favicon.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":false,"hidden":"/failure.ico","showText":"(/≧▽≦/)咦！又好了！","hideText":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-09-02 19:12:24"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.0.3" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" data-scroll-container style="opacity: 0">
+          <div data-scroll-section id="content" class="trm-scroll-section">
+
+            <div class="locomotive-scroll__sticky-target" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none;"></div>
+
+            <!-- top bar -->
+            <header class="trm-top-bar" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/favicon.svg">
+    
+    
+        <div class="trm-logo-text">
+            绿杉<span>野屋</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    首页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/categories" target="">
+                    分类
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/tags" target="">
+                    标签
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/about" target="">
+                    关于
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner" data-scroll data-scroll-direction="vertical">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" data-scroll data-scroll-direction="vertical" data-scroll-speed="-3" src="/images/hal.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container" data-scroll data-scroll-direction="vertical" data-scroll-speed="0">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            不断学习，不断进步
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            hal库学习
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        2024
+                                    </span
+                                ></li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <a href="#about-triger" data-scroll-to="#about-triger" data-scroll-offset="-130" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </a>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div id="page-sidebar" class="col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    
+
+<div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card" data-scroll data-scroll-repeat data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="60"> 
+    
+        <div class="trm-user-tabs" id="sidebar-tabs">
+           <div class="trm-tabs-nav trm-mb-40" id="trm-tabs-nav">
+                <div data-to="tabs-user" class="trm-tabs-nav-item">
+                    <i class="iconfont fas fa-user-alt"></i>
+                </div>
+                <div data-to="tabs-toc" class="trm-tabs-nav-item active">
+                    <i class="iconfont fas fa-th-list"></i>
+                </div>
+           </div>
+            <div name="tabs-user" class="trm-tabs-item">
+                <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/images/avatar.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        mockingjay
+    </h5>
+    
+        <div class="trm-label">
+            一个
+            <span class="trm-typed-text">
+                <!-- Words for theme.user.typedText -->
+            </span>
+        </div>
+    
+</div>
+<!-- card header end -->
+                <!-- sidebar social -->
+
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<div class="trm-social">
+    
+        <a href="https://gitee.com/gj2002298" title="gitee" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-gofore"></i>
+        </a>
+    
+        <a href="https://github.com/mockingjay122/" title="github" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-github"></i>
+        </a>
+    
+        <a href="https://www.instagram.com/mockingjay9866/" title="ins" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-instagram"></i>
+        </a>
+    
+</div>
+
+<!-- sidebar social end -->
+                <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                住宅:
+            </div>
+            <div class="trm-label trm-label-light">
+                内蒙古
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                年龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                22
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                工作:
+            </div>
+            <div class="trm-label trm-label-light">
+                物联网工程学生
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                小帖:
+            </div>
+            <div class="trm-label trm-label-light">
+                不断学习，不断进步
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+                
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:gj2002196@icloud.com" class="trm-btn">
+            联系我
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+            </div>
+            <div name="tabs-toc" class="trm-tabs-item active">
+                <div class="post-toc">
+    <ol class="toc"><li class="toc-item toc-level-1"><a rel="nofollow" class="toc-link" href="#hal库学习"  data-scroll-to="#hal库学习"><span class="toc-number">1.</span> <span class="toc-text">hal库学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#初识stm32（使用野火霸道v-2）"  data-scroll-to="#初识stm32（使用野火霸道v-2）"><span class="toc-number">1.1.</span> <span class="toc-text">初识stm32（使用野火霸道v-2）</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#寄存器编程"  data-scroll-to="#寄存器编程"><span class="toc-number">1.2.</span> <span class="toc-text">寄存器编程</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#GPIO"  data-scroll-to="#GPIO"><span class="toc-number">1.3.</span> <span class="toc-text">GPIO</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#寄存器驱动led"  data-scroll-to="#寄存器驱动led"><span class="toc-number">1.3.1.</span> <span class="toc-text">寄存器驱动led</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#固件库驱动LED"  data-scroll-to="#固件库驱动LED"><span class="toc-number">1.3.2.</span> <span class="toc-text">固件库驱动LED</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#hal固件库"  data-scroll-to="#hal固件库"><span class="toc-number">1.3.3.</span> <span class="toc-text">hal固件库</span></a></li></ol></li></ol></li></ol>
+</div>
+            </div>
+        </div>
+    
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div id="page-content" class="col-lg-8">
+                <div class="trm-content" id="trm-content">
+                    <div data-scroll data-scroll-repeat data-scroll-offset="500" id="about-triger"></div>
+
+                    <div id="post-info" class="row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            09/02
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            10:33
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            mockingjay
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <h1 id="hal库学习"><a href="#hal库学习" class="headerlink" title="hal库学习"></a>hal库学习</h1><h2 id="初识stm32（使用野火霸道v-2）"><a href="#初识stm32（使用野火霸道v-2）" class="headerlink" title="初识stm32（使用野火霸道v-2）"></a>初识stm32（使用野火霸道v-2）</h2><p>STM32 就是指 ST 公司开发的 32 位（总线）微控制器</p>
+<p>开发必备：</p>
+<ul>
+<li>参考手册 片上外设、寄存器描述</li>
+<li>数据手册 引脚设计、内存映射、封装特性</li>
+</ul>
+<h2 id="寄存器编程"><a href="#寄存器编程" class="headerlink" title="寄存器编程"></a>寄存器编程</h2><p><img src="image-20240829171430687.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>STM32 芯片架构简图</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">volatile</span> <span class="type">unsigned</span> <span class="type">int</span> * pointer;</span><br></pre></td></tr></table></figure>
+
+<p>访问寄存器需加入volatile，防止被编译器优化。如下是寄存器编程的基本案例</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#defineC (<span class="keyword">volatile</span> <span class="type">unsigned</span> <span class="type">int</span> *) <span class="number">0x40028000</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">	*pointer=<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="GPIO"><a href="#GPIO" class="headerlink" title="GPIO"></a>GPIO</h2><p>通用输入输出端口</p>
+<p><img src="image-20240829175150489.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>输出部分:</p>
+<ul>
+<li>1.保护不正常电压导致gpio烧毁</li>
+<li>2.输入高电平，pmos导通，nmos关闭，输出高电平（推） 、反之pmos关闭，nmos导通输出低电平（挽）、输出端口接上拉电阻，输入高电平，下面nmos断开，默认输出高电平，反之输入低电平，nmos导通，输出接到地上，输出低电平（开漏)   —-总结：推挽驱动能力强，开漏可实现线与（任意外设被拉到低电平，总线处于低电平)</li>
+<li>3，4. 决定输出是出于什么形态进行输出</li>
+</ul>
+<p>输入部分：</p>
+<p>肖特基触发器（连续信号变为离散信号，例如正弦波变为方波信号）——输入会获取0v或者3.3v</p>
+<p>5，6，7. 决定输入是出于什么形态进行输入</p>
+<h3 id="寄存器驱动led"><a href="#寄存器驱动led" class="headerlink" title="寄存器驱动led"></a><strong>寄存器驱动led</strong></h3><p><img src="hal%E5%BA%93%E5%AD%A6%E4%B9%A0/image-20240829185443464.png" alt="image-20240829185443464" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>从原理图可以看出，io口输出低电平，led灯亮，同时需连接跳帽。</p>
+<p><strong>总线矩阵</strong></p>
+<p><img src="image-20240829184701385.png" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>总线矩阵协调内核系统总线和DMA主控总线之间的访问仲裁，仲裁利用轮换算法。</p>
+<p>通过总线的形式，可以更好的将各种外设分离开，可独立将各种外设来控制他的使能与否，控制外设使能与否，既需要控制它的时钟</p>
+<p><strong>软件开发步骤</strong></p>
+<ul>
+<li>使能GPIOB时钟，外设基地址（复位和时钟控制(RCC)）：0x4002 1000+（偏移地址）0x18=APB2 外设时钟使能寄存器地址</li>
+<li>配置为推挽输出，通过端口配置表进行配置（详情看手册），(外设基地址GPIOB) 0X4001 0C00+0x00（端口配置低寄存器），(外设基地址GPIOB) 0X4001 0C00+0x0C（端口输出数据寄存器）</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> GPIOB_CLK  (*( volatile unsigned int * )(0x40021000+0x18))</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> GPIOB_CRL  (*( volatile unsigned int * )(0X40010C00+0x00))</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> GPIOB_ODR  (*( volatile unsigned int * )(0X40010C00+0x0C))</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//使能gpiob时钟</span></span><br><span class="line">	GPIOB_CLK|=(<span class="number">0x01</span>&lt;&lt;<span class="number">3</span>);</span><br><span class="line">	<span class="comment">//低4位清0</span></span><br><span class="line">	GPIOB_CRL&amp;=~(<span class="number">0x0F</span>&lt;&lt;(<span class="number">4</span>*<span class="number">0</span>));</span><br><span class="line">	GPIOB_CRL|=(<span class="number">0x02</span>&lt;&lt;(<span class="number">4</span>*<span class="number">0</span>));</span><br><span class="line">	<span class="comment">//清0</span></span><br><span class="line">	GPIOB_ODR&amp;=~(<span class="number">0x01</span>&lt;&lt;(<span class="number">1</span>*<span class="number">0</span>));</span><br><span class="line">	GPIOB_ODR|=<span class="number">0X00</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//蓝灯</span></span><br><span class="line">	GPIOB_CLK|=(<span class="number">0x01</span>&lt;&lt;<span class="number">3</span>);</span><br><span class="line">	<span class="comment">//清0</span></span><br><span class="line">	GPIOB_CRL&amp;=~(<span class="number">0x0F</span>&lt;&lt;(<span class="number">4</span>*<span class="number">1</span>));</span><br><span class="line">	GPIOB_CRL|=(<span class="number">0x02</span>&lt;&lt;(<span class="number">4</span>*<span class="number">1</span>));</span><br><span class="line">	<span class="comment">//清0</span></span><br><span class="line">	GPIOB_ODR&amp;=~(<span class="number">0x01</span>&lt;&lt;(<span class="number">1</span>*<span class="number">1</span>));</span><br><span class="line">	GPIOB_ODR|=(<span class="number">0X00</span>&lt;&lt;(<span class="number">1</span>*<span class="number">1</span>));</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="固件库驱动LED"><a href="#固件库驱动LED" class="headerlink" title="固件库驱动LED"></a><strong>固件库驱动LED</strong></h3><p>将GPIO外设的基地址强制类型转换，变为结构体指针形式，建立了结构体和实际内存中的一种映射关系，通过访问结构体成员，就等同于访问实际的一小块单元。</p>
+<h3 id="hal固件库"><a href="#hal固件库" class="headerlink" title="hal固件库"></a>hal固件库</h3><p><img src="image-20240902153725423.png" alt="image-20240902153725423" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'>          </p>
+<p><strong>手动移植固件库</strong></p>
+<p>分别建立各个文件夹，如下图：</p>
+<p><img src="image-20240902154239234.png" alt="image-20240902154239234" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>使用keil新建工程保存在新建文件夹下的Project文件夹，将相关的库拷贝到Library文件夹下，相关库如下图所示：</p>
+<p><img src="image-20240902154611980.png" alt="image-20240902154611980" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>User文件夹下新建main函数，doc里则为readme介绍文件</p>
+<p>完成之后，打开keil建立分组，其如下图所示：</p>
+<p><img src="image-20240902154944188.png" alt="image-20240902154944188" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>STARTUP添加启动文件，CMSIS添加system_stm32f1xx.c文件，STM32F10xx_HAL_Driver添加需要的外设驱动文件，user添加用户文件。注意最后加入头文件路径。</p>
+<p>详情请参考野火hal库指南([10. 新建工程—库函数版 — <a target="_blank" rel="noopener" href="https://doc.embedfire.com/mcu/stm32/f103/hal_general/zh/latest/doc/chapter11/chapter11.html#id3">野火]STM32 HAL库开发实战指南——基于F103系列开发板 文档 (embedfire.com)</a>)。</p>
+<p><strong>使用CuBeMX</strong>（推荐）</p>
+<p>打开cubemx，选择第一个，如下图：</p>
+<p><img src="image-20240902181921326.png" alt="image-20240902181921326" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>之后选择型号，如下图：</p>
+<p><img src="image-20240902182357209.png" alt="image-20240902182357209" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>点开system core 选择GPIO,配置PB0,PB1,PB5为输出模式，如下图：</p>
+<p><img src="image-20240902182652931.png" alt="image-20240902182652931" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>配置每个gpio引脚相应参数</p>
+<p><img src="image-20240902182828165.png" alt="image-20240902182828165" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>时钟配置后面再说，先选择默认配置，配置Project Manager如下图:</p>
+<p><img src="image-20240902183340110.png" alt="image-20240902183340110" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="image-20240902183529053.png" alt="image-20240902183529053" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>之后点击generate code生成代码，在while中加入业务代码即可完成闪烁：</p>
+<p><img src="image-20240902191220118.png" alt="image-20240902191220118" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+
+</article>
+    
+    
+</div>
+<div id="post-next-prev" class="row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
+        <a href="/2024/09/01/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="/images/time-complex.jpg">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/%E7%AE%97%E6%B3%95/">
+                    算法
+                </a>
+            </div>
+            <h5>
+                <a href="/2024/09/01/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/" class="trm-anima-link">
+                    算法学习
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/09/01</li>
+                <li>10:33</li>
+                
+                    <li>2.1k</li>
+                
+                
+                    <li>9</li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+    <div class="trm-card trm-scroll-animation comment-container" data-scroll data-scroll-offset="50">
+    <div id="tcomment"></div>
+</div>
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation" data-scroll data-scroll-offset="50">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v5.4.2
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                主题 - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.0.3
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item">
+            博客已萌萌哒运行 <span id="since" class="trm-accent-color"></span> 天
+        </div>
+     
+
+    
+        <div class="trm-footer-item">
+            Hosted by <a href="https://github.com" rel="noopener" target="_blank">Github Pages</a>
+        </div>
+     
+</footer>
+
+<script>
+    function show_date_time () {
+        var BirthDay = new Date("03/10/2023 17:00:00");
+        var today = new Date();
+        var timeold = (today.getTime() - BirthDay.getTime());
+        var msPerDay = 24 * 60 * 60 * 1000
+        var day = Math.floor(timeold / msPerDay)
+        since.innerHTML = day
+    }
+    show_date_time()
+</script>
+ 
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            <div class="trm-fixed-container" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+          </div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+
+  </div>
+  <!-- app wrapper end -->
+
+  
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+        <script src="/js/plugins/typing.js?v=2.0.3"></script>
+    
+
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+
+            
+<script src="//cdn.jsdelivr.net/npm/twikoo@1.6.7/dist/twikoo.all.min.js" data-swup-reload-script data-reset="true"></script>
+
+            <script data-swup-reload-script>
+                twikoo.init({
+                    ...{"enable":true,"envId":"https://mockingjayforblog.zeabur.app"},
+                    el:'#tcomment'
+                }).then(function () {
+                    let container = document.querySelector('body>.tk-admin-container')
+                    if(container) container.remove()
+                    document.body.append(document.querySelector('.tk-admin-container'))
+                });;
+            </script>
+
+        
+    
+
+
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.0.3"></script>
+
+</body>
+
+</html>
