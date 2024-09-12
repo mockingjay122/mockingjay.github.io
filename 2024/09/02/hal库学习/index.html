@@ -33,8 +33,10 @@
 <meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
 <meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
 <meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
 <meta property="article:published_time" content="2024-09-02T02:33:13.000Z">
-<meta property="article:modified_time" content="2024-09-09T15:05:47.564Z">
+<meta property="article:modified_time" content="2024-09-11T15:13:52.872Z">
 <meta property="article:author" content="郭嘉">
 <meta property="article:tag" content="C">
 <meta property="article:tag" content="stm32">
@@ -86,7 +88,7 @@
 
 <!-- Variable -->
 <script>window.ASYNC_CONFIG = {"hostname":"mockingjayforblog.com.cn","author":"郭嘉","root":"/","typed_text":["普通的学生"],"theme_version":"2.0.3","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/favicon.svg","icon16":"/img/favicon.svg","icon32":"/img/favicon.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":false,"hidden":"/failure.ico","showText":"(/≧▽≦/)咦！又好了！","hideText":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false}};</script>
-<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-09-09 23:05:47"};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-09-11 23:13:52"};</script>
 
 <!-- Theme mode css -->
 <link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.0.3" id="trm-switch-style">
@@ -406,7 +408,7 @@
             </div>
             <div name="tabs-toc" class="trm-tabs-item active">
                 <div class="post-toc">
-    <ol class="toc"><li class="toc-item toc-level-1"><a rel="nofollow" class="toc-link" href="#hal库学习"  data-scroll-to="#hal库学习"><span class="toc-number">1.</span> <span class="toc-text">hal库学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#初识stm32（使用野火霸道v-2）"  data-scroll-to="#初识stm32（使用野火霸道v-2）"><span class="toc-number">1.1.</span> <span class="toc-text">初识stm32（使用野火霸道v-2）</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#寄存器编程"  data-scroll-to="#寄存器编程"><span class="toc-number">1.2.</span> <span class="toc-text">寄存器编程</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#GPIO"  data-scroll-to="#GPIO"><span class="toc-number">1.3.</span> <span class="toc-text">GPIO</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#寄存器驱动led"  data-scroll-to="#寄存器驱动led"><span class="toc-number">1.3.1.</span> <span class="toc-text">寄存器驱动led</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#固件库驱动LED"  data-scroll-to="#固件库驱动LED"><span class="toc-number">1.3.2.</span> <span class="toc-text">固件库驱动LED</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#hal固件库"  data-scroll-to="#hal固件库"><span class="toc-number">1.3.3.</span> <span class="toc-text">hal固件库</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#GPIO板级支持包"  data-scroll-to="#GPIO板级支持包"><span class="toc-number">1.3.4.</span> <span class="toc-text">GPIO板级支持包</span></a></li></ol></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#STM32程序的启动过程"  data-scroll-to="#STM32程序的启动过程"><span class="toc-number">1.4.</span> <span class="toc-text">STM32程序的启动过程</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#STM32复位和时钟控制"  data-scroll-to="#STM32复位和时钟控制"><span class="toc-number">1.5.</span> <span class="toc-text">STM32复位和时钟控制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#RCC"  data-scroll-to="#RCC"><span class="toc-number">1.5.1.</span> <span class="toc-text">RCC</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a rel="nofollow" class="toc-link" href="#hal库学习"  data-scroll-to="#hal库学习"><span class="toc-number">1.</span> <span class="toc-text">hal库学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#初识stm32（使用野火霸道v-2）"  data-scroll-to="#初识stm32（使用野火霸道v-2）"><span class="toc-number">1.1.</span> <span class="toc-text">初识stm32（使用野火霸道v-2）</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#寄存器编程"  data-scroll-to="#寄存器编程"><span class="toc-number">1.2.</span> <span class="toc-text">寄存器编程</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#GPIO"  data-scroll-to="#GPIO"><span class="toc-number">1.3.</span> <span class="toc-text">GPIO</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#寄存器驱动led"  data-scroll-to="#寄存器驱动led"><span class="toc-number">1.3.1.</span> <span class="toc-text">寄存器驱动led</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#固件库驱动LED"  data-scroll-to="#固件库驱动LED"><span class="toc-number">1.3.2.</span> <span class="toc-text">固件库驱动LED</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#hal固件库"  data-scroll-to="#hal固件库"><span class="toc-number">1.3.3.</span> <span class="toc-text">hal固件库</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#GPIO板级支持包"  data-scroll-to="#GPIO板级支持包"><span class="toc-number">1.3.4.</span> <span class="toc-text">GPIO板级支持包</span></a></li></ol></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#STM32程序的启动过程"  data-scroll-to="#STM32程序的启动过程"><span class="toc-number">1.4.</span> <span class="toc-text">STM32程序的启动过程</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#STM32复位和时钟控制"  data-scroll-to="#STM32复位和时钟控制"><span class="toc-number">1.5.</span> <span class="toc-text">STM32复位和时钟控制</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#中断概览"  data-scroll-to="#中断概览"><span class="toc-number">1.6.</span> <span class="toc-text">中断概览</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#exti外部中断控制器"  data-scroll-to="#exti外部中断控制器"><span class="toc-number">1.6.1.</span> <span class="toc-text">exti外部中断控制器</span></a></li></ol></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#SysTick定时器"  data-scroll-to="#SysTick定时器"><span class="toc-number">1.7.</span> <span class="toc-text">SysTick定时器</span></a></li></ol></li></ol>
 </div>
             </div>
         </div>
@@ -537,7 +539,8 @@
 <li>配置系统时钟</li>
 <li>调用C库函数_main初始化堆栈的工作，最终会跳转到我们自己编写的堆栈</li>
 </ul>
-<h2 id="STM32复位和时钟控制"><a href="#STM32复位和时钟控制" class="headerlink" title="STM32复位和时钟控制"></a>STM32复位和时钟控制</h2><h3 id="RCC"><a href="#RCC" class="headerlink" title="RCC"></a>RCC</h3><p><strong>stm32三种复位</strong></p>
+<h2 id="STM32复位和时钟控制"><a href="#STM32复位和时钟控制" class="headerlink" title="STM32复位和时钟控制"></a>STM32复位和时钟控制</h2><p><strong>RCC</strong></p>
+<p><strong>stm32三种复位</strong></p>
 <ul>
 <li>系统复位</li>
 <li>电源复位</li>
@@ -564,6 +567,46 @@
 <p><img src="image-20240909230013976.png" alt="image-20240909230013976" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <p><img src="image-20240909230443306.png" alt="image-20240909230443306" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <p>但是时钟选取越高，功耗也会更高。</p>
+<h2 id="中断概览"><a href="#中断概览" class="headerlink" title="中断概览"></a>中断概览</h2><p><strong>优先级</strong></p>
+<p>中断分为：可编程、不可编程</p>
+<p>小值优先原则，中断优先级数越小，中断会被优先响应</p>
+<p>中断优先级按照优先级分组配置</p>
+<p>以F103为例，可使用高4位bit，也就是16个优先级</p>
+<p><img src="image-20240910222451849.png" alt="image-20240910222443671" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>如果具有相同的抢占优先级，则子优先级高的先行，入还相同，则IRQ编号小的先行，故抢占优先级&gt;子优先级&gt;IRQ编号</p>
+<h3 id="exti外部中断控制器"><a href="#exti外部中断控制器" class="headerlink" title="exti外部中断控制器"></a><strong>exti外部中断控制器</strong></h3><p><img src="image-20240910224315601.png" alt="image-20240910224315601" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<ul>
+<li>编号1是输入线，EXTI 控制器有 19 个中断/事件输入线，这些输入线可以通过寄存器设置为任 意一个 GPIO，也可以是一些外设的事件，这部分内容我们将在后面专门讲解。输入线一般是存在电平变化的信号。</li>
+<li>编号2是一个边沿检测电路，它会根据上升沿触发选择寄存器 (EXTI_RTSR) 和下降沿触发选择 寄存器 (EXTI_FTSR) 对应位的设置来控制信号触发。边沿检测电路以输入线作为信号输入端，如 果检测到有边沿跳变就输出有效信号 1 给编号 3 电路，否则输出无效信号 0。</li>
+<li>编号 3 电路实际就是一个或门电路，它一个输入来自编号 2 电路，另外一个输入来自软件中断事 件寄存器 (EXTI_SWIER)。EXTI_SWIER 允许我们通过程序控制就可以启动中断/事件线（软件触发）</li>
+<li>编号 4 电路是一个与门电路，它一个输入是编号 3 电路，另外一个输入来自中断屏蔽寄存器 (EXTI_IMR)。与门电路要求输入都为 1 才输出 1，导致的结果是如果 EXTI_IMR 设置为 0 时，那 不管编号 3 电路的输出信号是 1 还是 0，最终编号 4 电路输出的信号都为 0；如果 EXTI_IMR 设置为 1 时，最终编号 4 电路输出的信号才由编号 3 电路的输出信号决定</li>
+<li>编号 5 是将 EXTI_PR 寄存器内容输出到 NVIC 内，从而实现系统中断事件控制。</li>
+<li>编号 7 是一个脉冲发生器电路，当它的输入端，即编号 6 电路的输出端，是一个有效信号 1 时就 会产生一个脉冲；如果输入端是无效信号就不会输出脉冲。</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">MX_GPIO_Init</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">  GPIO_InitTypeDef GPIO_InitStruct = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* GPIO Ports Clock Enable */</span></span><br><span class="line">  __HAL_RCC_GPIOF_CLK_ENABLE();</span><br><span class="line">  __HAL_RCC_GPIOA_CLK_ENABLE();</span><br><span class="line"></span><br><span class="line">  <span class="comment">/*Configure GPIO pin : PF2 */</span></span><br><span class="line">  GPIO_InitStruct.Pin = GPIO_PIN_2;</span><br><span class="line">  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;</span><br><span class="line">  GPIO_InitStruct.Pull = GPIO_NOPULL;</span><br><span class="line">  HAL_GPIO_Init(GPIOF, &amp;GPIO_InitStruct);</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* EXTI interrupt init*/</span></span><br><span class="line">  HAL_NVIC_SetPriority(EXTI2_IRQn, <span class="number">12</span>, <span class="number">0</span>);</span><br><span class="line">  HAL_NVIC_EnableIRQ(EXTI2_IRQn);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="SysTick定时器"><a href="#SysTick定时器" class="headerlink" title="SysTick定时器"></a><strong>SysTick定时器</strong></h2><p>计数宽度：24bit来存储数据，计数器工作模式向下递减，计数器的工作周期1/CLKSource。</p>
+<p>systick属于内核外设，最长用的功能则为计数。</p>
+<p><strong>工程讲解：</strong></p>
+<p>HAL_Delay()函数则通过systick实现。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * @brief  启动系统滴答定时器 SysTick</span></span><br><span class="line"><span class="comment">  * @param  无</span></span><br><span class="line"><span class="comment">  * @retval 无</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">SysTick_Init</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">/* SystemFrequency / 1000    1ms中断一次</span></span><br><span class="line"><span class="comment">	 * SystemFrequency / 100000	 10us中断一次</span></span><br><span class="line"><span class="comment">	 * SystemFrequency / 1000000 1us中断一次</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">if</span> (HAL_SYSTICK_Config(SystemCoreClock / <span class="number">100000</span>))</span><br><span class="line">	&#123; </span><br><span class="line">		<span class="comment">/* Capture error */</span> </span><br><span class="line">		<span class="keyword">while</span> (<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>此刻定时器以72Mhz的频率计算720次。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Delay_us</span><span class="params">(__IO u32 nTime)</span></span><br><span class="line">&#123; </span><br><span class="line">	TimingDelay = nTime;	</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(TimingDelay != <span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">TimingDelay_Decrement</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span> (TimingDelay != <span class="number">0x00</span>)</span><br><span class="line">	&#123; </span><br><span class="line">		TimingDelay--;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>没隔SystemFrequency / 100000产生一次中断进行递减</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">SysTick_Handler</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">  TimingDelay_Decrement();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
 
 </article>
     
@@ -604,10 +647,10 @@
                 <li>24/09/01</li>
                 <li>10:33</li>
                 
-                    <li>5k</li>
+                    <li>6.3k</li>
                 
                 
-                    <li>22</li>
+                    <li>27</li>
                 
             </ul>
         </div>
