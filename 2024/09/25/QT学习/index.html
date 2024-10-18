@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="QT学习C++基础命名空间自定义命名空间。 123456789101112131415#ifndef CIR_H#define CIR_Hnamespace Cir &amp;#123;const double PI &#x3D; 3.141592653;double areaOfCircle(double radius)&amp;#123;    return PI*radius*radius;&amp;#125;double">
+<meta property="og:type" content="article">
+<meta property="og:title" content="QT学习">
+<meta property="og:url" content="http://mockingjayforblog.com.cn/2024/09/25/QT%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="绿杉野屋">
+<meta property="og:description" content="QT学习C++基础命名空间自定义命名空间。 123456789101112131415#ifndef CIR_H#define CIR_Hnamespace Cir &amp;#123;const double PI &#x3D; 3.141592653;double areaOfCircle(double radius)&amp;#123;    return PI*radius*radius;&amp;#125;double">
+<meta property="og:locale">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="article:published_time" content="2024-09-25T14:25:08.000Z">
+<meta property="article:modified_time" content="2024-10-18T12:58:14.296Z">
+<meta property="article:author" content="郭嘉">
+<meta property="article:tag" content="c++">
+<meta property="article:tag" content="qt">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+
+    <meta name="keywords" content="QT">
+
+
+<title >QT学习</title>
+
+<!-- Favicon -->
+
+    <link href='/img/favicon.svg?v=2.0.3' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/favicon.svg?v=2.0.3' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"mockingjayforblog.com.cn","author":"郭嘉","root":"/","typed_text":["普通的学生"],"theme_version":"2.0.3","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/favicon.svg","icon16":"/img/favicon.svg","icon32":"/img/favicon.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":false,"hidden":"/failure.ico","showText":"(/≧▽≦/)咦！又好了！","hideText":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-10-18 20:58:14"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.0.3" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" data-scroll-container style="opacity: 0">
+          <div data-scroll-section id="content" class="trm-scroll-section">
+
+            <div class="locomotive-scroll__sticky-target" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none;"></div>
+
+            <!-- top bar -->
+            <header class="trm-top-bar" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/favicon.svg">
+    
+    
+        <div class="trm-logo-text">
+            绿杉<span>野屋</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    首页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/categories" target="">
+                    分类
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/tags" target="">
+                    标签
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/about" target="">
+                    关于
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner" data-scroll data-scroll-direction="vertical">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" data-scroll data-scroll-direction="vertical" data-scroll-speed="-3" src="/images/qt.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container" data-scroll data-scroll-direction="vertical" data-scroll-speed="0">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            不断学习，不断进步
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            QT学习
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        2024
+                                    </span
+                                ></li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <a href="#about-triger" data-scroll-to="#about-triger" data-scroll-offset="-130" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </a>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div id="page-sidebar" class="col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    
+
+<div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card" data-scroll data-scroll-repeat data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="60"> 
+    
+        <div class="trm-user-tabs" id="sidebar-tabs">
+           <div class="trm-tabs-nav trm-mb-40" id="trm-tabs-nav">
+                <div data-to="tabs-user" class="trm-tabs-nav-item">
+                    <i class="iconfont fas fa-user-alt"></i>
+                </div>
+                <div data-to="tabs-toc" class="trm-tabs-nav-item active">
+                    <i class="iconfont fas fa-th-list"></i>
+                </div>
+           </div>
+            <div name="tabs-user" class="trm-tabs-item">
+                <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/images/avatar.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        mockingjay
+    </h5>
+    
+        <div class="trm-label">
+            一个
+            <span class="trm-typed-text">
+                <!-- Words for theme.user.typedText -->
+            </span>
+        </div>
+    
+</div>
+<!-- card header end -->
+                <!-- sidebar social -->
+
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<div class="trm-social">
+    
+        <a href="https://gitee.com/gj2002298" title="gitee" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-gofore"></i>
+        </a>
+    
+        <a href="https://github.com/mockingjay122/" title="github" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-github"></i>
+        </a>
+    
+        <a href="https://www.instagram.com/mockingjay9866/" title="ins" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-instagram"></i>
+        </a>
+    
+</div>
+
+<!-- sidebar social end -->
+                <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                住宅:
+            </div>
+            <div class="trm-label trm-label-light">
+                内蒙古
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                年龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                22
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                工作:
+            </div>
+            <div class="trm-label trm-label-light">
+                物联网工程学生
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                小帖:
+            </div>
+            <div class="trm-label trm-label-light">
+                不断学习，不断进步
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+                
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:gj2002196@icloud.com" class="trm-btn">
+            联系我
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+            </div>
+            <div name="tabs-toc" class="trm-tabs-item active">
+                <div class="post-toc">
+    <ol class="toc"><li class="toc-item toc-level-1"><a rel="nofollow" class="toc-link" href="#QT学习"  data-scroll-to="#QT学习"><span class="toc-number">1.</span> <span class="toc-text">QT学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#C-基础"  data-scroll-to="#C-基础"><span class="toc-number">1.1.</span> <span class="toc-text">C++基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#命名空间"  data-scroll-to="#命名空间"><span class="toc-number">1.1.1.</span> <span class="toc-text">命名空间</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#Lambda"  data-scroll-to="#Lambda"><span class="toc-number">1.1.2.</span> <span class="toc-text">Lambda</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#类与对象"  data-scroll-to="#类与对象"><span class="toc-number">1.1.3.</span> <span class="toc-text">类与对象</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#引用"  data-scroll-to="#引用"><span class="toc-number">1.1.4.</span> <span class="toc-text">引用</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#函数重载"  data-scroll-to="#函数重载"><span class="toc-number">1.1.5.</span> <span class="toc-text">函数重载</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#运算符重载"  data-scroll-to="#运算符重载"><span class="toc-number">1.1.6.</span> <span class="toc-text">运算符重载</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#构造函数"  data-scroll-to="#构造函数"><span class="toc-number">1.1.7.</span> <span class="toc-text">构造函数</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#this关键字"  data-scroll-to="#this关键字"><span class="toc-number">1.1.8.</span> <span class="toc-text">this关键字</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#析构函数"  data-scroll-to="#析构函数"><span class="toc-number">1.1.9.</span> <span class="toc-text">析构函数</span></a></li></ol></li></ol></li></ol>
+</div>
+            </div>
+        </div>
+    
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div id="page-content" class="col-lg-8">
+                <div class="trm-content" id="trm-content">
+                    <div data-scroll data-scroll-repeat data-scroll-offset="500" id="about-triger"></div>
+
+                    <div id="post-info" class="row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            09/25
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            22:25
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            mockingjay
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <h1 id="QT学习"><a href="#QT学习" class="headerlink" title="QT学习"></a>QT学习</h1><h2 id="C-基础"><a href="#C-基础" class="headerlink" title="C++基础"></a>C++基础</h2><h3 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h3><p>自定义命名空间。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> CIR_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> CIR_H</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> Cir &#123;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">double</span> PI = <span class="number">3.141592653</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">areaOfCircle</span><span class="params">(<span class="type">double</span> radius)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> PI*radius*radius;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">lenthOfCircle</span><span class="params">(<span class="type">double</span> radius)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span>*PI*radius;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span> <span class="comment">// CIR_H</span></span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="comment">// 自定义命名空间</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;stdio.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;cir.h&quot;</span></span></span><br><span class="line"><span class="comment">// 命名空间</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">double</span> myRadius =<span class="number">5</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Hello World!&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;length:%lf ,area:%lf\n&quot;</span>,Cir::<span class="built_in">lenthOfCircle</span>(myRadius),Cir::<span class="built_in">areaOfCircle</span>(myRadius));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20240927232042194.png" alt="image-20240927232042194" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>法二：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="comment">// 自定义命名空间</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;stdio.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;cir.h&quot;</span></span></span><br><span class="line"><span class="comment">// 命名空间</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> Cir;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">double</span> myRadius =<span class="number">5</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Hello World!&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;length:%lf ,area:%lf\n&quot;</span>,<span class="built_in">lenthOfCircle</span>(myRadius),<span class="built_in">areaOfCircle</span>(myRadius));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Lambda"><a href="#Lambda" class="headerlink" title="Lambda"></a>Lambda</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">compare</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a&gt;b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 回调函数 函数指针可以自定义</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">getMax</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b,<span class="type">bool</span> (*pcompare)(<span class="type">int</span> a,<span class="type">int</span> b))</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">pcompare</span>(a,b))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> x =<span class="number">100</span>;</span><br><span class="line">    <span class="type">int</span>  y=<span class="number">10</span>;</span><br><span class="line">    <span class="type">int</span> res=<span class="built_in">add</span>(x,y);</span><br><span class="line">    cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// lambda 表达式</span></span><br><span class="line">    <span class="keyword">auto</span> add=[](<span class="type">int</span> a,<span class="type">int</span> b)-&gt;<span class="type">int</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a+b;</span><br><span class="line">    &#125;;</span><br><span class="line">    res=<span class="built_in">add</span>(<span class="number">10</span>,<span class="number">80</span>);</span><br><span class="line">    cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> max =<span class="built_in">getMax</span>(<span class="number">10</span>,<span class="number">20</span>,compare);</span><br><span class="line">    cout &lt;&lt; max &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> max1 =<span class="built_in">getMax</span>(<span class="number">10</span>,<span class="number">20</span>,    [](<span class="type">int</span> a,<span class="type">int</span> b)-&gt;<span class="type">bool</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a&gt;b;</span><br><span class="line">    &#125;);</span><br><span class="line">    cout &lt;&lt; max1 &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// **********************************************</span></span><br><span class="line"></span><br><span class="line">    x=<span class="number">10</span>;</span><br><span class="line">    y=<span class="number">20</span>;</span><br><span class="line">    <span class="type">int</span> z =<span class="number">20</span>;</span><br><span class="line">    <span class="comment">// 捕获参数列表 但不能修改变量值</span></span><br><span class="line">    <span class="keyword">auto</span> add1=[x,y]()-&gt;<span class="type">int</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x+y;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="type">int</span> ret =<span class="built_in">add1</span>();</span><br><span class="line">    cout &lt;&lt; ret &lt;&lt; endl;</span><br><span class="line">    <span class="comment">// 捕获所有参数列表 但不能修改变量值</span></span><br><span class="line">    <span class="keyword">auto</span> mul=[=]()-&gt;<span class="type">int</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x*y*z;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    ret =<span class="built_in">mul</span>();</span><br><span class="line">    cout &lt;&lt; ret &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 捕获所有参数列表 但可以修改变量值</span></span><br><span class="line">    <span class="keyword">auto</span> modifyMul=[&amp;]()-&gt;<span class="type">int</span>&#123;</span><br><span class="line">        x=<span class="number">15</span>;</span><br><span class="line">        <span class="keyword">return</span> x*y*z;</span><br><span class="line">    &#125;;</span><br><span class="line">    ret =<span class="built_in">modifyMul</span>();</span><br><span class="line">    cout &lt;&lt; ret &lt;&lt; endl;</span><br><span class="line">    cout&lt;&lt;x&lt;&lt;endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="类与对象"><a href="#类与对象" class="headerlink" title="类与对象"></a>类与对象</h3><p>案例需求：</p>
+<p>银行的账户是一个模板，是一个类，有存款人信息和账户额度，而具体的存款人视为一个对象， 一个对象不能私自修改账户额度，需要通过一个操作流程，比如去ATM或者柜台进行操作才能修改 到账户额度， 所以，存款人信息和账户额度设计成私有权限，通过公有的操作流程，也就是公有函数去操作私有 变量。 基于这个场景，我们编程实现代码</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">BankAccount</span>&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="comment">//存款人信息</span></span><br><span class="line">    string name;</span><br><span class="line">    string addr;</span><br><span class="line">    <span class="type">int</span> age;</span><br><span class="line">    <span class="type">double</span> balance;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">//方法</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">registerMes</span><span class="params">(string newName,string newAddr,<span class="type">int</span> age,<span class="type">double</span> balance)</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">withDraw</span><span class="params">(<span class="type">double</span> amount)</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">deposit</span><span class="params">(<span class="type">double</span> amount)</span></span>;</span><br><span class="line">    <span class="function"><span class="type">double</span> <span class="title">getBalance</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">printUserInfo</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">BankAccount::printUserInfo</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    string mesTem = <span class="string">&quot;账户名：&quot;</span> + name + <span class="string">&quot;，地址：&quot;</span> + addr +</span><br><span class="line">                    <span class="string">&quot;,年龄：&quot;</span>+ std::<span class="built_in">to_string</span>(age) + <span class="string">&quot;,存款：&quot;</span> + std::<span class="built_in">to_string</span>(balance);</span><br><span class="line">    cout &lt;&lt; mesTem &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">BankAccount::registerMes</span><span class="params">(string newName, string newAddr,<span class="type">int</span> newAge,<span class="type">double</span></span></span></span><br><span class="line"><span class="params"><span class="function">                                                                              newBalance)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    name = newName;</span><br><span class="line">    addr = newAddr;</span><br><span class="line">    age = newAge;</span><br><span class="line">    balance = newBalance;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 存款方法</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">BankAccount::deposit</span><span class="params">(<span class="type">double</span> amount)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (amount &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        balance += amount;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        cerr &lt;&lt; <span class="string">&quot;Deposit amount must be positive.&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 取款方法</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">BankAccount::withDraw</span><span class="params">(<span class="type">double</span> amount)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (amount &gt; balance) &#123;</span><br><span class="line">        cerr &lt;&lt; <span class="string">&quot;Insufficient funds.&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (amount &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">        cerr &lt;&lt; <span class="string">&quot;Withdrawal amount must be positive.&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        balance -= amount;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 获取当前余额的方法</span></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">BankAccount::getBalance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> balance;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    BankAccount user1;</span><br><span class="line">    user1.<span class="built_in">registerMes</span>(<span class="string">&quot;老陈&quot;</span>,<span class="string">&quot;深圳光明区&quot;</span>,<span class="number">35</span>,<span class="number">100</span>);</span><br><span class="line">    user1.<span class="built_in">printUserInfo</span>();</span><br><span class="line">    user1.<span class="built_in">deposit</span>(<span class="number">1000</span>);</span><br><span class="line">    cout &lt;&lt; user1.<span class="built_in">getBalance</span>() &lt;&lt; endl;</span><br><span class="line">    user1.<span class="built_in">withDraw</span>(<span class="number">30</span>);</span><br><span class="line">    cout &lt;&lt; user1.<span class="built_in">getBalance</span>() &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>引用与指针的区别：</p>
+<ul>
+<li>不存在空引用。引用必须连接到一块合法的内存。</li>
+<li> 一旦引用被初始化为一个对象，就不能被指向到另一个对象。指针可以在任何时候指向到另一个对象。</li>
+<li> 引用必须在创建时被初始化。指针可以在任何时间被初始化。 </li>
+<li>官方没有明确说明，但是引用确实不是传统意义上的独立变量，它不能“变”嘛</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 声明简单的变量</span></span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="type">double</span> d;</span><br><span class="line">    <span class="comment">// 声明引用变量</span></span><br><span class="line">    <span class="type">int</span>&amp; r = i;</span><br><span class="line">    <span class="type">double</span>&amp; s = d;</span><br><span class="line">    i = <span class="number">5</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Value of i : &quot;</span> &lt;&lt; i &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Value of i reference : &quot;</span> &lt;&lt; r &lt;&lt; endl;</span><br><span class="line">    d = <span class="number">11.7</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Value of d : &quot;</span> &lt;&lt; d &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Value of d reference : &quot;</span> &lt;&lt; s &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241011231704453.png" alt="image-20241011231704453" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><strong>引用作为返回值</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">double</span> vals[] = &#123;<span class="number">10.1</span>, <span class="number">12.6</span>, <span class="number">33.1</span>, <span class="number">24.1</span>, <span class="number">50.0</span>&#125;;</span><br><span class="line"><span class="function"><span class="type">double</span>&amp; <span class="title">setValues</span><span class="params">(<span class="type">int</span> i)</span> </span>&#123;</span><br><span class="line">    <span class="type">double</span>&amp; ref = vals[i];</span><br><span class="line">    <span class="keyword">return</span> ref; <span class="comment">// 返回第 i 个元素的引用，ref 是一个引用变量，ref 引用 vals[i]</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 要调用上面定义函数的主函数</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;改变前的值&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++ )</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;vals[&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot;] = &quot;</span>;</span><br><span class="line">        cout &lt;&lt; vals[i] &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">setValues</span>(<span class="number">1</span>) = <span class="number">20.23</span>; <span class="comment">// 改变第 2 个元素</span></span><br><span class="line">    <span class="built_in">setValues</span>(<span class="number">3</span>) = <span class="number">70.8</span>; <span class="comment">// 改变第 4 个元素</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;改变后的值&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++ )</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;vals[&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot;] = &quot;</span>;</span><br><span class="line">        cout &lt;&lt; vals[i] &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="函数重载"><a href="#函数重载" class="headerlink" title="函数重载"></a>函数重载</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">printData</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">int</span> i)</span> </span>&#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;整数为: &quot;</span> &lt;&lt; i &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">double</span> f)</span> </span>&#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;浮点数为: &quot;</span> &lt;&lt; f &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">char</span> c[])</span> </span>&#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;字符串为: &quot;</span> &lt;&lt; c &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    printData pd;</span><br><span class="line">    <span class="comment">// 输出整数</span></span><br><span class="line">    pd.<span class="built_in">print</span>(<span class="number">5</span>);</span><br><span class="line">    <span class="comment">// 输出浮点数</span></span><br><span class="line">    pd.<span class="built_in">print</span>(<span class="number">500.263</span>);</span><br><span class="line">    <span class="comment">// 输出字符串</span></span><br><span class="line">    <span class="type">char</span> c[] = <span class="string">&quot;Hello C++&quot;</span>;</span><br><span class="line">    pd.<span class="built_in">print</span>(c);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241013230750760.png" alt="image-20241013230750760" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    string name;</span><br><span class="line">    <span class="type">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="type">bool</span> <span class="keyword">operator</span>==(Person pTemp);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="type">bool</span> Person::<span class="keyword">operator</span>==(Person pTemp)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> pTemp.name==name&amp;&amp;pTemp.age==age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Person p1;</span><br><span class="line">    p1.name=<span class="string">&quot;zhangsan&quot;</span>;</span><br><span class="line">    p1.age=<span class="number">8</span>;</span><br><span class="line"></span><br><span class="line">    Person p2;</span><br><span class="line">    p2.name=<span class="string">&quot;zhangsan&quot;</span>;</span><br><span class="line">    p2.age=<span class="number">8</span>;</span><br><span class="line"></span><br><span class="line">    <span class="type">bool</span> ret = p1 ==p2;</span><br><span class="line">    cout &lt;&lt; ret &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><p>构造成员变量的初始化值，内存空间等</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Car</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    string brand; <span class="comment">// 不需要使用std::string</span></span><br><span class="line">    <span class="type">int</span> year;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 无参构造函数</span></span><br><span class="line">    <span class="built_in">Car</span>() &#123;</span><br><span class="line">        brand = <span class="string">&quot;未知&quot;</span>;</span><br><span class="line">        year = <span class="number">0</span>;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;无参构造函数被调用&quot;</span> &lt;&lt; endl; <span class="comment">// 不需要使用std::cout和std::endl</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 带参数的构造函数，使用常规的赋值方式</span></span><br><span class="line">    <span class="built_in">Car</span>(string b, <span class="type">int</span> y) &#123;</span><br><span class="line">        brand = b;</span><br><span class="line">        year = y;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">display</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Brand: &quot;</span> &lt;&lt; brand &lt;&lt; <span class="string">&quot;, Year: &quot;</span> &lt;&lt; year &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Car myCar; <span class="comment">// 创建Car对象</span></span><br><span class="line">    myCar.<span class="built_in">display</span>(); <span class="comment">// 显示车辆信息</span></span><br><span class="line">    <span class="function">Car <span class="title">myCar1</span><span class="params">(<span class="string">&quot;Toyota&quot;</span>, <span class="number">2020</span>)</span></span>; <span class="comment">// 使用带参数的构造函数创建Car对象</span></span><br><span class="line">    myCar1.<span class="built_in">display</span>(); <span class="comment">// 显示车辆信息</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>参数列表构造</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    string brand; <span class="comment">// 不需要使用std::string</span></span><br><span class="line">    <span class="type">int</span> year;</span><br><span class="line">    string type;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">Car</span>(string b ,<span class="type">int</span> y ,string t):<span class="built_in">brand</span>(b),<span class="built_in">type</span>(t),<span class="built_in">year</span>(y)&#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;参数列表构造&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="this关键字"><a href="#this关键字" class="headerlink" title="this关键字"></a>this关键字</h3><p>在 C++ 中， this 关键字是一个指向调用对象的指针。它在成员函数内部使用，用于引用调用该函数的 对象。使用 this 可以明确指出成员函数正在操作的是哪个对象的数据成员。下面是一个使用 Car 类来 展示 this 关键字用法的示例：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Car</span> &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    string brand;</span><br><span class="line">    <span class="type">int</span> year;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Car</span>(string brand, <span class="type">int</span> year) &#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;brand = brand;</span><br><span class="line">        <span class="keyword">this</span>-&gt;year = year;</span><br><span class="line">        <span class="comment">// cout &lt;&lt; &quot;构造函数中：&quot; &lt;&lt; endl;</span></span><br><span class="line">        <span class="comment">// cout &lt;&lt; this &lt;&lt; endl;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">display</span><span class="params">()</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Brand: &quot;</span> &lt;&lt; <span class="keyword">this</span>-&gt;brand &lt;&lt; <span class="string">&quot;, Year: &quot;</span> &lt;&lt; <span class="keyword">this</span>-&gt;year &lt;&lt; endl;</span><br><span class="line">        <span class="comment">// 也可以不使用 this-&gt;，直接写 brand 和 year</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">Car&amp; <span class="title">setYear</span><span class="params">(<span class="type">int</span> year)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;year = year; <span class="comment">// 更新年份</span></span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>; <span class="comment">// 返回调用对象的引用</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">Car <span class="title">car</span><span class="params">(<span class="string">&quot;宝马&quot;</span>,<span class="number">2024</span>)</span></span>;</span><br><span class="line">    car.<span class="built_in">display</span>();</span><br><span class="line">    <span class="comment">// 链式调用</span></span><br><span class="line">    car.<span class="built_in">setYear</span>(<span class="number">2023</span>).<span class="built_in">display</span>();</span><br><span class="line">    <span class="comment">// cout &lt;&lt; &quot;main函数中：&quot; &lt;&lt; endl;</span></span><br><span class="line">    <span class="comment">// cout &lt;&lt; &amp;car &lt;&lt; endl;</span></span><br><span class="line">    <span class="comment">// Car car2(&quot;宝马&quot;,2024);</span></span><br><span class="line">    <span class="comment">// cout &lt;&lt; &quot;main函数中：&quot; &lt;&lt; endl;</span></span><br><span class="line">    <span class="comment">// cout &lt;&lt; &amp;car2 &lt;&lt; endl;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h3><p>析构函数是C++中的一个特殊的成员函数，它在对象生命周期结束时被自动调用，用于执行对象销毁前的 清理工作。析构函数特别重要，尤其是在涉及动态分配的资源（如内存、文件句柄、网络连接等）的情况下。</p>
+
+</article>
+    
+    
+</div>
+<div id="post-next-prev" class="row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
+        <a href="/2024/10/03/hal%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="/images/hal_quick.jpg">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/%E7%A1%AC%E4%BB%B6/">
+                    硬件
+                </a>
+            </div>
+            <h5>
+                <a href="/2024/10/03/hal%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" class="trm-anima-link">
+                    hal快速入门
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/03</li>
+                <li>19:57</li>
+                
+                    <li>276</li>
+                
+                
+                    <li>1</li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
+        <a href="/2024/09/25/can%E6%80%BB%E7%BA%BF/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="/images/can.jpg">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/%E7%A1%AC%E4%BB%B6/">
+                    硬件
+                </a>
+            </div>
+            <h5>
+                <a href="/2024/09/25/can%E6%80%BB%E7%BA%BF/" class="trm-anima-link">
+                    can总线
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/09/25</li>
+                <li>21:23</li>
+                
+                    <li>2.4k</li>
+                
+                
+                    <li>8</li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+    <div class="trm-card trm-scroll-animation comment-container" data-scroll data-scroll-offset="50">
+    <div id="tcomment"></div>
+</div>
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation" data-scroll data-scroll-offset="50">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v5.4.2
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                主题 - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.0.3
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item">
+            博客已萌萌哒运行 <span id="since" class="trm-accent-color"></span> 天
+        </div>
+     
+
+    
+        <div class="trm-footer-item">
+            Hosted by <a href="https://github.com" rel="noopener" target="_blank">Github Pages</a>
+        </div>
+     
+</footer>
+
+<script>
+    function show_date_time () {
+        var BirthDay = new Date("03/10/2023 17:00:00");
+        var today = new Date();
+        var timeold = (today.getTime() - BirthDay.getTime());
+        var msPerDay = 24 * 60 * 60 * 1000
+        var day = Math.floor(timeold / msPerDay)
+        since.innerHTML = day
+    }
+    show_date_time()
+</script>
+ 
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            <div class="trm-fixed-container" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+          </div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+
+  </div>
+  <!-- app wrapper end -->
+
+  
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+        <script src="/js/plugins/typing.js?v=2.0.3"></script>
+    
+
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+
+            
+<script src="//cdn.jsdelivr.net/npm/twikoo@1.6.7/dist/twikoo.all.min.js" data-swup-reload-script data-reset="true"></script>
+
+            <script data-swup-reload-script>
+                twikoo.init({
+                    ...{"enable":true,"envId":"https://mockingjayforblog.zeabur.app"},
+                    el:'#tcomment'
+                }).then(function () {
+                    let container = document.querySelector('body>.tk-admin-container')
+                    if(container) container.remove()
+                    document.body.append(document.querySelector('.tk-admin-container'))
+                });;
+            </script>
+
+        
+    
+
+
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.0.3"></script>
+
+</body>
+
+</html>

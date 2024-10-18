@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="第二周（编程）搭建一个可以识别猫的简单的神经网络 库介绍：  numpy ：是用Python进行科学计算的基本软件包。 h5py：是与H5文件中存储的数据集进行交互的常用软件包。 matplotlib：是一个著名的库，用于在Python中绘制图表。  lr_utils 实现（加载数据集） 123456789101112131415def load_dataset():    train_datas">
+<meta property="og:type" content="article">
+<meta property="og:title" content="吴恩达深度学习作业汇总">
+<meta property="og:url" content="http://mockingjayforblog.com.cn/2024/10/18/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%BD%9C%E4%B8%9A%E6%B1%87%E6%80%BB/index.html">
+<meta property="og:site_name" content="绿杉野屋">
+<meta property="og:description" content="第二周（编程）搭建一个可以识别猫的简单的神经网络 库介绍：  numpy ：是用Python进行科学计算的基本软件包。 h5py：是与H5文件中存储的数据集进行交互的常用软件包。 matplotlib：是一个著名的库，用于在Python中绘制图表。  lr_utils 实现（加载数据集） 123456789101112131415def load_dataset():    train_datas">
+<meta property="og:locale">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="article:published_time" content="2024-10-18T11:48:35.000Z">
+<meta property="article:modified_time" content="2024-10-18T13:02:07.225Z">
+<meta property="article:author" content="郭嘉">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="numpy">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+
+    <meta name="keywords" content="深度学习">
+
+
+<title >吴恩达深度学习作业汇总</title>
+
+<!-- Favicon -->
+
+    <link href='/img/favicon.svg?v=2.0.3' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/favicon.svg?v=2.0.3' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"mockingjayforblog.com.cn","author":"郭嘉","root":"/","typed_text":["普通的学生"],"theme_version":"2.0.3","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/favicon.svg","icon16":"/img/favicon.svg","icon32":"/img/favicon.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":false,"hidden":"/failure.ico","showText":"(/≧▽≦/)咦！又好了！","hideText":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-10-18 21:02:07"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.0.3" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" data-scroll-container style="opacity: 0">
+          <div data-scroll-section id="content" class="trm-scroll-section">
+
+            <div class="locomotive-scroll__sticky-target" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none;"></div>
+
+            <!-- top bar -->
+            <header class="trm-top-bar" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/favicon.svg">
+    
+    
+        <div class="trm-logo-text">
+            绿杉<span>野屋</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    首页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/categories" target="">
+                    分类
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/tags" target="">
+                    标签
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/about" target="">
+                    关于
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner" data-scroll data-scroll-direction="vertical">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" data-scroll data-scroll-direction="vertical" data-scroll-speed="-3" src="/images/deeplearn.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container" data-scroll data-scroll-direction="vertical" data-scroll-speed="0">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            不断学习，不断进步
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            吴恩达深度学习作业汇总
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        2024
+                                    </span
+                                ></li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <a href="#about-triger" data-scroll-to="#about-triger" data-scroll-offset="-130" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </a>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div id="page-sidebar" class="col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    
+
+<div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card" data-scroll data-scroll-repeat data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="60"> 
+    
+        <div class="trm-user-tabs" id="sidebar-tabs">
+           <div class="trm-tabs-nav trm-mb-40" id="trm-tabs-nav">
+                <div data-to="tabs-user" class="trm-tabs-nav-item">
+                    <i class="iconfont fas fa-user-alt"></i>
+                </div>
+                <div data-to="tabs-toc" class="trm-tabs-nav-item active">
+                    <i class="iconfont fas fa-th-list"></i>
+                </div>
+           </div>
+            <div name="tabs-user" class="trm-tabs-item">
+                <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/images/avatar.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        mockingjay
+    </h5>
+    
+        <div class="trm-label">
+            一个
+            <span class="trm-typed-text">
+                <!-- Words for theme.user.typedText -->
+            </span>
+        </div>
+    
+</div>
+<!-- card header end -->
+                <!-- sidebar social -->
+
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<div class="trm-social">
+    
+        <a href="https://gitee.com/gj2002298" title="gitee" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-gofore"></i>
+        </a>
+    
+        <a href="https://github.com/mockingjay122/" title="github" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-github"></i>
+        </a>
+    
+        <a href="https://www.instagram.com/mockingjay9866/" title="ins" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-instagram"></i>
+        </a>
+    
+</div>
+
+<!-- sidebar social end -->
+                <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                住宅:
+            </div>
+            <div class="trm-label trm-label-light">
+                内蒙古
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                年龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                22
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                工作:
+            </div>
+            <div class="trm-label trm-label-light">
+                物联网工程学生
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                小帖:
+            </div>
+            <div class="trm-label trm-label-light">
+                不断学习，不断进步
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+                
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:gj2002196@icloud.com" class="trm-btn">
+            联系我
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+            </div>
+            <div name="tabs-toc" class="trm-tabs-item active">
+                <div class="post-toc">
+    <ol class="toc"><li class="toc-item toc-level-1"><a rel="nofollow" class="toc-link" href="#第二周（编程）"  data-scroll-to="#第二周（编程）"><span class="toc-number">1.</span> <span class="toc-text">第二周（编程）</span></a></li></ol>
+</div>
+            </div>
+        </div>
+    
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div id="page-content" class="col-lg-8">
+                <div class="trm-content" id="trm-content">
+                    <div data-scroll data-scroll-repeat data-scroll-offset="500" id="about-triger"></div>
+
+                    <div id="post-info" class="row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            10/18
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            19:48
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            mockingjay
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <h1 id="第二周（编程）"><a href="#第二周（编程）" class="headerlink" title="第二周（编程）"></a>第二周（编程）</h1><p><strong>搭建一个可以识别猫的简单的神经网络</strong></p>
+<p>库介绍：</p>
+<ul>
+<li>numpy ：是用Python进行科学计算的基本软件包。</li>
+<li>h5py：是与H5文件中存储的数据集进行交互的常用软件包。</li>
+<li>matplotlib：是一个著名的库，用于在Python中绘制图表。</li>
+</ul>
+<p><strong>lr_utils 实现</strong>（加载数据集）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">load_dataset</span>():</span><br><span class="line">    train_dataset = h5py.File(<span class="string">&#x27;datasets/train_catvnoncat.h5&#x27;</span>, <span class="string">&quot;r&quot;</span>)</span><br><span class="line">    train_set_x_orig = np.array(train_dataset[<span class="string">&quot;train_set_x&quot;</span>][:]) <span class="comment"># your train set features</span></span><br><span class="line">    train_set_y_orig = np.array(train_dataset[<span class="string">&quot;train_set_y&quot;</span>][:]) <span class="comment"># your rain set labels</span></span><br><span class="line"></span><br><span class="line">    test_dataset = h5py.File(<span class="string">&#x27;datasets/test_catvnoncat.h5&#x27;</span>, <span class="string">&quot;r&quot;</span>)</span><br><span class="line">    test_set_x_orig = np.array(test_dataset[<span class="string">&quot;test_set_x&quot;</span>][:]) <span class="comment"># your test set features</span></span><br><span class="line">    test_set_y_orig = np.array(test_dataset[<span class="string">&quot;test_set_y&quot;</span>][:]) <span class="comment"># your test set labels</span></span><br><span class="line"></span><br><span class="line">    classes = np.array(test_dataset[<span class="string">&quot;list_classes&quot;</span>][:]) <span class="comment"># the list of classes</span></span><br><span class="line">    </span><br><span class="line">    train_set_y_orig = train_set_y_orig.reshape((<span class="number">1</span>, train_set_y_orig.shape[<span class="number">0</span>]))</span><br><span class="line">    test_set_y_orig = test_set_y_orig.reshape((<span class="number">1</span>, test_set_y_orig.shape[<span class="number">0</span>]))</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> train_set_x_orig, train_set_y_orig, test_set_x_orig, test_set_y_orig, classes</span><br></pre></td></tr></table></figure>
+
+<p>其各值的含义:</p>
+<ul>
+<li>train_set_x_orig ：保存的是训练集里面的图像数据（本训练集有209张64x64的图像）。</li>
+<li>train_set_y_orig ：保存的是训练集的图像对应的分类值（【0 | 1】，0表示不是猫，1表示是猫）。</li>
+<li>test_set_x_orig ：保存的是测试集里面的图像数据（本训练集有50张64x64的图像）。</li>
+<li>test_set_y_orig ： 保存的是测试集的图像对应的分类值（【0 | 1】，0表示不是猫，1表示是猫）。</li>
+<li>classes ： 保存的是以bytes类型保存的两个字符串数据，数据为：[b’non-cat’ b’cat’]。</li>
+</ul>
+<p><img src="image-20241018201142283.png" alt="image-20241018201142283" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>现在加载一张图片展示一下</p>
+<p><img src="image-20241018201643108.png" alt="image-20241018201643108" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">train_set_x_orig, train_set_y_orig, test_set_x_orig, test_set_y_orig, classes = load_dataset()</span><br><span class="line">index = <span class="number">25</span></span><br><span class="line">plt.imshow(train_set_x_orig[index])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>也可以同时查看多张图片</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">train_set_x_orig, train_set_y_orig, test_set_x_orig, test_set_y_orig, classes = load_dataset()</span><br><span class="line">index = <span class="number">25</span></span><br><span class="line">plt.subplot(<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>)</span><br><span class="line">plt.imshow(train_set_x_orig[<span class="number">25</span>])</span><br><span class="line">plt.subplot(<span class="number">2</span>,<span class="number">3</span>,<span class="number">2</span>)</span><br><span class="line">plt.imshow(train_set_x_orig[<span class="number">1</span>])</span><br><span class="line">plt.subplot(<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>)</span><br><span class="line">plt.imshow(train_set_x_orig[<span class="number">2</span>])</span><br><span class="line">plt.subplot(<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">plt.imshow(train_set_x_orig[<span class="number">3</span>])</span><br><span class="line">plt.subplot(<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>)</span><br><span class="line">plt.imshow(train_set_x_orig[<span class="number">4</span>])</span><br><span class="line">plt.subplot(<span class="number">2</span>,<span class="number">3</span>,<span class="number">6</span>)</span><br><span class="line">plt.imshow(train_set_x_orig[<span class="number">5</span>])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241018202137930.png" alt="image-20241018202137930" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>打印图片和对应的标签，现在打印第一张图，看看第一张图是否为猫</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">train_set_x_orig, train_set_y_orig, test_set_x_orig, test_set_y_orig, classes = load_dataset()</span><br><span class="line">index = <span class="number">1</span></span><br><span class="line">plt.imshow(train_set_x_orig[index])</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"><span class="comment">#打印出当前的训练标签值</span></span><br><span class="line"><span class="comment">#使用np.squeeze的目的是压缩维度，【未压缩】train_set_y[:,index]的值为[1] , 【压缩后】np.squeeze(train_set_y[:,index])的值为1</span></span><br><span class="line"><span class="comment">#只有压缩后的值才能进行解码操作</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;y=&quot;</span> + <span class="built_in">str</span>(train_set_y_orig[:,index]) + <span class="string">&quot;, it&#x27;s a &quot;</span> + classes[np.squeeze(train_set_y_orig[:,index])].decode(<span class="string">&quot;utf-8&quot;</span>) + <span class="string">&quot; picture&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241018202502911.png" alt="image-20241018202502911" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>我们查看一下我们加载的图像数据集具体情况：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">m_train = train_set_y_orig.shape[<span class="number">1</span>] <span class="comment">#训练集里图片的数量。</span></span><br><span class="line">m_test = test_set_y_orig.shape[<span class="number">1</span>] <span class="comment">#测试集里图片的数量。</span></span><br><span class="line">num_px = train_set_x_orig.shape[<span class="number">1</span>] <span class="comment">#训练、测试集里面的图片的宽度和高度（均为64x64）。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#现在看一看我们加载的东西的具体情况</span></span><br><span class="line"><span class="built_in">print</span> (<span class="string">&quot;训练集的数量: m_train = &quot;</span> + <span class="built_in">str</span>(m_train))</span><br><span class="line"><span class="built_in">print</span> (<span class="string">&quot;测试集的数量 : m_test = &quot;</span> + <span class="built_in">str</span>(m_test))</span><br><span class="line"><span class="built_in">print</span> (<span class="string">&quot;每张图片的宽/高 : num_px = &quot;</span> + <span class="built_in">str</span>(num_px))</span><br><span class="line"><span class="built_in">print</span> (<span class="string">&quot;每张图片的大小 : (&quot;</span> + <span class="built_in">str</span>(num_px) + <span class="string">&quot;, &quot;</span> + <span class="built_in">str</span>(num_px) + <span class="string">&quot;, 3)&quot;</span>)</span><br><span class="line"><span class="built_in">print</span> (<span class="string">&quot;训练集_图片的维数 : &quot;</span> + <span class="built_in">str</span>(train_set_x_orig.shape))</span><br><span class="line"><span class="built_in">print</span> (<span class="string">&quot;训练集_标签的维数 : &quot;</span> + <span class="built_in">str</span>(train_set_y_orig.shape))</span><br><span class="line"><span class="built_in">print</span> (<span class="string">&quot;测试集_图片的维数: &quot;</span> + <span class="built_in">str</span>(test_set_x_orig.shape))</span><br><span class="line"><span class="built_in">print</span> (<span class="string">&quot;测试集_标签的维数: &quot;</span> + <span class="built_in">str</span>(test_set_y_orig.shape))</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241018202916384.png" alt="image-20241018202916384" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>为了方便，我们要把维度为（64，64，3）的numpy数组重新构造为（64 x 64 x 3，1）的数组，要乘以3的原因是每张图片是由64x64像素构成的，而每个像素点由（R，G，B）三原色构成的，所以要乘以3。在此之后，我们的训练和测试数据集是一个numpy数组，【每列代表一个平坦的图像】 ，应该有 12288（特征数量）行和 209（样本数量）列。</p>
+<p>当你想将形状（a，b，c，d）的矩阵X平铺成形状（b * c * d，a）的矩阵X_flatten时，可以使用以下代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#X_flatten = X.reshape(X.shape [0]，-1).T ＃X.T是X的转置</span></span><br><span class="line"><span class="comment">#将训练集的维度降低并转置。</span></span><br><span class="line">train_set_x_flatten  = train_set_x_orig.reshape(train_set_x_orig.shape[<span class="number">0</span>],-<span class="number">1</span>).T</span><br><span class="line"><span class="comment">#将测试集的维度降低并转置。</span></span><br><span class="line">test_set_x_flatten = test_set_x_orig.reshape(test_set_x_orig.shape[<span class="number">0</span>], -<span class="number">1</span>).T</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> (<span class="string">&quot;训练集降维最后的维度： &quot;</span> + <span class="built_in">str</span>(train_set_x_flatten.shape))</span><br><span class="line"><span class="built_in">print</span> (<span class="string">&quot;训练集_标签的维数 : &quot;</span> + <span class="built_in">str</span>(train_set_y_orig.shape))</span><br><span class="line"><span class="built_in">print</span> (<span class="string">&quot;测试集降维之后的维度: &quot;</span> + <span class="built_in">str</span>(test_set_x_flatten.shape))</span><br><span class="line"><span class="built_in">print</span> (<span class="string">&quot;测试集_标签的维数 : &quot;</span> + <span class="built_in">str</span>(test_set_y_orig.shape))</span><br></pre></td></tr></table></figure>
+
+<p>这一段意思是指把数组变为209行的矩阵（因为训练集里有209张图片），但是我懒得算列有多少，于是我就用-1告诉程序你帮我算，最后程序算出来时12288列，我再最后用一个T表示转置，这就变成了12288行，209列。测试集亦如此。</p>
+<p><img src="image-20241018203234237.png" alt="image-20241018203234237" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>为了表示彩色图像，必须为每个像素指定红色，绿色和蓝色通道（RGB），因此像素值实际上是从0到255范围内的三个数字的向量。机器学习中一个常见的预处理步骤是对数据集进行居中和标准化，这意味着可以减去每个示例中整个numpy数组的平均值，然后将每个示例除以整个numpy数组的标准偏差。但对于图片数据集，它更简单，更方便，几乎可以将数据集的每一行除以255（像素通道的最大值），因为在RGB中不存在比255大的数据，所以我们可以放心的除以255，让标准化的数据位于 [0,1] 之间，现在标准化我们的数据集：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">train_set_x = train_set_x_flatten / <span class="number">255</span></span><br><span class="line">test_set_x = test_set_x_flatten / <span class="number">255</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241018203457066.png" alt="image-20241018203457066" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>整理完数据进行神经网络构建：</p>
+<p><img src="image-20241018203551107.png" alt="image-20241018203551107" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>构建神经网络的步骤：</p>
+<ol>
+<li>定义模型结构（例如输入特征的数量）</li>
+<li>初始化模型的参数</li>
+<li>循环：<br>3.1 计算当前损失（正向传播）<br>3.2 计算当前梯度（反向传播）<br>3.3 更新参数（梯度下降）</li>
+</ol>
+<p>构建sigmoid函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 构建sigmoid</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sigmoid</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>/(<span class="number">1</span>+np.exp(-x))</span><br></pre></td></tr></table></figure>
+
+<p>初始化参数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">initialize_with_zeros</span>(<span class="params">dim</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        此函数为w创建一个维度为（dim，1）的0向量，并将b初始化为0。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        参数：</span></span><br><span class="line"><span class="string">            dim  - 我们想要的w矢量的大小（或者这种情况下的参数数量）</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        返回：</span></span><br><span class="line"><span class="string">            w  - 维度为（dim，1）的初始化向量。</span></span><br><span class="line"><span class="string">            b  - 初始化的标量（对应于偏差）</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    w = np.zeros(shape = (dim,<span class="number">1</span>))</span><br><span class="line">    b = <span class="number">0</span></span><br><span class="line">    <span class="comment">#使用断言来确保我要的数据是正确的</span></span><br><span class="line">    <span class="keyword">assert</span>(w.shape == (dim, <span class="number">1</span>)) <span class="comment">#w的维度是(dim,1)</span></span><br><span class="line">    <span class="keyword">assert</span>(<span class="built_in">isinstance</span>(b, <span class="built_in">float</span>) <span class="keyword">or</span> <span class="built_in">isinstance</span>(b, <span class="built_in">int</span>)) <span class="comment">#b的类型是float或者是int</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (w , b)</span><br></pre></td></tr></table></figure>
+
+<p>执行前向后向传播学习参数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">propagate</span>(<span class="params">w, b, X, Y</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    实现前向和后向传播的成本函数及其梯度。</span></span><br><span class="line"><span class="string">    参数：</span></span><br><span class="line"><span class="string">        w  - 权重，大小不等的数组（num_px * num_px * 3，1）</span></span><br><span class="line"><span class="string">        b  - 偏差，一个标量</span></span><br><span class="line"><span class="string">        X  - 矩阵类型为（num_px * num_px * 3，训练数量）</span></span><br><span class="line"><span class="string">        Y  - 真正的“标签”矢量（如果非猫则为0，如果是猫则为1），矩阵维度为(1,训练数据数量)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    返回：</span></span><br><span class="line"><span class="string">        cost- 逻辑回归的负对数似然成本</span></span><br><span class="line"><span class="string">        dw  - 相对于w的损失梯度，因此与w相同的形状</span></span><br><span class="line"><span class="string">        db  - 相对于b的损失梯度，因此与b的形状相同</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    m = X.shape[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">    <span class="comment">#正向传播</span></span><br><span class="line">    A = sigmoid(np.dot(w.T,X) + b) <span class="comment">#计算激活值，请参考公式2。</span></span><br><span class="line">    cost = (- <span class="number">1</span> / m) * np.<span class="built_in">sum</span>(Y * np.log(A) + (<span class="number">1</span> - Y) * (np.log(<span class="number">1</span> - A))) <span class="comment">#计算成本，请参考公式3和4。</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#反向传播</span></span><br><span class="line">    dw = (<span class="number">1</span> / m) * np.dot(X, (A - Y).T) <span class="comment">#请参考视频中的偏导公式。</span></span><br><span class="line">    db = (<span class="number">1</span> / m) * np.<span class="built_in">sum</span>(A - Y) <span class="comment">#请参考视频中的偏导公式。</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#使用断言确保我的数据是正确的</span></span><br><span class="line">    <span class="keyword">assert</span>(dw.shape == w.shape)</span><br><span class="line">    <span class="keyword">assert</span>(db.dtype == <span class="built_in">float</span>)</span><br><span class="line">    cost = np.squeeze(cost)</span><br><span class="line">    <span class="keyword">assert</span>(cost.shape == ())</span><br><span class="line"></span><br><span class="line">    <span class="comment">#创建一个字典，把dw和db保存起来。</span></span><br><span class="line">    grads = &#123;</span><br><span class="line">        <span class="string">&quot;dw&quot;</span>: dw,</span><br><span class="line">        <span class="string">&quot;db&quot;</span>: db</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (grads , cost)</span><br></pre></td></tr></table></figure>
+
+<p>梯度下降更新参数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">optimize</span>(<span class="params">w , b , X , Y , num_iterations , learning_rate , print_cost = <span class="literal">True</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    此函数通过运行梯度下降算法来优化w和b</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    参数：</span></span><br><span class="line"><span class="string">        w  - 权重，大小不等的数组（num_px * num_px * 3，1）</span></span><br><span class="line"><span class="string">        b  - 偏差，一个标量</span></span><br><span class="line"><span class="string">        X  - 维度为（num_px * num_px * 3，训练数据的数量）的数组。</span></span><br><span class="line"><span class="string">        Y  - 真正的“标签”矢量（如果非猫则为0，如果是猫则为1），矩阵维度为(1,训练数据的数量)</span></span><br><span class="line"><span class="string">        num_iterations  - 优化循环的迭代次数</span></span><br><span class="line"><span class="string">        learning_rate  - 梯度下降更新规则的学习率</span></span><br><span class="line"><span class="string">        print_cost  - 每100步打印一次损失值</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    返回：</span></span><br><span class="line"><span class="string">        params  - 包含权重w和偏差b的字典</span></span><br><span class="line"><span class="string">        grads  - 包含权重和偏差相对于成本函数的梯度的字典</span></span><br><span class="line"><span class="string">        成本 - 优化期间计算的所有成本列表，将用于绘制学习曲线。</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    提示：</span></span><br><span class="line"><span class="string">    我们需要写下两个步骤并遍历它们：</span></span><br><span class="line"><span class="string">        1）计算当前参数的成本和梯度，使用propagate（）。</span></span><br><span class="line"><span class="string">        2）使用w和b的梯度下降法则更新参数。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    costs = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(num_iterations):</span><br><span class="line"></span><br><span class="line">        grads, cost = propagate(w, b, X, Y)</span><br><span class="line"></span><br><span class="line">        dw = grads[<span class="string">&quot;dw&quot;</span>]</span><br><span class="line">        db = grads[<span class="string">&quot;db&quot;</span>]</span><br><span class="line"></span><br><span class="line">        w = w - learning_rate * dw</span><br><span class="line">        b = b - learning_rate * db</span><br><span class="line"></span><br><span class="line">        <span class="comment">#记录成本</span></span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">100</span> == <span class="number">0</span>:</span><br><span class="line">            costs.append(cost)</span><br><span class="line">        <span class="comment">#打印成本数据</span></span><br><span class="line">        <span class="keyword">if</span> (print_cost) <span class="keyword">and</span> (i % <span class="number">100</span> == <span class="number">0</span>):</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;迭代的次数: %i ， 误差值： %f&quot;</span> % (i,cost))</span><br><span class="line"></span><br><span class="line">    params  = &#123;</span><br><span class="line">        <span class="string">&quot;w&quot;</span> : w,</span><br><span class="line">        <span class="string">&quot;b&quot;</span> : b &#125;</span><br><span class="line">    grads = &#123;</span><br><span class="line">        <span class="string">&quot;dw&quot;</span>: dw,</span><br><span class="line">        <span class="string">&quot;db&quot;</span>: db &#125;</span><br><span class="line">    <span class="keyword">return</span> (params , grads , costs)</span><br></pre></td></tr></table></figure>
+
+<p>构建预测函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">predict</span>(<span class="params">w , b , X </span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    使用学习逻辑回归参数logistic （w，b）预测标签是0还是1，</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    参数：</span></span><br><span class="line"><span class="string">        w  - 权重，大小不等的数组（num_px * num_px * 3，1）</span></span><br><span class="line"><span class="string">        b  - 偏差，一个标量</span></span><br><span class="line"><span class="string">        X  - 维度为（num_px * num_px * 3，训练数据的数量）的数据</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    返回：</span></span><br><span class="line"><span class="string">        Y_prediction  - 包含X中所有图片的所有预测【0 | 1】的一个numpy数组（向量）</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    m  = X.shape[<span class="number">1</span>] <span class="comment">#图片的数量</span></span><br><span class="line">    Y_prediction = np.zeros((<span class="number">1</span>,m))</span><br><span class="line">    w = w.reshape(X.shape[<span class="number">0</span>],<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#计预测猫在图片中出现的概率</span></span><br><span class="line">    A = sigmoid(np.dot(w.T , X) + b)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(A.shape[<span class="number">1</span>]):</span><br><span class="line">        <span class="comment">#将概率a [0，i]转换为实际预测p [0，i]</span></span><br><span class="line">        Y_prediction[<span class="number">0</span>,i] = <span class="number">1</span> <span class="keyword">if</span> A[<span class="number">0</span>,i] &gt; <span class="number">0.5</span> <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">    <span class="comment">#使用断言</span></span><br><span class="line">    <span class="keyword">assert</span>(Y_prediction.shape == (<span class="number">1</span>,m))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> Y_prediction</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>就目前而言，我们基本上把所有的东西都做完了，现在我们要把这些函数统统整合到一个<code>model()</code>函数中，届时只需要调用一个<code>model()</code>就基本上完成所有的事了。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">model</span>(<span class="params">X_train , Y_train , X_test , Y_test , num_iterations = <span class="number">2000</span> , learning_rate = <span class="number">0.5</span> , print_cost = <span class="literal">True</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    通过调用之前实现的函数来构建逻辑回归模型</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    参数：</span></span><br><span class="line"><span class="string">        X_train  - numpy的数组,维度为（num_px * num_px * 3，m_train）的训练集</span></span><br><span class="line"><span class="string">        Y_train  - numpy的数组,维度为（1，m_train）（矢量）的训练标签集</span></span><br><span class="line"><span class="string">        X_test   - numpy的数组,维度为（num_px * num_px * 3，m_test）的测试集</span></span><br><span class="line"><span class="string">        Y_test   - numpy的数组,维度为（1，m_test）的（向量）的测试标签集</span></span><br><span class="line"><span class="string">        num_iterations  - 表示用于优化参数的迭代次数的超参数</span></span><br><span class="line"><span class="string">        learning_rate  - 表示optimize（）更新规则中使用的学习速率的超参数</span></span><br><span class="line"><span class="string">        print_cost  - 设置为true以每100次迭代打印成本</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    返回：</span></span><br><span class="line"><span class="string">        d  - 包含有关模型信息的字典。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    w , b = initialize_with_zeros(X_train.shape[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">    parameters , grads , costs = optimize(w , b , X_train , Y_train,num_iterations , learning_rate , print_cost)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#从字典“参数”中检索参数w和b</span></span><br><span class="line">    w , b = parameters[<span class="string">&quot;w&quot;</span>] , parameters[<span class="string">&quot;b&quot;</span>]</span><br><span class="line"></span><br><span class="line">    <span class="comment">#预测测试/训练集的例子</span></span><br><span class="line">    Y_prediction_test = predict(w , b, X_test)</span><br><span class="line">    Y_prediction_train = predict(w , b, X_train)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#打印训练后的准确性</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;训练集准确性：&quot;</span>  , <span class="built_in">format</span>(<span class="number">100</span> - np.mean(np.<span class="built_in">abs</span>(Y_prediction_train - Y_train)) * <span class="number">100</span>) ,<span class="string">&quot;%&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;测试集准确性：&quot;</span>  , <span class="built_in">format</span>(<span class="number">100</span> - np.mean(np.<span class="built_in">abs</span>(Y_prediction_test - Y_test)) * <span class="number">100</span>) ,<span class="string">&quot;%&quot;</span>)</span><br><span class="line"></span><br><span class="line">    d = &#123;</span><br><span class="line">        <span class="string">&quot;costs&quot;</span> : costs,</span><br><span class="line">        <span class="string">&quot;Y_prediction_test&quot;</span> : Y_prediction_test,</span><br><span class="line">        <span class="string">&quot;Y_prediciton_train&quot;</span> : Y_prediction_train,</span><br><span class="line">        <span class="string">&quot;w&quot;</span> : w,</span><br><span class="line">        <span class="string">&quot;b&quot;</span> : b,</span><br><span class="line">        <span class="string">&quot;learning_rate&quot;</span> : learning_rate,</span><br><span class="line">        <span class="string">&quot;num_iterations&quot;</span> : num_iterations &#125;</span><br><span class="line">    <span class="keyword">return</span> d</span><br></pre></td></tr></table></figure>
+
+<p>测试model</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;====================测试model====================&quot;</span>)     </span><br><span class="line">d = model(train_set_x, train_set_y_orig, test_set_x, test_set_y_orig, num_iterations = <span class="number">2000</span>, learning_rate = <span class="number">0.005</span>, print_cost = <span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241018205356031.png" alt="image-20241018205356031" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+
+</article>
+    
+    
+</div>
+<div id="post-next-prev" class="row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
+        <a href="/2024/10/09/iotdb/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="/images/iotdb.jpg">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                    数据库
+                </a>
+            </div>
+            <h5>
+                <a href="/2024/10/09/iotdb/" class="trm-anima-link">
+                    iotdb
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/09</li>
+                <li>19:00</li>
+                
+                    <li>5.6k</li>
+                
+                
+                    <li>25</li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+    <div class="trm-card trm-scroll-animation comment-container" data-scroll data-scroll-offset="50">
+    <div id="tcomment"></div>
+</div>
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation" data-scroll data-scroll-offset="50">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v5.4.2
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                主题 - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.0.3
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item">
+            博客已萌萌哒运行 <span id="since" class="trm-accent-color"></span> 天
+        </div>
+     
+
+    
+        <div class="trm-footer-item">
+            Hosted by <a href="https://github.com" rel="noopener" target="_blank">Github Pages</a>
+        </div>
+     
+</footer>
+
+<script>
+    function show_date_time () {
+        var BirthDay = new Date("03/10/2023 17:00:00");
+        var today = new Date();
+        var timeold = (today.getTime() - BirthDay.getTime());
+        var msPerDay = 24 * 60 * 60 * 1000
+        var day = Math.floor(timeold / msPerDay)
+        since.innerHTML = day
+    }
+    show_date_time()
+</script>
+ 
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            <div class="trm-fixed-container" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+          </div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+
+  </div>
+  <!-- app wrapper end -->
+
+  
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+        <script src="/js/plugins/typing.js?v=2.0.3"></script>
+    
+
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+
+            
+<script src="//cdn.jsdelivr.net/npm/twikoo@1.6.7/dist/twikoo.all.min.js" data-swup-reload-script data-reset="true"></script>
+
+            <script data-swup-reload-script>
+                twikoo.init({
+                    ...{"enable":true,"envId":"https://mockingjayforblog.zeabur.app"},
+                    el:'#tcomment'
+                }).then(function () {
+                    let container = document.querySelector('body>.tk-admin-container')
+                    if(container) container.remove()
+                    document.body.append(document.querySelector('.tk-admin-container'))
+                });;
+            </script>
+
+        
+    
+
+
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.0.3"></script>
+
+</body>
+
+</html>

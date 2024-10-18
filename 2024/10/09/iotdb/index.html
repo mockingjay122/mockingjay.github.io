@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="IOTDB安装windows发行版本 | IoTDB Website (apache.org)进行下载 检查java环境  简单打开方式  打开成功  命令行启动  关闭 1stop-standalone.bat  启动客户端   12&#x2F;&#x2F; 退出exit  linux  进行解压  启动  通过jps命令查看是否启动  启动客户端  关闭两种方法  kill 进程号 官方的关闭脚本  资源配置 设">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iotdb">
+<meta property="og:url" content="http://mockingjayforblog.com.cn/2024/10/09/iotdb/index.html">
+<meta property="og:site_name" content="绿杉野屋">
+<meta property="og:description" content="IOTDB安装windows发行版本 | IoTDB Website (apache.org)进行下载 检查java环境  简单打开方式  打开成功  命令行启动  关闭 1stop-standalone.bat  启动客户端   12&#x2F;&#x2F; 退出exit  linux  进行解压  启动  通过jps命令查看是否启动  启动客户端  关闭两种方法  kill 进程号 官方的关闭脚本  资源配置 设">
+<meta property="og:locale">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="article:published_time" content="2024-10-09T11:00:51.000Z">
+<meta property="article:modified_time" content="2024-10-18T13:04:22.933Z">
+<meta property="article:author" content="郭嘉">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="iotdb">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+
+    <meta name="keywords" content="数据库">
+
+
+<title >iotdb</title>
+
+<!-- Favicon -->
+
+    <link href='/img/favicon.svg?v=2.0.3' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/favicon.svg?v=2.0.3' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"mockingjayforblog.com.cn","author":"郭嘉","root":"/","typed_text":["普通的学生"],"theme_version":"2.0.3","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/favicon.svg","icon16":"/img/favicon.svg","icon32":"/img/favicon.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":false,"hidden":"/failure.ico","showText":"(/≧▽≦/)咦！又好了！","hideText":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-10-18 21:04:22"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.0.3" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" data-scroll-container style="opacity: 0">
+          <div data-scroll-section id="content" class="trm-scroll-section">
+
+            <div class="locomotive-scroll__sticky-target" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none;"></div>
+
+            <!-- top bar -->
+            <header class="trm-top-bar" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/favicon.svg">
+    
+    
+        <div class="trm-logo-text">
+            绿杉<span>野屋</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    首页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/categories" target="">
+                    分类
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/tags" target="">
+                    标签
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/about" target="">
+                    关于
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner" data-scroll data-scroll-direction="vertical">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" data-scroll data-scroll-direction="vertical" data-scroll-speed="-3" src="/images/iotdb.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container" data-scroll data-scroll-direction="vertical" data-scroll-speed="0">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            不断学习，不断进步
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            iotdb
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        2024
+                                    </span
+                                ></li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <a href="#about-triger" data-scroll-to="#about-triger" data-scroll-offset="-130" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </a>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div id="page-sidebar" class="col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    
+
+<div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card" data-scroll data-scroll-repeat data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="60"> 
+    
+        <div class="trm-user-tabs" id="sidebar-tabs">
+           <div class="trm-tabs-nav trm-mb-40" id="trm-tabs-nav">
+                <div data-to="tabs-user" class="trm-tabs-nav-item">
+                    <i class="iconfont fas fa-user-alt"></i>
+                </div>
+                <div data-to="tabs-toc" class="trm-tabs-nav-item active">
+                    <i class="iconfont fas fa-th-list"></i>
+                </div>
+           </div>
+            <div name="tabs-user" class="trm-tabs-item">
+                <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/images/avatar.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        mockingjay
+    </h5>
+    
+        <div class="trm-label">
+            一个
+            <span class="trm-typed-text">
+                <!-- Words for theme.user.typedText -->
+            </span>
+        </div>
+    
+</div>
+<!-- card header end -->
+                <!-- sidebar social -->
+
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<div class="trm-social">
+    
+        <a href="https://gitee.com/gj2002298" title="gitee" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-gofore"></i>
+        </a>
+    
+        <a href="https://github.com/mockingjay122/" title="github" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-github"></i>
+        </a>
+    
+        <a href="https://www.instagram.com/mockingjay9866/" title="ins" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-instagram"></i>
+        </a>
+    
+</div>
+
+<!-- sidebar social end -->
+                <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                住宅:
+            </div>
+            <div class="trm-label trm-label-light">
+                内蒙古
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                年龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                22
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                工作:
+            </div>
+            <div class="trm-label trm-label-light">
+                物联网工程学生
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                小帖:
+            </div>
+            <div class="trm-label trm-label-light">
+                不断学习，不断进步
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+                
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:gj2002196@icloud.com" class="trm-btn">
+            联系我
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+            </div>
+            <div name="tabs-toc" class="trm-tabs-item active">
+                <div class="post-toc">
+    <ol class="toc"><li class="toc-item toc-level-1"><a rel="nofollow" class="toc-link" href="#IOTDB"  data-scroll-to="#IOTDB"><span class="toc-number">1.</span> <span class="toc-text">IOTDB</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#安装"  data-scroll-to="#安装"><span class="toc-number">1.1.</span> <span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#windows"  data-scroll-to="#windows"><span class="toc-number">1.1.1.</span> <span class="toc-text">windows</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#linux"  data-scroll-to="#linux"><span class="toc-number">1.1.2.</span> <span class="toc-text">linux</span></a></li></ol></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#快速上手案例"  data-scroll-to="#快速上手案例"><span class="toc-number">1.2.</span> <span class="toc-text">快速上手案例</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#集群安装"  data-scroll-to="#集群安装"><span class="toc-number">1.3.</span> <span class="toc-text">集群安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#集群启动"  data-scroll-to="#集群启动"><span class="toc-number">1.3.1.</span> <span class="toc-text">集群启动</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#集群删除节点"  data-scroll-to="#集群删除节点"><span class="toc-number">1.3.2.</span> <span class="toc-text">集群删除节点</span></a></li></ol></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#数据模型"  data-scroll-to="#数据模型"><span class="toc-number">1.4.</span> <span class="toc-text">数据模型</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#数据建模"  data-scroll-to="#数据建模"><span class="toc-number">1.5.</span> <span class="toc-text">数据建模</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#基本概念"  data-scroll-to="#基本概念"><span class="toc-number">1.6.</span> <span class="toc-text">基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#数据库database"  data-scroll-to="#数据库database"><span class="toc-number">1.6.1.</span> <span class="toc-text">数据库database</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#设备-Device"  data-scroll-to="#设备-Device"><span class="toc-number">1.6.2.</span> <span class="toc-text">设备 Device</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#物理量Measurement（叶子结点）"  data-scroll-to="#物理量Measurement（叶子结点）"><span class="toc-number">1.6.3.</span> <span class="toc-text">物理量Measurement（叶子结点）</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#时间序列（Timeseries）（该数据结点在当前时间戳下的集合）"  data-scroll-to="#时间序列（Timeseries）（该数据结点在当前时间戳下的集合）"><span class="toc-number">1.6.4.</span> <span class="toc-text">时间序列（Timeseries）（该数据结点在当前时间戳下的集合）</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#对齐时间序列（Aligned-Timeseries）"  data-scroll-to="#对齐时间序列（Aligned-Timeseries）"><span class="toc-number">1.6.5.</span> <span class="toc-text">对齐时间序列（Aligned Timeseries）</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#基本数据类型"  data-scroll-to="#基本数据类型"><span class="toc-number">1.6.6.</span> <span class="toc-text">基本数据类型</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#编码和压缩"  data-scroll-to="#编码和压缩"><span class="toc-number">1.6.7.</span> <span class="toc-text">编码和压缩</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a rel="nofollow" class="toc-link" href="#iotdb支持的编码格式（了解）"  data-scroll-to="#iotdb支持的编码格式（了解）"><span class="toc-number">1.6.7.1.</span> <span class="toc-text">iotdb支持的编码格式（了解）</span></a></li><li class="toc-item toc-level-4"><a rel="nofollow" class="toc-link" href="#iotdb支持的压缩模式（了解）（主要因为对压缩底层算法不了解）"  data-scroll-to="#iotdb支持的压缩模式（了解）（主要因为对压缩底层算法不了解）"><span class="toc-number">1.6.7.2.</span> <span class="toc-text">iotdb支持的压缩模式（了解）（主要因为对压缩底层算法不了解）</span></a></li><li class="toc-item toc-level-4"><a rel="nofollow" class="toc-link" href="#数据分区"  data-scroll-to="#数据分区"><span class="toc-number">1.6.7.3.</span> <span class="toc-text">数据分区</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#数据定义语言DDL"  data-scroll-to="#数据定义语言DDL"><span class="toc-number">1.7.</span> <span class="toc-text">数据定义语言DDL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#场景引入"  data-scroll-to="#场景引入"><span class="toc-number">1.7.1.</span> <span class="toc-text">场景引入</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#时间序列操作"  data-scroll-to="#时间序列操作"><span class="toc-number">1.7.2.</span> <span class="toc-text">时间序列操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#数据操作语言DML"  data-scroll-to="#数据操作语言DML"><span class="toc-number">1.8.</span> <span class="toc-text">数据操作语言DML</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#数据写入-insert"  data-scroll-to="#数据写入-insert"><span class="toc-number">1.8.1.</span> <span class="toc-text">数据写入 insert</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#查询数据select"  data-scroll-to="#查询数据select"><span class="toc-number">1.8.2.</span> <span class="toc-text">查询数据select</span></a></li><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#聚合查询，类似关系数据库的group-by"  data-scroll-to="#聚合查询，类似关系数据库的group-by"><span class="toc-number">1.8.3.</span> <span class="toc-text">聚合查询，类似关系数据库的group by</span></a></li></ol></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#java操纵iotdb"  data-scroll-to="#java操纵iotdb"><span class="toc-number">1.9.</span> <span class="toc-text">java操纵iotdb</span></a></li></ol></li></ol>
+</div>
+            </div>
+        </div>
+    
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div id="page-content" class="col-lg-8">
+                <div class="trm-content" id="trm-content">
+                    <div data-scroll data-scroll-repeat data-scroll-offset="500" id="about-triger"></div>
+
+                    <div id="post-info" class="row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            10/09
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            19:00
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            mockingjay
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <h1 id="IOTDB"><a href="#IOTDB" class="headerlink" title="IOTDB"></a>IOTDB</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h3><p><a target="_blank" rel="noopener" href="https://iotdb.apache.org/zh/Download/">发行版本 | IoTDB Website (apache.org)</a>进行下载</p>
+<p>检查java环境</p>
+<p><img src="image-20241009205215370.png" alt="image-20241009205215370" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>简单打开方式</p>
+<p><img src="image-20241009205516203.png" alt="image-20241009205516203" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>打开成功</p>
+<p><img src="image-20241009205604143.png" alt="image-20241009205604143" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>命令行启动</p>
+<p><img src="image-20241009205738634.png" alt="image-20241009205738634" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>关闭</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stop-standalone.bat</span><br></pre></td></tr></table></figure>
+
+<p>启动客户端</p>
+<p><img src="image-20241009210110390.png" alt="image-20241009210110390" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="image-20241009210144520.png" alt="image-20241009210144520" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">/</span><span class="operator">/</span> 退出</span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
+
+<h3 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h3><p><img src="image-20241009211858104.png" alt="image-20241009211858104" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="image-20241009211835532.png" alt="image-20241009211835532" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>进行解压</p>
+<p><img src="image-20241009212140368.png" alt="image-20241009212140368" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>启动</p>
+<p><img src="image-20241009212312916.png" alt="image-20241009212312916" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>通过jps命令查看是否启动</p>
+<p><img src="image-20241009212405559.png" alt="image-20241009212405559" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>启动客户端</p>
+<p><img src="image-20241009212527623.png" alt="image-20241009212527623" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>关闭两种方法</p>
+<ul>
+<li>kill 进程号</li>
+<li>官方的关闭脚本</li>
+</ul>
+<p>资源配置</p>
+<p>设置系统最大打开文件数为 65535，以避免出现 “太多的打开文件 “的错误。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看当前限制</span></span><br><span class="line">ulimit -n</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">临时修改</span></span><br><span class="line">ulimit -n 65535</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">永久修改</span></span><br><span class="line">echo &quot;* soft nofile 65535&quot; &gt;&gt;  /etc/security/limits.conf</span><br><span class="line">echo &quot;* hard nofile 65535&quot; &gt;&gt;  /etc/security/limits.conf</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">退出当前终端会话后查看，预期显示65535</span></span><br><span class="line">ulimit -n</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241009213141390.png" alt="image-20241009213141390" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>修改ip，端口号，可让windows去访问linux上的iotdb</p>
+<p>修改iotdb-datanode.properties</p>
+<p>更换ip地址为本机的固定ip，记得关闭防火墙，但实际开发需配置规则而不是关闭防火墙</p>
+<p><img src="image-20241009214117246.png" alt="image-20241009214117246" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>远程连接成功</p>
+<p><img src="image-20241009214620329.png" alt="image-20241009214620329" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="快速上手案例"><a href="#快速上手案例" class="headerlink" title="快速上手案例"></a>快速上手案例</h2><p>大部分应用场景都是已如下树状结构进行抽象及构造</p>
+<p><img src="image-20241009215304778.png" alt="image-20241009215304778" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>进行建模</p>
+<p>创建数据库</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> database root.yaozaifactory</span><br><span class="line"><span class="keyword">show</span> databases</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241010144807657.png" alt="image-20241010144807657" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>（为什么加root，因为结构为树状，工厂上方还有一个root根节点）</p>
+<p>创建成功后，创建时间序列，名称则为从工厂一直向下命名确定每个传感器的起点</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> timeseries root.yaozaifactory.chejian1.oven.temp <span class="keyword">double</span></span><br><span class="line"><span class="keyword">create</span> timeseries root.yaozaifactory.chejian1.oven.humidity <span class="keyword">double</span></span><br><span class="line"><span class="keyword">create</span> timeseries root.yaozaifactory.chejian1.pool.ph <span class="keyword">double</span></span><br><span class="line"><span class="keyword">create</span> timeseries root.yaozaifactory.chejian1.pool.temp <span class="keyword">double</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241010145431247.png" alt="image-20241010145431247" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>每个时间序列为空，现在向时间序列插入数据</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> root.yaozaifactory.chejian1.oven (<span class="type">timestamp</span>,temp) <span class="keyword">values</span>(<span class="number">100</span>,<span class="number">15.1</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> root.yaozaifactory.chejian1.oven (<span class="type">timestamp</span>,temp) <span class="keyword">values</span>(<span class="number">101</span>,<span class="number">18.2</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> root.yaozaifactory.chejian1.pool (<span class="type">timestamp</span>,ph,temp) <span class="keyword">values</span>(<span class="number">102</span>,<span class="number">7</span>,<span class="number">35.5</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> root.yaozaifactory.chejian1.pool(<span class="type">timestamp</span>,ph,temp)<span class="keyword">values</span>(<span class="number">2024</span><span class="number">-09</span><span class="number">-12</span> <span class="number">08</span>:<span class="number">00</span>:<span class="number">00</span>,<span class="number">7</span>,<span class="number">35.5</span>);</span><br></pre></td></tr></table></figure>
+
+<p>long类型表现的时间戳为1970年1月1日00:00:00以来的毫秒数，100则为这个时间加100ms</p>
+<p>命名类型，前面随便，最后两个分别为设备和传感器（测点）</p>
+<p>插入后进行查询：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> root.yaozaifactory.chejian1.oven</span><br><span class="line"><span class="keyword">select</span> ph,temp <span class="keyword">from</span> root.yaozaifactory.chejian1.pool</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241010150502882.png" alt="image-20241010150502882" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="集群安装"><a href="#集群安装" class="headerlink" title="集群安装"></a>集群安装</h2><p><img src="image-20241010150624606.png" alt="image-20241010150624606" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>集群由3个confignode和3个datanode组成（经典3C3D集群,相比于1C多D的情况，3C3D不会因为一个config节点宕机而出现data节点之间不可用的情况，C只能为奇数个，否则无法选举出leader），前面单个启动只启动一个confignode和一个datanode</p>
+<ul>
+<li><p>DataNode 进程负责管理时序数据分片 DataRegion 和时序元数据分片 SchemaRegion（海量数据存储）。</p>
+</li>
+<li><p>ConfigNode 进程负责管理分区信息等系统数据分片 ConfigRegion，并作为整个集群的大脑中枢对DataRegion 和 SchemaRegion 分片进行分配和调度。</p>
+</li>
+</ul>
+<p>现在已经启动了3个虚拟机，分别命名为1，2，3，如下所示</p>
+<p><img src="image-20241011165948028.png" alt="image-20241011165948028" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><strong>对1号机进行如下修改，1号机作为种子节点</strong>(所有的ConfigNode通过该cn_seed_config_node加入集群)：</p>
+<p><strong>补充：</strong></p>
+<ul>
+<li>引导新加入的节点进入IoTDB集群:<ul>
+<li>种子节点为新加入的节点提供集群信息,帮助它们快速发现和加入集群。</li>
+</ul>
+</li>
+<li>维护集群元数据:<ul>
+<li>种子节点负责维护集群的元数据信息,如集群拓扑结构、节点列表等,为其他节点提供元数据查询。</li>
+</ul>
+</li>
+<li>协调集群内部通信:<ul>
+<li>种子节点负责协调集群内部各节点之间的通信,确保集群内部数据、元数据的一致性。</li>
+</ul>
+</li>
+<li>负载均衡:<ul>
+<li>种子节点会根据集群负载情况,动态调整数据分布和任务分配,实现集群资源的合理利用。</li>
+</ul>
+</li>
+<li>故障切换:<ul>
+<li>当主种子节点出现故障时,备用种子节点可以快速接管,确保集群的高可用性。</li>
+</ul>
+</li>
+</ul>
+<p>对iotdb-confignode.properties进行修改：</p>
+<p><img src="image-20241011171250709.png" alt="image-20241011171250709" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>对iotdb-datanode.properties进行修改：</p>
+<p><img src="image-20241011171728766.png" alt="image-20241011171728766" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="image-20241011171754818.png" alt="image-20241011171754818" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>2,3号机进行类似的修改，种子结点修改为1号机的ip地址</p>
+<h3 id="集群启动"><a href="#集群启动" class="headerlink" title="集群启动"></a>集群启动</h3><p>启动顺序</p>
+<ul>
+<li>启动种子 ConfigNode</li>
+<li>增加 ConfigNode（可选）</li>
+<li>增加 DataNode</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./sbin/start-confignode.sh</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241011174328944.png" alt="image-20241011174328944" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>启动2号confignode</p>
+<p><img src="image-20241011174706937.png" alt="image-20241011174706937" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="image-20241011174448797.png" alt="image-20241011174448797" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>启动3号confignode</p>
+<p><img src="image-20241011174740552.png" alt="image-20241011174740552" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="image-20241011174542668.png" alt="image-20241011174542668" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>启动1号机datanode</p>
+<p><img src="image-20241011174856895.png" alt="image-20241011174856895" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>windows使用cli客户端连接集群，查看状态</p>
+<p><img src="image-20241011175348082.png" alt="image-20241011175348082" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>在启动3号机datanode</p>
+<p><img src="image-20241011175440729.png" alt="image-20241011175440729" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>现在也可通过32号机连接集群</p>
+<p><img src="image-20241011175612695.png" alt="image-20241011175612695" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="集群删除节点"><a href="#集群删除节点" class="headerlink" title="集群删除节点"></a>集群删除节点</h3><p>两种方法</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sbin/remove-confignode.sh 127.0.0.1:10710 </span><br><span class="line">sbin/remove-confignode.sh 2 </span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241011180115785.png" alt="image-20241011180115785" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="image-20241011180130663.png" alt="image-20241011180130663" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>删除datanode同理</p>
+<h2 id="数据模型"><a href="#数据模型" class="headerlink" title="数据模型"></a>数据模型</h2><ul>
+<li>数据模型（Data Model）是数据特征的抽象，它从抽象层次上描述了系统的静态特征、动态行为和约束条件，为数据库系统的信息表示与操作提供一个抽象的框架。-百科</li>
+<li>数据模型是一个<strong>描述数据、数据联系、数据定义</strong>以及一致性约束的概念工具的集和。数据模型提供了一种描述<strong>物理层、逻辑层以及视图层</strong>数据库设计的方式。-数据库系统概念</li>
+</ul>
+<p><strong>各层概念</strong></p>
+<ul>
+<li>物理层，描述数据在磁盘上的存储，比如一些传感器的时序数据被存在连续的磁盘快上。</li>
+<li>逻辑层，描述数据库中存储什么数据，以及数据间的关系。程序设计人员，数据库管理人员</li>
+<li>逻辑层，高层次的抽象，描述数据库的某个部分，数据库用户看到的部分。</li>
+</ul>
+<h2 id="数据建模"><a href="#数据建模" class="headerlink" title="数据建模"></a>数据建模</h2><p><img src="image-20241009215304778.png" alt="image-20241009215304778" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">/</span><span class="operator">/</span>创建数据库</span><br><span class="line"><span class="keyword">create</span> database root.yaozaifactory</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>创建时间序列</span><br><span class="line"><span class="keyword">create</span> timeseries root.yaozaifactory.chejian1.oven.temp <span class="keyword">double</span></span><br><span class="line"><span class="keyword">create</span> timeseries root.yaozaifactory.chejian1.oven.humidity <span class="keyword">double</span></span><br><span class="line"><span class="keyword">create</span> timeseries root.yaozaifactory.chejian1.pool.ph <span class="keyword">double</span></span><br><span class="line"><span class="keyword">create</span> timeseries root.yaozaifactory.chejian1.pool.temp <span class="keyword">double</span></span><br><span class="line"><span class="keyword">create</span> timeseries root.yaozaifactory.chejian1.elec.ph <span class="keyword">double</span></span><br><span class="line"><span class="keyword">create</span> timeseries root.yaozaifactory.chejian1.elec.temp <span class="keyword">double</span></span><br><span class="line"><span class="keyword">create</span> timeseries root.yaozaifactory.chejian2.pump.ph <span class="keyword">double</span></span><br><span class="line"><span class="keyword">create</span> timeseries root.yaozaifactory.chejian2.pump.temp <span class="keyword">double</span></span><br><span class="line"><span class="keyword">create</span> timeseries root.yaozaifactory.chejian2.comp.ph <span class="keyword">double</span></span><br><span class="line"><span class="keyword">create</span> timeseries root.yaozaifactory.chejian2.comp.temp <span class="keyword">double</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241012142514482.png" alt="image-20241012142514482" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>不需要复杂的er图模型</p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="数据库database"><a href="#数据库database" class="headerlink" title="数据库database"></a>数据库database</h3><ul>
+<li>在构建数据模型时，一个数据库中的数据可能属于同一个业主，或者同一个制造商</li>
+<li>不同 database 的数据会存储在磁盘的不同文件夹下，从而实现物理隔离</li>
+<li>通常习惯按照工厂，车间，生产班组……等分类存储数据</li>
+</ul>
+<h3 id="设备-Device"><a href="#设备-Device" class="headerlink" title="设备 Device"></a>设备 Device</h3><ul>
+<li>抽象概念，但通常建模时对应某个具体的设备或者数据采集装置</li>
+<li>设备（或者称为，实体）是管理的一组时间序列的组合，可以是一个物理设备、测量装置、传感器集合等</li>
+<li>所有的（传感器）物理量都有，且必须有其对应的归属实体（设备）</li>
+</ul>
+<p><img src="image-20241012143410009.png" alt="image-20241012143410009" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>温度也可以拆分为各个小组，如上图</p>
+<p><img src="image-20241012143550023.png" alt="image-20241012143550023" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="物理量Measurement（叶子结点）"><a href="#物理量Measurement（叶子结点）" class="headerlink" title="物理量Measurement（叶子结点）"></a>物理量Measurement（叶子结点）</h3><p>在工厂、工业环境下，一般指传感器(sensor)，通常一种物理量都对应一个传感器称工况或字段（field），是在实际场景中检测装置所记录的测量信息，且可以按一定规律变换成为电信号或其他所需形式的信息输出</p>
+<h3 id="时间序列（Timeseries）（该数据结点在当前时间戳下的集合）"><a href="#时间序列（Timeseries）（该数据结点在当前时间戳下的集合）" class="headerlink" title="时间序列（Timeseries）（该数据结点在当前时间戳下的集合）"></a>时间序列（Timeseries）（该数据结点在当前时间戳下的集合）</h3><ul>
+<li>一个物理设备（实体）的某个传感器（物理量）在时间轴上的记录，是数据点的序列。</li>
+<li>root.yaozaifactory.chejian1.oven.temp</li>
+<li>包含多个数据点（Data Point）</li>
+<li>数据点，包括 一个“时间戳-值”对，例如（2024-04-18 12:00:00, 7.9）</li>
+</ul>
+<h3 id="对齐时间序列（Aligned-Timeseries）"><a href="#对齐时间序列（Aligned-Timeseries）" class="headerlink" title="对齐时间序列（Aligned Timeseries）"></a>对齐时间序列（Aligned Timeseries）</h3><ul>
+<li>存在某些实体的多个物理量同时采样</li>
+<li>包含多个数据点</li>
+<li>按时间对其的数据点，包括 一个“时间戳-值-值-值-值-值-……”对</li>
+</ul>
+<p><img src="image-20241012144023472.png" alt="image-20241012144023472" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> aligned timeseries root.yaozaifactory.chejian2.pump(press <span class="type">float</span>,pinlv <span class="type">float</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241012144641676.png" alt="image-20241012144641676" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>将设备时间对齐，而不是将压力和频率两个物理量对齐</p>
+<p><img src="image-20241012144744298.png" alt="image-20241012144744298" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><p><strong>数据类型</strong></p>
+<ul>
+<li>BOOLEAN（布尔值）</li>
+<li>INT32（整型）</li>
+<li>INT64（长整型）</li>
+<li>FLOAT（单精度浮点数）</li>
+<li>DOUBLE（双精度浮点数）</li>
+<li>TEXT（字符串）</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">创建<span class="keyword">double</span>类型的时间序列</span><br><span class="line"><span class="keyword">create</span> timeseries root.yaozaifactory.chejian1.oven.temp <span class="keyword">double</span></span><br><span class="line">创建int32类型的时间序列</span><br><span class="line"><span class="keyword">create</span> timeseries root.yaozaifactory.chejian2.compressor.press int32</span><br><span class="line">创建text类型</span><br><span class="line"><span class="keyword">create</span> timeseries root.yaozaifactory.chejian2.compressor.mess text</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241012145051363.png" alt="image-20241012145051363" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> root.yaozaifactory.chejian1.oven (<span class="type">time</span>, temp) <span class="keyword">values</span> (<span class="number">2024</span><span class="number">-04</span><span class="number">-25</span> <span class="number">16</span>:<span class="number">00</span>:<span class="number">00</span>,<span class="number">15.14</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241012145313802.png" alt="image-20241012145313802" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><strong>时间类型</strong></p>
+<ul>
+<li>LONG 类型</li>
+<li>DATETIME 类型</li>
+</ul>
+<p>Long类时间戳（timestamp）是表示时间的量，它可以是相对于某个参考点的时间差。在计算机领域，最常见的参考点是Unix纪元，即1970年1月1日0点0分0秒开始。</p>
+<p>在 IOTDB当中以北京时间为起点1970年1月1日8点0分0秒，从那一刻起，计算机系统会计算经过的毫秒，这个数值就是所谓的时间戳。</p>
+<p><img src="image-20241012150408039.png" alt="image-20241012150408039" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>以基准时间加103毫秒</p>
+<p><strong>DATETIME-INPUT 类型类时间戳手动指定插入的时间</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> root.yaozaifactory.chejian1.oven(<span class="type">timestamp</span>,temp) <span class="keyword">values</span>(<span class="number">2024</span><span class="number">-03</span><span class="number">-10</span> <span class="number">12</span>:<span class="number">12</span>:<span class="number">12</span>,<span class="number">18.2</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> root.yaozaifactory.chejian1.oven(<span class="type">timestamp</span>,temp) <span class="keyword">values</span>(<span class="number">2024</span><span class="operator">/</span><span class="number">03</span><span class="operator">/</span><span class="number">10</span> <span class="number">12</span>:<span class="number">13</span>:<span class="number">12</span>,<span class="number">18.2</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> root.yaozaifactory.chejian1.oven(<span class="type">timestamp</span>,temp) <span class="keyword">values</span>(<span class="number">2024</span><span class="number">-03</span><span class="number">-10</span>T12:<span class="number">15</span>:<span class="number">12</span>,<span class="number">18.2</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>相对时间插入</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> root.yaozaifactory.chejian1.oven(<span class="type">timestamp</span>,temp) <span class="keyword">values</span>(now() <span class="operator">-</span> <span class="number">1</span>m,<span class="number">19.2</span>); <span class="operator">/</span><span class="operator">/</span> <span class="number">1</span>m为向前<span class="number">1</span>分种</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> root.yaozaifactory.chejian1.oven(<span class="type">timestamp</span>,temp)<span class="keyword">values</span>(<span class="number">2024</span><span class="number">-03</span><span class="number">-10</span>T12:<span class="number">15</span>:<span class="number">12</span> <span class="number">-1</span>h,<span class="number">19.2</span>);</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241012150741039.png" alt="image-20241012150741039" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="编码和压缩"><a href="#编码和压缩" class="headerlink" title="编码和压缩"></a>编码和压缩</h3><p>什么是编码</p>
+<ul>
+<li>数据编码指的是将原始数据转换为一种特定的格式或语言</li>
+<li>编码提高数据的存储效率，需要在数据写入的过程中对数据进行编码，从而减少磁盘空间的使用量。</li>
+<li>我们使用的时候，只需要根据数据的变化趋势和数据类型，进行选择想要的编码方式</li>
+<li>我的理解：通过简单的数据格式描述复杂的原始数据</li>
+</ul>
+<p>例如差分编码</p>
+<ul>
+<li>一个序列，需要进行传输 ：1, 2, 3, 2, 1</li>
+<li>第一个数字是1，没有前一个数字，所以我们传输1。</li>
+<li>第二个数字是2，与前一个数字1相比，差异是1，所以我们传输1。n 第三个数字是3，与前一个数字2相比，差异是1，所以我们传输1。</li>
+<li>第四个数字是2，与前一个数字3相比，差异是-1，所以在传输时我们考虑符号，传输-1。n 第五个数字是1，与前一个数字2相比，差异是-1，所以在传输时我们考虑符号，传输-1。</li>
+<li>我们写入的时候，经过计算，序列将是：1, 1, 1, -1, -1；查询的时候，再通过计算还原<br>出来原始序列</li>
+<li>编码属于用计算时间换存储空间</li>
+</ul>
+<h4 id="iotdb支持的编码格式（了解）"><a href="#iotdb支持的编码格式（了解）" class="headerlink" title="iotdb支持的编码格式（了解）"></a>iotdb支持的编码格式（了解）</h4><ul>
+<li>PLAIN 编码（PLAIN）默认的编码方式，即不编码</li>
+<li>二阶差分编码（TS_2DIFF）比较适合编码单调递增或者递减的序列数据</li>
+<li>游程编码（RLE）比较适合存储某些数值连续出现的序列</li>
+<li>GORILLA 编码（GORILLA）GORILLA 编码是一种无损编码，它比较适合编码前后值比较接近的数值序列，不适合编码前后波动较大的数据。</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> timeseries root.yaozaifactory.chejian1.oven.temp3 withdatatype <span class="operator">=</span> <span class="keyword">double</span>, encoding <span class="operator">=</span> RLE</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="center">数据类型</th>
+<th align="center">支持的编码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">BOOLEAN</td>
+<td align="center">PLAIN, RLE</td>
+</tr>
+<tr>
+<td align="center">INT32</td>
+<td align="center">PLAIN, RLE, TS_2DIFF, GORILLA, FREQ, ZIGZAG</td>
+</tr>
+<tr>
+<td align="center">INT64</td>
+<td align="center">PLAIN, RLE, TS_2DIFF, GORILLA, FREQ, ZIGZAG</td>
+</tr>
+<tr>
+<td align="center">FLOAT</td>
+<td align="center">PLAIN, RLE, TS_2DIFF, GORILLA, FREQ</td>
+</tr>
+<tr>
+<td align="center">DOUBLE</td>
+<td align="center">PLAIN, RLE, TS_2DIFF, GORILLA, FREQ</td>
+</tr>
+<tr>
+<td align="center">TEXT</td>
+<td align="center">PLAIN, DICTIONARY</td>
+</tr>
+</tbody></table>
+<p><strong>什么是压缩</strong></p>
+<ul>
+<li>数据压缩，主要是减少冗余信息，只传输必要的数据。有损压缩通过牺牲一些数据质量来实现更高的压缩率，而无损压缩则保持原始数据的完整性和质量。</li>
+<li>我的理解：通过简化记录少量的信息去描述更多的信息。</li>
+<li>用户可以制定数据存储时采用的压缩方法。</li>
+</ul>
+<h4 id="iotdb支持的压缩模式（了解）（主要因为对压缩底层算法不了解）"><a href="#iotdb支持的压缩模式（了解）（主要因为对压缩底层算法不了解）" class="headerlink" title="iotdb支持的压缩模式（了解）（主要因为对压缩底层算法不了解）"></a>iotdb支持的压缩模式（了解）（主要因为对压缩底层算法不了解）</h4><ul>
+<li>UNCOMPRESSED（不压缩）</li>
+<li>SNAPPY 压缩</li>
+<li>LZ4 压缩，系统默认为我们选择这个</li>
+<li>GZIP 压缩</li>
+<li>ZSTD 压缩</li>
+<li>LZMA2 压缩</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> timeseries root.yaozaifactory.chejian1.oven.temp4 withdatatype <span class="operator">=</span> <span class="keyword">double</span>, encoding <span class="operator">=</span> RLE , compressor <span class="operator">=</span> snappy</span><br></pre></td></tr></table></figure>
+
+<h4 id="数据分区"><a href="#数据分区" class="headerlink" title="数据分区"></a>数据分区</h4><p><img src="image-20241014211528742.png" alt="image-20241014211528742" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="image-20241014211641041.png" alt="image-20241014211641041" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>一个数据库Database，系统为每个Database分配1万个分区槽，并向上图类似按照时间划分多个时间槽，并按一定规则进行分组，再进行复制落到datanode上</p>
+<h2 id="数据定义语言DDL"><a href="#数据定义语言DDL" class="headerlink" title="数据定义语言DDL"></a>数据定义语言DDL</h2><h3 id="场景引入"><a href="#场景引入" class="headerlink" title="场景引入"></a>场景引入</h3><p><img src="image-20241014213152616.png" alt="image-20241014213152616" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>创建概念数据模型</p>
+<p><img src="image-20241015191643250.png" alt="image-20241015191643250" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><strong>创建数据库</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> database root.sh <span class="operator">/</span><span class="operator">/</span>上海施工基地</span><br><span class="line"><span class="keyword">create</span> database root.qd <span class="operator">/</span><span class="operator">/</span>青岛施工基地</span><br><span class="line"><span class="keyword">show</span> databases</span><br></pre></td></tr></table></figure>
+
+<p>查看数据库与属性</p>
+<p><img src="image-20241015192057020.png" alt="image-20241015192057020" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><strong>TTL time to live</strong>     </p>
+<p>IoTDB 可以定期、自动地删除一定时间之前的数据，指定毫秒数，只能设置在数据库上</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">/</span><span class="operator">/</span>每隔一天就会删除</span><br><span class="line"><span class="keyword">set</span> ttl <span class="keyword">to</span> root.sh <span class="number">3600000</span></span><br><span class="line"><span class="operator">/</span><span class="operator">/</span> 取消配置</span><br><span class="line">unset ttl <span class="keyword">to</span> root.sh</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241015192408265.png" alt="image-20241015192408265" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="image-20241015192443072.png" alt="image-20241015192443072" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><strong>修改配置</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> DATABASE root.sh2 <span class="keyword">WITH</span> SCHEMA_REPLICATION_FACTOR<span class="operator">=</span><span class="number">2</span>, DATA_REPLICATION_FACTOR<span class="operator">=</span><span class="number">3</span>, SCHEMA_REGION_GROUP_NUM<span class="operator">=</span><span class="number">3</span>, DATA_REGION_GROUP_NUM<span class="operator">=</span><span class="number">3</span>;</span><br><span class="line"><span class="keyword">alter</span> database root.sh2 <span class="keyword">with</span> schema_region_group_num<span class="operator">=</span><span class="number">4</span>,data_region_group_num<span class="operator">=</span><span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">show</span> databases detalis</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241015192853757.png" alt="image-20241015192853757" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><strong>删除数据库</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> DATABASE root.sh2</span><br></pre></td></tr></table></figure>
+
+<h3 id="时间序列操作"><a href="#时间序列操作" class="headerlink" title="时间序列操作"></a>时间序列操作</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> timeseries root.sh.jiading.tbm11_1.speed <span class="keyword">double</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> timeseries root.sh.jiading.tbm11_1.tor <span class="keyword">with</span> datatype <span class="operator">=</span> <span class="type">float</span>, encoding <span class="operator">=</span>plain</span><br><span class="line"><span class="keyword">create</span> timeseries root.sh.jiading.tbm11_1.dist <span class="keyword">with</span> datatype <span class="operator">=</span> <span class="type">float</span>, encoding <span class="operator">=</span>plain</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> timeseries root.sh.jiading.tbm11_2.speed <span class="keyword">with</span> datatype <span class="operator">=</span> <span class="keyword">double</span></span><br><span class="line"><span class="keyword">create</span> timeseries root.sh.jiading.tbm11_2.tor <span class="keyword">with</span> datatype <span class="operator">=</span> <span class="keyword">double</span>, encoding <span class="operator">=</span>rle</span><br><span class="line"><span class="keyword">create</span> timeseries root.sh.jiading.tbm11_2.dist <span class="keyword">with</span> datatype <span class="operator">=</span> <span class="type">float</span>, encoding <span class="operator">=</span>plain, compressor <span class="operator">=</span> gzip</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span> 可以省略<span class="keyword">with</span>，空格分开</span><br><span class="line"><span class="keyword">create</span> timeseries root.sh.pudong.tbm3.speed <span class="keyword">double</span></span><br><span class="line"><span class="keyword">create</span> timeseries root.sh.pudong.tbm3.speed <span class="keyword">double</span> encoding <span class="operator">=</span> plain</span><br><span class="line"><span class="keyword">create</span> timeseries root.sh.pudong.tbm3.dist <span class="type">float</span> encoding <span class="operator">=</span>plain compressor <span class="operator">=</span> gzip</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241015193444520.png" alt="image-20241015193444520" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><strong>创建对齐的时间序列</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> aligned timeseries root.sh.pudong.tbm4 (speed <span class="type">float</span>, tor <span class="type">float</span>, dist <span class="keyword">double</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> aligned timeseries root.sh.pudong.tbm5 (speed <span class="type">float</span> encoding <span class="operator">=</span> plain compressor <span class="operator">=</span> gzip, tor <span class="type">float</span> encoding <span class="operator">=</span> plain, dist <span class="keyword">double</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241015193739859.png" alt="image-20241015193739859" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><strong>删除时间序列</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> timeseries root.sh.pudong.tbm4.speed</span><br></pre></td></tr></table></figure>
+
+<p><strong>查看时间序列</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> timeseries</span><br><span class="line"></span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>查看指定路径下</span><br><span class="line"><span class="keyword">show</span> timeseries root.sh.<span class="operator">*</span><span class="operator">*</span></span><br><span class="line"><span class="keyword">show</span> timeseries root.sh.jiading.<span class="operator">*</span><span class="operator">*</span></span><br><span class="line"></span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>带过滤条件的查询</span><br><span class="line"><span class="keyword">show</span> timeseries <span class="keyword">where</span> timeseries <span class="keyword">contains</span> “tor”</span><br><span class="line"><span class="keyword">show</span> timeseries root.sh.<span class="operator">*</span><span class="operator">*</span> <span class="keyword">where</span> timeseries <span class="keyword">contains</span> <span class="string">&#x27;speed&#x27;</span></span><br><span class="line"><span class="keyword">show</span> timeseries root.sh.<span class="operator">*</span><span class="operator">*</span> <span class="keyword">where</span> datatype<span class="operator">=</span><span class="type">FLOAT</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241015194048116.png" alt="image-20241015194048116" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="image-20241015194120470.png" alt="image-20241015194120470" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><strong>时间序列数量统计</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">count timeseries root.<span class="operator">*</span><span class="operator">*</span></span><br><span class="line">count timeseries root.sh.<span class="operator">*</span><span class="operator">*</span></span><br><span class="line">count timeseries root.sh.<span class="operator">*</span><span class="operator">*</span> <span class="keyword">where</span> timeseries <span class="keyword">contains</span> <span class="string">&#x27;speed&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241015194212318.png" alt="image-20241015194212318" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><strong>给时间序列设置别名</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> timeseries root.qd.huangdao.tbm1.speed (sudu) <span class="type">FLOAT</span></span><br><span class="line"><span class="keyword">show</span> timeseries</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241015194421912.png" alt="image-20241015194421912" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><strong>时间序列的标签</strong></p>
+<p>我们可以在创建时间序列的时候，为它添加别名和额外的标签和属性信息。 </p>
+<p>作用：<strong>标签</strong>和属性用来<strong>辅助我们查询时间序列</strong>，相当于打个批注或者备注。被打有标签的时间序列，会在内存中<strong>维护</strong>一个索引，就像给一本书加书签一样，可以<strong>方便检索</strong>和<strong>启动某种过滤条件</strong>。 <strong>属性就只是一个时间序列的说明文字</strong>。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> timeseries root.qd.huangdao.tbm2.speed <span class="keyword">with</span> datatype<span class="operator">=</span><span class="type">FLOAT</span>, encoding<span class="operator">=</span>RLE, compression<span class="operator">=</span>SNAPPY tags(tag1<span class="operator">=</span>v1, tag2<span class="operator">=</span>v2) attributes(attr1<span class="operator">=</span>v1, attr2<span class="operator">=</span>v2)</span><br><span class="line"></span><br><span class="line"><span class="keyword">show</span> timeseries <span class="keyword">where</span> TAGS (tag1)<span class="operator">=</span>v1</span><br><span class="line"></span><br><span class="line"><span class="keyword">show</span> timeseries <span class="keyword">where</span> TAGS (tag1) <span class="keyword">contains</span> <span class="string">&#x27;v&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241015194757102.png" alt="image-20241015194757102" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><strong>使用设备模板创建时间序列</strong></p>
+<p>适用场景，我在青岛的崂山施工基地，root.qd.laoshan 有1万台隧道掘进机TBM，每一台TBM都是<strong>速度speed，扭矩tor，位移dist</strong>三个量 </p>
+<ul>
+<li>方法1，手动创建1万个设备 </li>
+<li>方法2，使用设备模板功能：以1台tbm为例，其他的全都按照这个模板去复制去创建。 注意：模板一定是设备，不能是传感器，也不能是别的</li>
+</ul>
+<p><img src="80cbea6e856b0a783ff8dd88917d366b9e9637a7.png" alt="img" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><strong>创建设备模板</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> device template laoshantbm (speed <span class="type">float</span> , tor <span class="type">float</span>, dist int64)</span><br><span class="line"><span class="keyword">create</span> device template laoshantbm2 (speed <span class="type">float</span> encoding<span class="operator">=</span>RLE compressor <span class="operator">=</span> GZIP, tor <span class="type">float</span>, dist int64)</span><br><span class="line"></span><br><span class="line"><span class="keyword">show</span> device templates</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241015195348822.png" alt="image-20241015195348822" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><strong>挂在模板到数据库上 后面的某个节点上</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> device template laoshantbm <span class="keyword">to</span> root.qd.laoshan</span><br></pre></td></tr></table></figure>
+
+<p>注意：模板挂载路径下禁止创建普通序列，已创建了普通序列的前缀路径上不允许挂载模板</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> timeseries root.qd.laoshan.tbm3.ss <span class="type">float</span></span><br></pre></td></tr></table></figure>
+
+<p>手动创建序列是不被允许的，必须使用模板创建</p>
+<p><strong>使用模板创建设备</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> timeseries <span class="keyword">using</span> device template <span class="keyword">on</span> root.qd.laoshan.tbm1</span><br><span class="line"><span class="keyword">create</span> timeseries <span class="keyword">using</span> device template <span class="keyword">on</span> root.qd.laoshan.tbm2</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> root.qd.laoshan.tbm1 (<span class="type">time</span>, speed) <span class="keyword">values</span> (now(), <span class="number">5.5</span>)</span><br><span class="line"></span><br><span class="line"><span class="operator">/</span><span class="operator">/</span> 已经挂载好模板，若该设备没有，则会被直接创建，省区激活步骤</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> root.qd.laoshan.tbm3 (<span class="type">time</span>, speed) <span class="keyword">values</span> (now(), <span class="number">5.5</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241015200412886.png" alt="image-20241015200412886" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="image-20241015200524438.png" alt="image-20241015200524438" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><strong>解除设备模板——删除使用模板创建的设备和时间序列</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> timeseries <span class="keyword">of</span> device template laoshantbm <span class="keyword">from</span> root.qd.laoshan.tbm1</span><br><span class="line"><span class="keyword">delete</span> timeseries <span class="keyword">of</span> device template laoshantbm <span class="keyword">from</span> root.qd.laoshan.tbm2</span><br></pre></td></tr></table></figure>
+
+<p><strong>卸载设备模板</strong> </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unset device template laoshantbm <span class="keyword">from</span> root.qd.laoshan </span><br></pre></td></tr></table></figure>
+
+<p><strong>删除模板</strong> </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> device template laoshantbm</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241015200946090.png" alt="image-20241015200946090" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="数据操作语言DML"><a href="#数据操作语言DML" class="headerlink" title="数据操作语言DML"></a>数据操作语言DML</h2><h3 id="数据写入-insert"><a href="#数据写入-insert" class="headerlink" title="数据写入 insert"></a>数据写入 insert</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">/</span><span class="operator">/</span>写入一个列</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> root.sh.pudong.tbm1 (<span class="type">time</span>, speed) <span class="keyword">values</span>(<span class="number">2024</span><span class="number">-04</span><span class="number">-10</span> <span class="number">12</span>:<span class="number">00</span>:<span class="number">00</span>, <span class="number">80.0</span>);</span><br><span class="line"></span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>写入多个列</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> root.sh.pudong.tbm1 (<span class="type">timestamp</span>, speed, tor) <span class="keyword">values</span>(<span class="number">2024</span><span class="number">-04</span><span class="number">-10</span> <span class="number">12</span>:<span class="number">01</span>:<span class="number">00</span>, <span class="number">82.0</span>, <span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>写入多个列，写入多行</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> root.sh.pudong.tbm1 (<span class="type">timestamp</span>, speed, tor, dist) <span class="keyword">values</span> (<span class="number">2024</span><span class="number">-04</span><span class="number">-10</span> <span class="number">12</span>:<span class="number">03</span>:<span class="number">00</span>, <span class="number">83.0</span>, <span class="number">1300</span>, <span class="number">2300</span>), (<span class="number">2024</span><span class="number">-04</span><span class="number">-10</span> <span class="number">12</span>:<span class="number">04</span>:<span class="number">00</span>, <span class="number">84.0</span>, <span class="number">1420</span>,<span class="number">2340</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> root.sh.pudong.tbm1</span><br><span class="line"></span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>省略时间的插入，以系统当前时间为时间戳 </span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> root.sh.pudong.tbm1 (speed, tor, dist) <span class="keyword">values</span>(<span class="number">82.6</span>, <span class="number">2000</span>, <span class="number">600</span>);</span><br></pre></td></tr></table></figure>
+
+<p><img src="iotdb/image-20241016185736417.png" alt="image-20241016185736417" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><strong>向对齐的时间序列中插入数据</strong></p>
+<p><img src="image-20241016190230021.png" alt="image-20241016190230021" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> root.sh.pudong.tbm4 (<span class="type">time</span>, speed, tor, dist) aligned(可省略) <span class="keyword">values</span>(now(), <span class="number">80.0</span>, <span class="number">12.3</span>, <span class="number">800</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> root.sh.pudong.tbm4 (<span class="type">time</span>, speed, tor) aligned  <span class="keyword">values</span>(now(), <span class="number">80.1</span>, <span class="number">12.5</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> root.sh.pudong.tbm4 (<span class="type">time</span>, speed, tor, dist) aligned  </span><br><span class="line"><span class="keyword">values</span> (<span class="number">2024</span><span class="number">-05</span><span class="number">-10</span> <span class="number">12</span>:<span class="number">03</span>:<span class="number">00</span>, <span class="number">83.0</span>, <span class="number">1300</span>, <span class="number">2300</span>), (<span class="number">2024</span><span class="number">-05</span><span class="number">-10</span> <span class="number">12</span>:<span class="number">04</span>:<span class="number">00</span>, <span class="number">84.0</span>, <span class="number">1420</span>,<span class="number">2340</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> root.sh.pudong.tbm4</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241016190411190.png" alt="image-20241016190411190" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><strong>使用insert更新数据</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> root.sh.pudong.tbm1 (<span class="type">time</span>, speed) <span class="keyword">values</span>(<span class="number">2024</span><span class="number">-04</span><span class="number">-10</span> <span class="number">13</span>:<span class="number">00</span>:<span class="number">00</span>, <span class="number">80.0</span>);</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241016190620858.png" alt="image-20241016190620858" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">删除数据</span><br><span class="line">删除某个时间戳的数据</span><br><span class="line">指定时间范围</span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> root.sh.pudong.tbm1.speed <span class="keyword">where</span> <span class="type">time</span> <span class="operator">&gt;=</span><span class="number">2024</span><span class="number">-04</span><span class="number">-10</span> <span class="number">13</span>:<span class="number">00</span>:<span class="number">00</span>;</span><br><span class="line"></span><br><span class="line">删除时间序列</span><br><span class="line"><span class="keyword">delete</span> timeseries root.sh.pudong.tbm1.tor</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241016190707815.png" alt="image-20241016190707815" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="查询数据select"><a href="#查询数据select" class="headerlink" title="查询数据select"></a>查询数据select</h3><p><strong>普通查询</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> root.sh.pudong.tbm1</span><br><span class="line"><span class="keyword">select</span> speed, tor, dist <span class="keyword">from</span> root.sh.pudong.tbm1</span><br><span class="line">指定查询后的别名</span><br><span class="line"><span class="keyword">select</span> speed <span class="keyword">as</span> sd, tor <span class="keyword">as</span> 力矩, dist <span class="keyword">as</span> 位移 <span class="keyword">from</span> root.sh.pudong.tbm1</span><br><span class="line">使用别名属性</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241016191215364.png" alt="image-20241016191215364" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">按照降序（除了跟时间外，还能按照序列名、数据类型等，但是应用场景比较少）</span><br><span class="line"><span class="keyword">select</span> speed <span class="keyword">from</span> root.sh.pudong.tbm1 <span class="keyword">order</span> <span class="keyword">by</span> <span class="type">time</span> <span class="keyword">desc</span></span><br><span class="line"></span><br><span class="line">查询最新的点</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">last</span> tor <span class="keyword">from</span> root.sh.pudong.tbm1</span><br></pre></td></tr></table></figure>
+
+<p><img src="iotdb/image-20241016191452236.png" alt="image-20241016191452236" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><strong>过滤查询where</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">时间过滤条件</span><br><span class="line"><span class="keyword">select</span> speed <span class="keyword">from</span> root.sh.pudong.tbm1 <span class="keyword">where</span> <span class="type">time</span> <span class="operator">&lt;</span> <span class="number">2024</span><span class="number">-05</span><span class="number">-10</span> <span class="number">13</span>:<span class="number">03</span>:<span class="number">00</span></span><br><span class="line"><span class="keyword">select</span> speed <span class="keyword">from</span> root.sh.pudong.tbm1 <span class="keyword">where</span> <span class="type">time</span> <span class="operator">&gt;</span> <span class="number">2024</span><span class="number">-05</span><span class="number">-10</span> <span class="number">13</span>:<span class="number">03</span>:<span class="number">00</span> <span class="keyword">and</span>  <span class="type">time</span> <span class="operator">&lt;</span> <span class="number">2024</span><span class="number">-05</span><span class="number">-10</span> <span class="number">15</span>:<span class="number">00</span>:<span class="number">00</span></span><br><span class="line"></span><br><span class="line">值过滤条件</span><br><span class="line"><span class="keyword">select</span> speed <span class="keyword">from</span> root.sh.pudong.tbm1 <span class="keyword">where</span> speed <span class="operator">&gt;</span> <span class="number">90</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> root.sh.pudong.tbm1 <span class="keyword">where</span> speed <span class="keyword">between</span> <span class="number">85</span> <span class="keyword">and</span> <span class="number">90</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> root.sh.pudong.tbm1 <span class="keyword">where</span> tor <span class="keyword">in</span> (‘<span class="number">1600</span>’,’<span class="number">1500</span>’)</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> root.sh.pudong.tbm1 <span class="keyword">where</span> tor <span class="keyword">not</span> <span class="keyword">in</span> (‘<span class="number">1600</span>’,’<span class="number">1500</span>’)</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> root.sh.pudong.tbm1 <span class="keyword">where</span> dist <span class="keyword">is</span> <span class="keyword">null</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> speed <span class="keyword">from</span> root.sh.pudong.tbm1 <span class="keyword">where</span> speed <span class="operator">&gt;</span> <span class="number">90</span> <span class="keyword">and</span> <span class="type">time</span> <span class="operator">&gt;</span> <span class="number">2024</span><span class="number">-05</span><span class="number">-10</span> <span class="number">13</span>:<span class="number">03</span>:<span class="number">00</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241016191844922.png" alt="image-20241016191844922" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="image-20241016192623689.png" alt="image-20241016192623689" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><strong>模糊查询</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">模糊匹配过滤</span><br><span class="line">如果数据类型是text这种文本类型的，还支持通过<span class="keyword">like</span>或者正则表达式匹配查询</span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> root.sh.pudong.tbm1 (<span class="type">time</span>, info) <span class="keyword">values</span> (now(), &quot;normal&quot;)</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> root.sh.pudong.tbm1 (<span class="type">time</span>, info) <span class="keyword">values</span> (now()<span class="operator">+</span><span class="number">1000</span>ms, &quot;boom&quot;)</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> root.sh.pudong.tbm1 (<span class="type">time</span>, info) <span class="keyword">values</span> (now()<span class="operator">+</span><span class="number">2000</span>ms, &quot;die&quot;)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">like</span>的模糊匹配规则</span><br><span class="line"> <span class="operator">%</span> 表示任意<span class="number">0</span>个或多个字符。</span><br><span class="line"> _ 表示任意单个字符。</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> root.sh.pudong.tbm1 <span class="keyword">where</span> info <span class="keyword">like</span> <span class="string">&#x27;b%&#x27;</span></span><br><span class="line"></span><br><span class="line">正则表达式匹配</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> root.sh.pudong.tbm1 <span class="keyword">where</span> info regexp <span class="string">&#x27;正则表达式&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241016192816779.png" alt="image-20241016192816779" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="iotdb/image-20241016193327986.png" alt="image-20241016193327986" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> root.sh.pudong.tbm1 <span class="keyword">where</span> info regexp <span class="string">&#x27;.*o.*&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241016193418933.png" alt="image-20241016193418933" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h3 id="聚合查询，类似关系数据库的group-by"><a href="#聚合查询，类似关系数据库的group-by" class="headerlink" title="聚合查询，类似关系数据库的group by"></a><strong>聚合查询，类似关系数据库的group by</strong></h3><p><img src="image-20241016193922105.png" alt="image-20241016193922105" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="java操纵iotdb"><a href="#java操纵iotdb" class="headerlink" title="java操纵iotdb"></a>java操纵iotdb</h2><p>导入依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.iotdb<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>iotdb-session<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.3.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建数据库</span></span><br><span class="line">Session session= <span class="keyword">new</span> <span class="title class_">Session</span>.Builder()</span><br><span class="line">                        .host(<span class="string">&quot;127.0.0.1&quot;</span>)</span><br><span class="line">                        .port(<span class="number">6667</span>)</span><br><span class="line">                        .username(<span class="string">&quot;root&quot;</span>)</span><br><span class="line">                        .password(<span class="string">&quot;root&quot;</span>)</span><br><span class="line">                        .version(Version.V_1_0)</span><br><span class="line">                        .build();</span><br><span class="line">        session.open(<span class="literal">false</span>);</span><br><span class="line">        session.setFetchSize(<span class="number">10000</span>);</span><br><span class="line">        session.createDatabase(<span class="string">&quot;root.yaozaifactory&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;创建成功&quot;</span>);</span><br><span class="line">        session.close();</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241016200127248.png" alt="image-20241016200127248" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="image-20241016200159594.png" alt="image-20241016200159594" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="image-20241016200351004.png" alt="image-20241016200351004" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>slf4j-simple<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.7<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241016200648081.png" alt="image-20241016200648081" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">session.createTimeseries(<span class="string">&quot;root.qd.laoshan.tbm1.speed&quot;</span>, TSDataType.DOUBLE, TSEncoding.PLAIN, CompressionType.UNCOMPRESSED);</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241018162416883.png" alt="image-20241018162416883" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="image-20241018162435082.png" alt="image-20241018162435082" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">HashMap&lt;String, String&gt; tasg1 = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        tasg1.put(<span class="string">&quot;k1&quot;</span>,<span class="string">&quot;vv1&quot;</span>);</span><br><span class="line">        HashMap&lt;String, String&gt; attr1 = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        attr1.put(<span class="string">&quot;att1&quot;</span>,<span class="string">&quot;aaa1&quot;</span>);</span><br><span class="line">        session.createTimeseries(<span class="string">&quot;root.qd.laoshan.tbm1.speed&quot;</span>, TSDataType.DOUBLE, TSEncoding.PLAIN, CompressionType.UNCOMPRESSED,<span class="literal">null</span>,tasg1,attr1,<span class="string">&quot;sudo&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;创建时间序列成功&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241018162853872.png" alt="image-20241018162853872" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="image-20241018162935395.png" alt="image-20241018162935395" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><strong>创建对齐时间序列</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;String&gt; meaus=<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">       meaus.add(<span class="string">&quot;speed&quot;</span>);</span><br><span class="line">       meaus.add(<span class="string">&quot;tor&quot;</span>);</span><br><span class="line">       meaus.add(<span class="string">&quot;dist&quot;</span>);</span><br><span class="line"></span><br><span class="line">       ArrayList&lt;TSDataType&gt; dataTypes = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">       dataTypes.add(TSDataType.DOUBLE);</span><br><span class="line">       dataTypes.add(TSDataType.DOUBLE);</span><br><span class="line">       dataTypes.add(TSDataType.DOUBLE);</span><br><span class="line"></span><br><span class="line">       ArrayList&lt;TSEncoding&gt; encodings=<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">       encodings.add(TSEncoding.PLAIN);</span><br><span class="line">       encodings.add(TSEncoding.PLAIN);</span><br><span class="line">       encodings.add(TSEncoding.PLAIN);</span><br><span class="line"></span><br><span class="line">       ArrayList&lt;CompressionType&gt; compressionTypes=<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">       compressionTypes.add(CompressionType.UNCOMPRESSED);</span><br><span class="line">       compressionTypes.add(CompressionType.GZIP);</span><br><span class="line">       compressionTypes.add(CompressionType.LZ4);</span><br><span class="line"></span><br><span class="line">       session.createAlignedTimeseries(<span class="string">&quot;root.qd.laoshan.tbm3&quot;</span>,meaus,dataTypes,encodings,compressionTypes,<span class="literal">null</span>);</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241018163955005.png" alt="image-20241018163955005" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="image-20241018164011438.png" alt="image-20241018164011438" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>创建多个</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;String&gt; measue = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        measue.add(<span class="string">&quot;root.qd.laoshan.tbm4.speed&quot;</span>);</span><br><span class="line">        measue.add(<span class="string">&quot;root.qd.laoshan.tbm4.tor&quot;</span>);</span><br><span class="line">        measue.add(<span class="string">&quot;root.qd.laoshan.tbm4.dist&quot;</span>);</span><br><span class="line">        </span><br><span class="line">        session.createMultiTimeseries(measue,dataTypes,encodings,compressionTypes,<span class="literal">null</span>,<span class="literal">null</span>,<span class="literal">null</span>,<span class="literal">null</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;创建成功&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241018164417668.png" alt="image-20241018164417668" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="image-20241018164433009.png" alt="image-20241018164433009" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><strong>添加数据</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取时间戳</span></span><br><span class="line">       <span class="type">long</span> <span class="variable">currentTimeMills</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line">       ArrayList&lt;String&gt; meause = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">       meause.add(<span class="string">&quot;speed&quot;</span>);</span><br><span class="line">       meause.add(<span class="string">&quot;tor&quot;</span>);</span><br><span class="line"></span><br><span class="line">       ArrayList&lt;TSDataType&gt; datatypes = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">       datatypes.add(TSDataType.DOUBLE);</span><br><span class="line">       datatypes.add(TSDataType.DOUBLE);</span><br><span class="line">       ArrayList&lt;String&gt; valuse=<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">       valuse.add(<span class="string">&quot;25.5&quot;</span>);</span><br><span class="line">       valuse.add(<span class="string">&quot;68.7&quot;</span>);</span><br><span class="line">       session.insertRecord(<span class="string">&quot;root.qd.laoshan.tbm1&quot;</span>,currentTimeMills,meause,valuse);</span><br><span class="line"></span><br><span class="line">       System.out.println(<span class="string">&quot;添加成功&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241018170333873.png" alt="image-20241018170333873" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="image-20241018170409059.png" alt="image-20241018170409059" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>指定时间插入数据</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">dataTimeString</span> <span class="operator">=</span><span class="string">&quot;2024-05-25 12:00:00&quot;</span>;</span><br><span class="line">        <span class="type">DateTimeFormatter</span> <span class="variable">dateTimeFormatter</span> <span class="operator">=</span> DateTimeFormatter.ofPattern(<span class="string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>);</span><br><span class="line">        <span class="type">LocalDateTime</span> <span class="variable">dateTime</span> <span class="operator">=</span> LocalDateTime.parse(dataTimeString,dateTimeFormatter);</span><br><span class="line">        <span class="type">long</span> timestamp= dateTime.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();</span><br><span class="line">        session.insertRecord(<span class="string">&quot;root.qd.laoshan.tbm1&quot;</span>,timestamp,meause,valuse);</span><br></pre></td></tr></table></figure>
+
+<p><strong>聚合查询样本生成</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">SimpleDateFormat</span> <span class="variable">simpleDateFormat</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SimpleDateFormat</span>(<span class="string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>);</span><br><span class="line">        <span class="type">Random</span> <span class="variable">random</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line">        ArrayList&lt;String&gt; meause = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        meause.add(<span class="string">&quot;speed&quot;</span>);</span><br><span class="line">        meause.add(<span class="string">&quot;tor&quot;</span>);</span><br><span class="line">        meause.add(<span class="string">&quot;dist&quot;</span>);</span><br><span class="line">        <span class="type">int</span> <span class="variable">alldays</span> <span class="operator">=</span><span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">month</span> <span class="operator">=</span> <span class="number">0</span>; month &lt; <span class="number">8</span>; month++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(month ==<span class="number">2</span> )&#123;</span><br><span class="line">                alldays=<span class="number">29</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span> (month ==<span class="number">1</span> || month ==<span class="number">3</span> || month ==<span class="number">5</span> || month ==<span class="number">7</span>|| month ==<span class="number">8</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                alldays =<span class="number">31</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                alldays=<span class="number">30</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt;=alldays; i++) &#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">hour</span> <span class="operator">=</span>random.nextInt(<span class="number">24</span>);</span><br><span class="line">                <span class="type">int</span> <span class="variable">min</span>  <span class="operator">=</span>random.nextInt(<span class="number">60</span>);</span><br><span class="line">                <span class="type">int</span> <span class="variable">second</span>  <span class="operator">=</span>random.nextInt(<span class="number">60</span>);</span><br><span class="line">                <span class="type">String</span> <span class="variable">currenttime</span> <span class="operator">=</span><span class="string">&quot;2024&quot;</span>+<span class="string">&quot;-&quot;</span>+month+<span class="string">&quot;-&quot;</span>+i+<span class="string">&quot; &quot;</span>+hour+<span class="string">&quot;:&quot;</span>+min+<span class="string">&quot;:&quot;</span>+second;</span><br><span class="line">                <span class="type">Date</span> <span class="variable">date</span> <span class="operator">=</span> simpleDateFormat.parse(currenttime);</span><br><span class="line">                <span class="type">long</span> <span class="variable">dateTime</span> <span class="operator">=</span> date.getTime();</span><br><span class="line">                ArrayList&lt;String&gt; valuse = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">                <span class="type">int</span> <span class="variable">speed</span> <span class="operator">=</span><span class="number">10</span>+random.nextInt(<span class="number">51</span>);</span><br><span class="line">                valuse.add(Integer.toString(speed));</span><br><span class="line">                <span class="type">int</span> <span class="variable">tor</span> <span class="operator">=</span><span class="number">20</span>+random.nextInt(<span class="number">21</span>);</span><br><span class="line">                valuse.add(Integer.toString(tor));</span><br><span class="line">                <span class="keyword">if</span>(month ==<span class="number">1</span> || month ==<span class="number">3</span> || month ==<span class="number">5</span>)&#123;</span><br><span class="line">                    <span class="type">int</span> <span class="variable">dist</span> <span class="operator">=</span>random.nextInt(<span class="number">5</span>);</span><br><span class="line">                    valuse.add(Integer.toString(dist));</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (month ==<span class="number">2</span> || month ==<span class="number">4</span> || month ==<span class="number">6</span>) &#123;</span><br><span class="line">                    <span class="type">int</span> <span class="variable">dist</span> <span class="operator">=</span>random.nextInt(<span class="number">10</span>)+<span class="number">5</span>;</span><br><span class="line">                    valuse.add(Integer.toString(dist));</span><br><span class="line">                &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="type">int</span> <span class="variable">dist</span> <span class="operator">=</span>random.nextInt(<span class="number">10</span>)+<span class="number">20</span>;</span><br><span class="line">                    valuse.add(Integer.toString(dist));</span><br><span class="line">                &#125;</span><br><span class="line">                session.insertRecord(<span class="string">&quot;root.qd.laoshan.tbm1&quot;</span>,dateTime,meause,valuse);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241018173122214.png" alt="image-20241018173122214" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="image-20241018173139092.png" alt="image-20241018173139092" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><strong>批量写入记录</strong></p>
+<p>案例</p>
+<p>填写50行，奇数行填写到设备1，偶数行填写到设备2</p>
+<p>每个设备有3个序列，s1,s2,s3</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">Random random=<span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line"></span><br><span class="line">        ArrayList&lt;String&gt; devicesId = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        ArrayList&lt;Long&gt; times =<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        List&lt;List&lt;String&gt;&gt; measurements = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        List&lt;List&lt;String&gt;&gt; valueList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        ArrayList&lt;String&gt; meause = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        meause.add(<span class="string">&quot;s1&quot;</span>);</span><br><span class="line">        meause.add(<span class="string">&quot;s2&quot;</span>);</span><br><span class="line">        meause.add(<span class="string">&quot;s3&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">50</span>; i++) &#123;</span><br><span class="line">            ArrayList&lt;String&gt; values = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">            <span class="keyword">if</span>(i%<span class="number">2</span>==<span class="number">0</span>)&#123;</span><br><span class="line">                devicesId.add(<span class="string">&quot;root.bj.haidian.d2&quot;</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                devicesId.add(<span class="string">&quot;root.bj.haidian.d1&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            Thread.sleep(<span class="number">30</span>);</span><br><span class="line">            times.add(System.currentTimeMillis()); <span class="comment">// 为每行数据填写时间戳</span></span><br><span class="line">            <span class="comment">// 为每行填写传感器结点</span></span><br><span class="line">            measurements.add(meause);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; <span class="number">3</span>; j++) &#123;</span><br><span class="line">                <span class="type">int</span> randNum=random.nextInt(<span class="number">31</span>)+ <span class="number">20</span>;</span><br><span class="line">                values.add(String.valueOf(randNum));</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            valueList.add(values);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        session.insertRecords(devicesId,times,measurements,valueList);</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241018175544545.png" alt="image-20241018175544545" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p><img src="image-20241018175706838.png" alt="image-20241018175706838" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+
+</article>
+    
+    
+</div>
+<div id="post-next-prev" class="row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
+        <a href="/2024/10/18/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%BD%9C%E4%B8%9A%E6%B1%87%E6%80%BB/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="/images/deeplearn.jpg">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">
+                    人工智能
+                </a>
+            </div>
+            <h5>
+                <a href="/2024/10/18/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%BD%9C%E4%B8%9A%E6%B1%87%E6%80%BB/" class="trm-anima-link">
+                    吴恩达深度学习作业汇总
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/18</li>
+                <li>19:48</li>
+                
+                    <li>2.8k</li>
+                
+                
+                    <li>12</li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
+        <a href="/2024/10/03/mongonDB%E5%AD%A6%E4%B9%A0/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="/images/mongonDB.jpg">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                    数据库
+                </a>
+            </div>
+            <h5>
+                <a href="/2024/10/03/mongonDB%E5%AD%A6%E4%B9%A0/" class="trm-anima-link">
+                    mongonDB学习
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/03</li>
+                <li>21:55</li>
+                
+                    <li>4.4k</li>
+                
+                
+                    <li>20</li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+    <div class="trm-card trm-scroll-animation comment-container" data-scroll data-scroll-offset="50">
+    <div id="tcomment"></div>
+</div>
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation" data-scroll data-scroll-offset="50">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v5.4.2
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                主题 - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.0.3
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item">
+            博客已萌萌哒运行 <span id="since" class="trm-accent-color"></span> 天
+        </div>
+     
+
+    
+        <div class="trm-footer-item">
+            Hosted by <a href="https://github.com" rel="noopener" target="_blank">Github Pages</a>
+        </div>
+     
+</footer>
+
+<script>
+    function show_date_time () {
+        var BirthDay = new Date("03/10/2023 17:00:00");
+        var today = new Date();
+        var timeold = (today.getTime() - BirthDay.getTime());
+        var msPerDay = 24 * 60 * 60 * 1000
+        var day = Math.floor(timeold / msPerDay)
+        since.innerHTML = day
+    }
+    show_date_time()
+</script>
+ 
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            <div class="trm-fixed-container" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+          </div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+
+  </div>
+  <!-- app wrapper end -->
+
+  
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+        <script src="/js/plugins/typing.js?v=2.0.3"></script>
+    
+
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+
+            
+<script src="//cdn.jsdelivr.net/npm/twikoo@1.6.7/dist/twikoo.all.min.js" data-swup-reload-script data-reset="true"></script>
+
+            <script data-swup-reload-script>
+                twikoo.init({
+                    ...{"enable":true,"envId":"https://mockingjayforblog.zeabur.app"},
+                    el:'#tcomment'
+                }).then(function () {
+                    let container = document.querySelector('body>.tk-admin-container')
+                    if(container) container.remove()
+                    document.body.append(document.querySelector('.tk-admin-container'))
+                });;
+            </script>
+
+        
+    
+
+
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.0.3"></script>
+
+</body>
+
+</html>
