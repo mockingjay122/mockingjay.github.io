@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="微信小程序项目结构 pages 用来存放所有小程序的页面 utils 用来存放工具性质的模块（例如：格式化时间的自定义模块） app.js 小程序项目的入口文件 app.json 小程序项目的全局配置文件 app.wxss 小程序项目的全局样式文件 project.config.json 项目的配置文件 sitemap.json 用来配置小程序及其页面是否允许被微信索引  每个页面由四部分组成：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信小程序">
+<meta property="og:url" content="http://mockingjayforblog.com.cn/2024/10/20/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/index.html">
+<meta property="og:site_name" content="绿杉野屋">
+<meta property="og:description" content="微信小程序项目结构 pages 用来存放所有小程序的页面 utils 用来存放工具性质的模块（例如：格式化时间的自定义模块） app.js 小程序项目的入口文件 app.json 小程序项目的全局配置文件 app.wxss 小程序项目的全局样式文件 project.config.json 项目的配置文件 sitemap.json 用来配置小程序及其页面是否允许被微信索引  每个页面由四部分组成：">
+<meta property="og:locale">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="og:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+<meta property="article:published_time" content="2024-10-20T13:59:49.000Z">
+<meta property="article:modified_time" content="2024-10-23T15:38:23.738Z">
+<meta property="article:author" content="郭嘉">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://mockingjayforblog.com.cn/img/404.jpg">
+
+
+<title >微信小程序</title>
+
+<!-- Favicon -->
+
+    <link href='/img/favicon.svg?v=2.0.3' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/favicon.svg?v=2.0.3' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"mockingjayforblog.com.cn","author":"郭嘉","root":"/","typed_text":["普通的学生"],"theme_version":"2.0.3","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/favicon.svg","icon16":"/img/favicon.svg","icon32":"/img/favicon.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":false,"hidden":"/failure.ico","showText":"(/≧▽≦/)咦！又好了！","hideText":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-10-23 23:38:23"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.0.3" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" data-scroll-container style="opacity: 0">
+          <div data-scroll-section id="content" class="trm-scroll-section">
+
+            <div class="locomotive-scroll__sticky-target" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none;"></div>
+
+            <!-- top bar -->
+            <header class="trm-top-bar" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/favicon.svg">
+    
+    
+        <div class="trm-logo-text">
+            绿杉<span>野屋</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    首页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a data-no-swup href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/categories" target="">
+                    分类
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/tags" target="">
+                    标签
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/about" target="">
+                    关于
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner" data-scroll data-scroll-direction="vertical">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" data-scroll data-scroll-direction="vertical" data-scroll-speed="-3" src="/img/banner.png">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container" data-scroll data-scroll-direction="vertical" data-scroll-speed="0">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            NEWS LETTER
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            微信小程序
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        2024
+                                    </span
+                                ></li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <a href="#about-triger" data-scroll-to="#about-triger" data-scroll-offset="-130" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </a>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div id="page-sidebar" class="col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    
+
+<div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card" data-scroll data-scroll-repeat data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="60"> 
+    
+        <div class="trm-user-tabs" id="sidebar-tabs">
+           <div class="trm-tabs-nav trm-mb-40" id="trm-tabs-nav">
+                <div data-to="tabs-user" class="trm-tabs-nav-item">
+                    <i class="iconfont fas fa-user-alt"></i>
+                </div>
+                <div data-to="tabs-toc" class="trm-tabs-nav-item active">
+                    <i class="iconfont fas fa-th-list"></i>
+                </div>
+           </div>
+            <div name="tabs-user" class="trm-tabs-item">
+                <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/images/avatar.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        mockingjay
+    </h5>
+    
+        <div class="trm-label">
+            一个
+            <span class="trm-typed-text">
+                <!-- Words for theme.user.typedText -->
+            </span>
+        </div>
+    
+</div>
+<!-- card header end -->
+                <!-- sidebar social -->
+
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<div class="trm-social">
+    
+        <a href="https://gitee.com/gj2002298" title="gitee" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-gofore"></i>
+        </a>
+    
+        <a href="https://github.com/mockingjay122/" title="github" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-github"></i>
+        </a>
+    
+        <a href="https://www.instagram.com/mockingjay9866/" title="ins" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-instagram"></i>
+        </a>
+    
+</div>
+
+<!-- sidebar social end -->
+                <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                住宅:
+            </div>
+            <div class="trm-label trm-label-light">
+                内蒙古
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                年龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                22
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                工作:
+            </div>
+            <div class="trm-label trm-label-light">
+                物联网工程学生
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                小帖:
+            </div>
+            <div class="trm-label trm-label-light">
+                不断学习，不断进步
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+                
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:gj2002196@icloud.com" class="trm-btn">
+            联系我
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+            </div>
+            <div name="tabs-toc" class="trm-tabs-item active">
+                <div class="post-toc">
+    <ol class="toc"><li class="toc-item toc-level-1"><a rel="nofollow" class="toc-link" href="#微信小程序"  data-scroll-to="#微信小程序"><span class="toc-number">1.</span> <span class="toc-text">微信小程序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#项目结构"  data-scroll-to="#项目结构"><span class="toc-number">1.1.</span> <span class="toc-text">项目结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a rel="nofollow" class="toc-link" href="#json文件的配置"  data-scroll-to="#json文件的配置"><span class="toc-number">1.1.1.</span> <span class="toc-text">json文件的配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a rel="nofollow" class="toc-link" href="#app-json"  data-scroll-to="#app-json"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">app.json</span></a></li><li class="toc-item toc-level-4"><a rel="nofollow" class="toc-link" href="#project-config-json-文件"  data-scroll-to="#project-config-json-文件"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">project.config.json 文件</span></a></li><li class="toc-item toc-level-4"><a rel="nofollow" class="toc-link" href="#sitemap-json-文件"  data-scroll-to="#sitemap-json-文件"><span class="toc-number">1.1.1.3.</span> <span class="toc-text">sitemap.json 文件</span></a></li><li class="toc-item toc-level-4"><a rel="nofollow" class="toc-link" href="#页面json"  data-scroll-to="#页面json"><span class="toc-number">1.1.1.4.</span> <span class="toc-text">页面json</span></a></li><li class="toc-item toc-level-4"><a rel="nofollow" class="toc-link" href="#新建小程序页面"  data-scroll-to="#新建小程序页面"><span class="toc-number">1.1.1.5.</span> <span class="toc-text">新建小程序页面</span></a></li><li class="toc-item toc-level-4"><a rel="nofollow" class="toc-link" href="#修改项目首页"  data-scroll-to="#修改项目首页"><span class="toc-number">1.1.1.6.</span> <span class="toc-text">修改项目首页</span></a></li><li class="toc-item toc-level-4"><a rel="nofollow" class="toc-link" href="#WXML"  data-scroll-to="#WXML"><span class="toc-number">1.1.1.7.</span> <span class="toc-text">WXML</span></a></li><li class="toc-item toc-level-4"><a rel="nofollow" class="toc-link" href="#WXSS"  data-scroll-to="#WXSS"><span class="toc-number">1.1.1.8.</span> <span class="toc-text">WXSS</span></a></li><li class="toc-item toc-level-4"><a rel="nofollow" class="toc-link" href="#宿主环境"  data-scroll-to="#宿主环境"><span class="toc-number">1.1.1.9.</span> <span class="toc-text">宿主环境</span></a></li></ol></li></ol></li></ol></li></ol>
+</div>
+            </div>
+        </div>
+    
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div id="page-content" class="col-lg-8">
+                <div class="trm-content" id="trm-content">
+                    <div data-scroll data-scroll-repeat data-scroll-offset="500" id="about-triger"></div>
+
+                    <div id="post-info" class="row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            10/20
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            21:59
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            郭嘉
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <h1 id="微信小程序"><a href="#微信小程序" class="headerlink" title="微信小程序"></a>微信小程序</h1><h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><ul>
+<li>pages 用来存放所有小程序的页面</li>
+<li>utils 用来存放工具性质的模块（例如：格式化时间的自定义模块）</li>
+<li>app.js 小程序项目的入口文件</li>
+<li>app.json 小程序项目的全局配置文件</li>
+<li>app.wxss 小程序项目的全局样式文件</li>
+<li>project.config.json 项目的配置文件</li>
+<li>sitemap.json 用来配置小程序及其页面是否允许被微信索引</li>
+</ul>
+<p>每个页面由四部分组成：</p>
+<p>① .js 文件（页面的脚本文件，存放页面的数据、事件处理函数等）</p>
+<p>② .json 文件（当前页面的配置文件，配置窗口的外观、表现等）</p>
+<p>③ .wxml 文件（页面的模板结构文件）</p>
+<p>④ .wxss 文件（当前页面的样式表文件）</p>
+<h3 id="json文件的配置"><a href="#json文件的配置" class="headerlink" title="json文件的配置"></a>json文件的配置</h3><h4 id="app-json"><a href="#app-json" class="headerlink" title="app.json"></a>app.json</h4><p>app.json 是当前小程序的<strong>全局配置</strong>，包括了小程序的所有页面路径、窗口外观、界面表现、底部 tab 等。Demo 项目里边的 app.json 配置内容如下：</p>
+<p>①pages：用来记录当前小程序所有页面的路径</p>
+<p>②window：全局定义小程序所有页面的背景色、文字颜色等</p>
+<p>③style：全局定义小程序组件所使用的样式版本</p>
+<p>④sitemapLocation：用来指明 sitemap.json 的位置</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;pages&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;pages/index/index&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;pages/logs/logs&quot;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;window&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;navigationBarTextStyle&quot;</span><span class="punctuation">:</span> <span class="string">&quot;black&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;navigationBarTitleText&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Weixin&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;navigationBarBackgroundColor&quot;</span><span class="punctuation">:</span> <span class="string">&quot;#ffffff&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;style&quot;</span><span class="punctuation">:</span> <span class="string">&quot;v2&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;componentFramework&quot;</span><span class="punctuation">:</span> <span class="string">&quot;glass-easel&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;sitemapLocation&quot;</span><span class="punctuation">:</span> <span class="string">&quot;sitemap.json&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;lazyCodeLoading&quot;</span><span class="punctuation">:</span> <span class="string">&quot;requiredComponents&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="project-config-json-文件"><a href="#project-config-json-文件" class="headerlink" title="project.config.json 文件"></a><strong>project.config.json</strong> <strong>文件</strong></h4><p>project.config.json 是项目配置文件，用来记录我们对小程序开发工具所做的个性化配置，例如：</p>
+<ul>
+<li>setting 中保存了编译相关的配置</li>
+<li>projectname 中保存的是项目名称</li>
+<li>appid 中保存的是小程序的账号 ID</li>
+</ul>
+<h4 id="sitemap-json-文件"><a href="#sitemap-json-文件" class="headerlink" title="sitemap.json 文件"></a><strong>sitemap.json</strong> <strong>文件</strong></h4><p>微信现已开放小程序内搜索，效果类似于 PC 网页的 SEO。sitemap.json 文件用来配置小程序页面是否允许微信索引。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;desc&quot;</span><span class="punctuation">:</span> <span class="string">&quot;关于本文件的更多信息，请参考文档 https://developers.weixin.qq.com/miniprogram/dev/framework/sitemap.html&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rules&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;action&quot;</span><span class="punctuation">:</span> <span class="string">&quot;allow&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;page&quot;</span><span class="punctuation">:</span> <span class="string">&quot;*&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="页面json"><a href="#页面json" class="headerlink" title="页面json"></a>页面json</h4><p>小程序中的每一个页面，可以使用 .json 文件来对本页面的窗口外观进行配置，<strong>页面中的配置项会覆盖</strong> <strong>app.json</strong> <strong>的</strong> <strong>window</strong> <strong>中相同的配置项</strong></p>
+<h4 id="新建小程序页面"><a href="#新建小程序页面" class="headerlink" title="新建小程序页面"></a>新建小程序页面</h4><p>在app.json添加</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;pages&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;pages/index/index&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;pages/logs/logs&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;pages/list/list&quot;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
+
+<p>crtl+s便出现list文件夹</p>
+<h4 id="修改项目首页"><a href="#修改项目首页" class="headerlink" title="修改项目首页"></a><strong>修改项目首页</strong></h4><p>只需要调整 app.json -&gt; pages 数组中页面路径的前后顺序，即可修改项目的首页。小程序会把排在第一位的页面，当作项目首页进行渲染</p>
+<h4 id="WXML"><a href="#WXML" class="headerlink" title="WXML"></a><strong>WXML</strong></h4><p>WXML（WeiXin Markup Language）是小程序框架设计的一套标签语言，用来<strong>构建小程序页面的结构</strong>，其作用类似于网页开发中的 HTML。</p>
+<h4 id="WXSS"><a href="#WXSS" class="headerlink" title="WXSS"></a>WXSS</h4><p>WXSS (WeiXin Style Sheets)是一套样式语言，用于描述 WXML 的组件样式，类似于网页开发中的 CSS。</p>
+<h4 id="宿主环境"><a href="#宿主环境" class="headerlink" title="宿主环境"></a>宿主环境</h4><p>宿主环境（host environment）指的是程序运行所<strong>必须的依赖环境</strong>。例如：</p>
+<p>Android 系统和 iOS 系统是两个不同的宿主环境。安卓版的微信 App 是不能在 iOS 环境下运行的，所以，Android 是安卓软件的宿主环境，脱离了宿主环境的软件是没有任何意义的！</p>
+<p><strong>手机微信</strong>是小程序的宿主环境</p>
+<h5 id="通信模型"><a href="#通信模型" class="headerlink" title="通信模型"></a>通信模型</h5><p>小程序中通信的主体是渲染层和逻辑层，其中：</p>
+<ul>
+<li>WXML 模板和 WXSS 样式工作在渲染层</li>
+<li>JS 脚本工作在逻辑层</li>
+</ul>
+<h5 id="运行机制"><a href="#运行机制" class="headerlink" title="运行机制"></a>运行机制</h5><p>小程序中的通信模型分为两部分：</p>
+<p>渲染层和逻辑层之间的通信</p>
+<p>​    由微信客户端进行转发</p>
+<p>逻辑层和第三方服务器之间的通信</p>
+<p>​    由微信客户端进行转发</p>
+<p>启动过程：</p>
+<ul>
+<li>把小程序的代码包下载到本地</li>
+<li>解析 app.json 全局配置文件</li>
+<li>执行 app.js 小程序入口文件，调用 App() 创建小程序实例</li>
+<li>渲染小程序首页</li>
+<li>小程序启动完成</li>
+</ul>
+<p>页面渲染的过程</p>
+<ul>
+<li>加载解析页面的 .json 配置文件</li>
+<li>加载页面的 .wxml 模板和 .wxss 样式</li>
+<li>执行页面的 .js 文件，调用 Page() 创建页面实例</li>
+<li>页面渲染完成</li>
+</ul>
+<h5 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h5><p>view</p>
+<ul>
+<li>普通视图区域</li>
+<li>类似于 HTML 中的 div，是一个块级元素</li>
+<li>常用来实现页面的布局效果</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span>&gt;</span>A<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span>&gt;</span>B<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span>&gt;</span>C<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* pages/list/list.wxss */</span></span><br><span class="line"><span class="selector-class">.container1</span> view&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container1</span> view<span class="selector-pseudo">:nth-child</span>(<span class="number">1</span>)&#123;</span><br><span class="line">  <span class="attribute">background-color</span>: lightgreen;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container1</span> view<span class="selector-pseudo">:nth-child</span>(<span class="number">2</span>)&#123;</span><br><span class="line">  <span class="attribute">background-color</span>: skyblue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container1</span> view<span class="selector-pseudo">:nth-child</span>(<span class="number">3</span>)&#123;</span><br><span class="line">  <span class="attribute">background-color</span>: lightpink;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container1</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">justify-content</span>: space-around;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="image-20241023233005933.png" alt="image-20241023233005933" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>scroll-view</p>
+<ul>
+<li>可滚动的视图区域</li>
+<li>常用来实现滚动列表效果</li>
+</ul>
+<p><img src="image-20241023233226982.png" alt="image-20241023233226982" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>swiper 和 swiper-item</p>
+<ul>
+<li>轮播图容器组件 和 轮播图 item 组件</li>
+</ul>
+<p><img src="image-20241023233308356.png" alt="image-20241023233308356" loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<table>
+<thead>
+<tr>
+<th><strong>属性</strong></th>
+<th><strong>类型</strong></th>
+<th><strong>默认值</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>indicator-dots</td>
+<td>boolean</td>
+<td>false</td>
+<td>是否显示面板指示点</td>
+</tr>
+<tr>
+<td>indicator-color</td>
+<td>color</td>
+<td>rgba(0,  0, 0, .3)</td>
+<td>指示点颜色</td>
+</tr>
+<tr>
+<td>indicator-active-color</td>
+<td>color</td>
+<td>#000000</td>
+<td>当前选中的指示点颜色</td>
+</tr>
+<tr>
+<td>autoplay</td>
+<td>boolean</td>
+<td>false</td>
+<td>是否自动切换</td>
+</tr>
+<tr>
+<td>interval</td>
+<td>number</td>
+<td>5000</td>
+<td>自动切换时间间隔</td>
+</tr>
+<tr>
+<td>circular</td>
+<td>boolean</td>
+<td>false</td>
+<td>是否采用衔接滑动</td>
+</tr>
+</tbody></table>
+<h5 id="API"><a href="#API" class="headerlink" title="API"></a>API</h5>
+</article>
+    
+    
+</div>
+<div id="post-next-prev" class="row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
+        <a href="/2024/10/18/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%BD%9C%E4%B8%9A%E6%B1%87%E6%80%BB/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="/images/deeplearn.jpg">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">
+                    人工智能
+                </a>
+            </div>
+            <h5>
+                <a href="/2024/10/18/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%BD%9C%E4%B8%9A%E6%B1%87%E6%80%BB/" class="trm-anima-link">
+                    吴恩达深度学习作业汇总
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/10/18</li>
+                <li>19:48</li>
+                
+                    <li>5k</li>
+                
+                
+                    <li>22</li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+    <div class="trm-card trm-scroll-animation comment-container" data-scroll data-scroll-offset="50">
+    <div id="tcomment"></div>
+</div>
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation" data-scroll data-scroll-offset="50">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v5.4.2
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                主题 - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.0.3
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item">
+            博客已萌萌哒运行 <span id="since" class="trm-accent-color"></span> 天
+        </div>
+     
+
+    
+        <div class="trm-footer-item">
+            Hosted by <a href="https://github.com" rel="noopener" target="_blank">Github Pages</a>
+        </div>
+     
+</footer>
+
+<script>
+    function show_date_time () {
+        var BirthDay = new Date("03/10/2023 17:00:00");
+        var today = new Date();
+        var timeold = (today.getTime() - BirthDay.getTime());
+        var msPerDay = 24 * 60 * 60 * 1000
+        var day = Math.floor(timeold / msPerDay)
+        since.innerHTML = day
+    }
+    show_date_time()
+</script>
+ 
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            <div class="trm-fixed-container" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+          </div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+
+  </div>
+  <!-- app wrapper end -->
+
+  
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+        <script src="/js/plugins/typing.js?v=2.0.3"></script>
+    
+
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+
+            
+<script src="//cdn.jsdelivr.net/npm/twikoo@1.6.7/dist/twikoo.all.min.js" data-swup-reload-script data-reset="true"></script>
+
+            <script data-swup-reload-script>
+                twikoo.init({
+                    ...{"enable":true,"envId":"https://mockingjayforblog.zeabur.app"},
+                    el:'#tcomment'
+                }).then(function () {
+                    let container = document.querySelector('body>.tk-admin-container')
+                    if(container) container.remove()
+                    document.body.append(document.querySelector('.tk-admin-container'))
+                });;
+            </script>
+
+        
+    
+
+
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.0.3"></script>
+
+</body>
+
+</html>
